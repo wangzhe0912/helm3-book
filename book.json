@@ -6,7 +6,6 @@
     "-search",
     "search-pro",
     "-sharing",
-    "disqus",
     "github-buttons",
     "editlink",
     "ga",
@@ -29,20 +28,17 @@
     "anchor-navigation-ex": {
       "showLevel": false
     },
-    "disqus": {
-      "shortName": "gitbook-template"
-    },
     "github-buttons": {
       "buttons": [{
-        "user": "riskers",
-        "repo": "gitbook-template",
+        "user": "wangzhe0912",
+        "repo": "helm3-book",
         "type": "star",
         "size": "small",
         "count": true
       }]
     },
     "editlink": {
-      "base": "https://github.com/riskers/gitbook-template/blob/master",
+      "base": "https://github.com/wangzhe0912/helm3-book/blob/master",
       "label": "Edit",
       "multilingual": false
     },
@@ -59,7 +55,7 @@
       ]
     },
     "page-footer-ex": {
-      "copyright": "By [riskers](https://github.com/riskers)，使用[知识共享 署名-相同方式共享 4.0协议](https://creativecommons.org/licenses/by-sa/4.0/)发布",
+      "copyright": "By [wangzhe0912](https://github.com/wangzhe0912)，使用[知识共享 署名-相同方式共享 4.0协议](https://creativecommons.org/licenses/by-sa/4.0/)发布",
       "markdown": true,
       "update_label": "此页面修订于：",
       "update_format": "YYYY-MM-DD HH:mm:ss"
@@ -68,8 +64,8 @@
       "path": "/"
     },
     "donate": {
-      "wechat": "https://riskers.github.io/gitbook-template/wechat.jpg",
-      "alipay": "https://riskers.github.io/gitbook-template/alipay.jpg",
+      "wechat": "https://wangzhe0912.github.io/helm3-book/wechat.jpg",
+      "alipay": "https://wangzhe0912.github.io/helm3-book/alipay.jpg",
       "title": "",
       "button": "赏",
       "alipayText": "支付宝打赏",
