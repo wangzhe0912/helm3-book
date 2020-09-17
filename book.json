@@ -18,9 +18,14 @@
     "todo",
     "copy-code-button",
     "expandable-chapters-small",
+    "valine",
     "donate"
   ],
   "pluginsConfig": {
+    "valine": {
+      "appId": "tE5W1eagY05N4M7ScOhP2gJM-gzGzoHsz",
+      "appKey": "1MzIFXCWSBYoIsM7JKg4X6So"
+    },
     "search-pro": {
       "cutWordLib": "nodejieba",
       "defineWord": ["Gitbook Use"]
