@@ -31,4 +31,4 @@ branches:
 
 env:
   global:
-    - REF=github.com/wangzhe0912/helm-books.git
+    - REF=github.com/wangzhe0912/helm3-book.git
