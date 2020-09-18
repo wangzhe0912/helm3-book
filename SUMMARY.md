@@ -4,7 +4,9 @@
 
 ## Tutorial
 
-* [1-1](./chap01/1-1.md)
+* [快速入门](chap01/quickstart.md)
+* [安装Helm](chap01/install.md)
+* [helm命令行简介](chap01/using_helm.md)
 
 ## Howto
 
