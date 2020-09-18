@@ -159,3 +159,25 @@ library chart与application chart最本质的区别是它不能直接安装，�
 Ps：如果把一个 application chart的type字段改为 `library`，那么它就可以作为一个library chart。
 此时，该chart中的所有工具和函数可以被使用，但是所有的资源对象都会失效。
 
+## LICENSE, README and NOTES
+
+在一个Charts中，同样会包含一些文件用于描述Chart的安装、配置、使用和许可信息。
+
+LICENSE是一个文本文件，包含这个Chart的[license](https://en.wikipedia.org/wiki/Software_license)。
+charts可以包含一个许可证，它可能会在模块中存在替换逻辑，因此可能不能仅仅是一个配置。
+如果有必要的话，可以对Chart中的不同应用创建不同的LICENSE。
+
+Chart中的README文档通常要求为 Markdown 格式（README.md），并且包含如下内容：
+
+- 对Chart提供的应用和服务的功能描述。
+- 该图片使用前的准备工作和相关依赖。
+- `values.yaml` 文件中的参数可选项与默认值
+- 其他与Chart安装与配置相关的任何信息
+
+当一些用户界面显示该Chart详情时，首先看到的将会是这个chart中`README.md`文件的内容。
+
+在chart中，同样还可以包含一个 `templates/NOTES.txt` 文件用于在安装完成或查询release状态时能够打印到标准输出中。
+该文件可以用于打印相关的使用方式、安装后的下一步、以及其他Chart相关的任何信息。
+例如，可以提供用于连接到数据库或访问Web UI的指令。
+由于在运行“ helm install”或“ helm status”时此文件被打印到STDOUT，因此建议保持内容简短并指向README以获取更多详细信息。
+
