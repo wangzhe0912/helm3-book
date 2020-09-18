@@ -181,3 +181,284 @@ Chart中的README文档通常要求为 Markdown 格式（README.md），并且�
 例如，可以提供用于连接到数据库或访问Web UI的指令。
 由于在运行“ helm install”或“ helm status”时此文件被打印到STDOUT，因此建议保持内容简短并指向README以获取更多详细信息。
 
+## Chart 依赖
+
+在Helm中，一个Chart可能会依赖一系列其他的Chart。
+这些依赖关系将会在 `Chart.yaml` 文件中的 `dependencies` 字段中进行动态解析 或者是 通过 `charts/` 目录进行手工管理。
+
+### 使用 `dependencies` 字段管理依赖
+
+当前Chart依赖的其他Charts可以定义为 `dependencies` 字段中对应的一组元素。
+
+```yaml
+dependencies:
+  - name: apache
+    version: 1.2.3
+    repository: https://example.com/charts
+  - name: mysql
+    version: 3.2.1
+    repository: https://another.example.com/charts
+```
+
+- `name` 字段表示依赖chart的名称
+- `version` 字段表示依赖chart的版本
+- `repository` 字段是Chart Repo完整url。注意，你必须手动使用 `helm repo add` 命令将其添加到本地repo源中。
+- 此外，你有可能会使用repo的名称来代替它的完整url地址。
+
+```console
+$ helm repo add fantastic-charts https://fantastic-charts.storage.googleapis.com
+```
+
+```yaml
+dependencies:
+  - name: awesomeness
+    version: 1.0.0
+    repository: "@fantastic-charts"
+```
+
+当你完成了依赖关系的定义后，你可以使用 `helm dependency update` 命令将它们都下载到你的 `charts/` 目录中。
+
+```console
+$ helm dep up foochart
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "local" chart repository
+...Successfully got an update from the "stable" chart repository
+...Successfully got an update from the "example" chart repository
+...Successfully got an update from the "another" chart repository
+Update Complete. Happy Helming!
+Saving 2 charts
+Downloading apache from repo https://example.com/charts
+Downloading mysql from repo https://another.example.com/charts
+```
+
+通过执行上面的命令，我们应该可以看到在charts目录中存在如下文件：
+
+```text
+charts/
+  apache-1.2.3.tgz
+  mysql-3.2.1.tgz
+```
+
+#### dependencies中的alias字段
+
+除了上面描述的字段外，在每个依赖的chart中，可能都会包含一个可选字段 `alias`。
+
+为依赖的图表添加alias后，在拉取依赖后，将会以别名的方式进行保存。
+例如，我们可以通过alias的方式来访问对应的Charts：
+
+```yaml
+# parentchart/Chart.yaml
+
+dependencies:
+  - name: subchart
+    repository: http://localhost:10191
+    version: 0.1.0
+    alias: new-subchart-1
+  - name: subchart
+    repository: http://localhost:10191
+    version: 0.1.0
+    alias: new-subchart-2
+  - name: subchart
+    repository: http://localhost:10191
+    version: 0.1.0
+```
+
+在上面的示例中，我们可以看到在 `parentchart` 中存在3个依赖。
+
+```text
+subchart
+new-subchart-1
+new-subchart-2
+```
+
+手动获取依赖的方式是可以拉取原始Charts包，然后拷贝复制为不同的名称后保存到 `charts/` 目录下。
+
+#### dependencies 中的 Tags 和 Condition 字段
+
+In addition to the other fields above, each requirements entry may contain the
+optional fields `tags` and `condition`.
+
+All charts are loaded by default. If `tags` or `condition` fields are present,
+they will be evaluated and used to control loading for the chart(s) they are
+applied to.
+
+Condition - The condition field holds one or more YAML paths (delimited by
+commas). If this path exists in the top parent's values and resolves to a
+boolean value, the chart will be enabled or disabled based on that boolean
+value.  Only the first valid path found in the list is evaluated and if no paths
+exist then the condition has no effect.
+
+Tags - The tags field is a YAML list of labels to associate with this chart. In
+the top parent's values, all charts with tags can be enabled or disabled by
+specifying the tag and a boolean value.
+
+```yaml
+# parentchart/Chart.yaml
+
+dependencies:
+  - name: subchart1
+    repository: http://localhost:10191
+    version: 0.1.0
+    condition: subchart1.enabled, global.subchart1.enabled
+    tags:
+      - front-end
+      - subchart1
+  - name: subchart2
+    repository: http://localhost:10191
+    version: 0.1.0
+    condition: subchart2.enabled,global.subchart2.enabled
+    tags:
+      - back-end
+      - subchart2
+```
+
+```yaml
+# parentchart/values.yaml
+
+subchart1:
+  enabled: true
+tags:
+  front-end: false
+  back-end: true
+```
+
+In the above example all charts with the tag `front-end` would be disabled but
+since the `subchart1.enabled` path evaluates to 'true' in the parent's values,
+the condition will override the `front-end` tag and `subchart1` will be enabled.
+
+Since `subchart2` is tagged with `back-end` and that tag evaluates to `true`,
+`subchart2` will be enabled. Also note that although `subchart2` has a condition
+specified, there is no corresponding path and value in the parent's values so
+that condition has no effect.
+
+##### 在cli中使用Tags 和 Condition
+
+The `--set` parameter can be used as usual to alter tag and condition values.
+
+```console
+helm install --set tags.front-end=true --set subchart2.enabled=false
+```
+
+##### Tags 和 Condition 解析
+
+- **Conditions (when set in values) always override tags.** The first condition
+  path that exists wins and subsequent ones for that chart are ignored.
+- Tags are evaluated as 'if any of the chart's tags are true then enable the
+  chart'.
+- Tags and conditions values must be set in the top parent's values.
+- The `tags:` key in values must be a top level key. Globals and nested `tags:`
+  tables are not currently supported.
+
+#### 通过依赖项导入子值
+
+In some cases it is desirable to allow a child chart's values to propagate to
+the parent chart and be shared as common defaults. An additional benefit of
+using the `exports` format is that it will enable future tooling to introspect
+user-settable values.
+
+The keys containing the values to be imported can be specified in the parent
+chart's `dependencies` in the field `import-values` using a YAML list. Each item
+in the list is a key which is imported from the child chart's `exports` field.
+
+To import values not contained in the `exports` key, use the
+[child-parent](#using-the-child-parent-format) format. Examples of both formats
+are described below.
+
+##### 使用导出格式
+
+If a child chart's `values.yaml` file contains an `exports` field at the root,
+its contents may be imported directly into the parent's values by specifying the
+keys to import as in the example below:
+
+```yaml
+# parent's Chart.yaml file
+
+dependencies:
+  - name: subchart
+    repository: http://localhost:10191
+    version: 0.1.0
+    import-values:
+      - data
+```
+
+```yaml
+# child's values.yaml file
+
+exports:
+  data:
+    myint: 99
+```
+
+Since we are specifying the key `data` in our import list, Helm looks in the
+`exports` field of the child chart for `data` key and imports its contents.
+
+The final parent values would contain our exported field:
+
+```yaml
+# parent's values
+
+myint: 99
+```
+
+Please note the parent key `data` is not contained in the parent's final values.
+If you need to specify the parent key, use the 'child-parent' format.
+
+##### 使用父子格式
+
+To access values that are not contained in the `exports` key of the child
+chart's values, you will need to specify the source key of the values to be
+imported (`child`) and the destination path in the parent chart's values
+(`parent`).
+
+The `import-values` in the example below instructs Helm to take any values found
+at `child:` path and copy them to the parent's values at the path specified in
+`parent:`
+
+```yaml
+# parent's Chart.yaml file
+
+dependencies:
+  - name: subchart1
+    repository: http://localhost:10191
+    version: 0.1.0
+    ...
+    import-values:
+      - child: default.data
+        parent: myimports
+```
+
+In the above example, values found at `default.data` in the subchart1's values
+will be imported to the `myimports` key in the parent chart's values as detailed
+below:
+
+```yaml
+# parent's values.yaml file
+
+myimports:
+  myint: 0
+  mybool: false
+  mystring: "helm rocks!"
+```
+
+```yaml
+# subchart1's values.yaml file
+
+default:
+  data:
+    myint: 999
+    mybool: true
+```
+
+The parent chart's resulting values would be:
+
+```yaml
+# parent's final values
+
+myimports:
+  myint: 999
+  mybool: true
+  mystring: "helm rocks!"
+```
+
+The parent's final values now contains the `myint` and `mybool` fields imported
+from subchart1.
