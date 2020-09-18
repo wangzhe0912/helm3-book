@@ -11,7 +11,7 @@
 ## Howto
 
 * [概述](./chap02/index.md)
-* [Chart小技巧](./chap02/charts_tips_and_tricks.md)
+* [Chart编写小技巧](./chap02/charts_tips_and_tricks.md)
 * [Repo同步示例](./chap02/chart_repository_sync_example.md)
 
 ## Topic Guides
