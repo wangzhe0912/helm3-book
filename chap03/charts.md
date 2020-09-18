@@ -275,22 +275,20 @@ new-subchart-2
 
 #### dependencies 中的 Tags 和 Condition 字段
 
-In addition to the other fields above, each requirements entry may contain the
-optional fields `tags` and `condition`.
+除了上面提及的字段外，每个依赖chart可能还会包含可选字段 `tags` 和 `condition`。
 
-All charts are loaded by default. If `tags` or `condition` fields are present,
-they will be evaluated and used to control loading for the chart(s) they are
-applied to.
+所有的依赖charts默认情况下都会被加载。
+但是如果增加了 `tags` 或 `condition` 字段后，它们将进行判断对应依赖charts是否需要被加载。
 
-Condition - The condition field holds one or more YAML paths (delimited by
-commas). If this path exists in the top parent's values and resolves to a
-boolean value, the chart will be enabled or disabled based on that boolean
-value.  Only the first valid path found in the list is evaluated and if no paths
-exist then the condition has no effect.
+Condition：
 
-Tags - The tags field is a YAML list of labels to associate with this chart. In
-the top parent's values, all charts with tags can be enabled or disabled by
-specifying the tag and a boolean value.
+Condition字段可以由一个或多个YAML PATY的字符串（用逗号分隔）组成。如果该YAML PATH对应的内容在父Values文件中存在且可以被解析成为一个布尔值，将根据布尔值的结果来判断是否启用该依赖。
+如果对应的YAML PATH解析不存在，则该Contidion等价于没有设置，不会生效。
+
+Tags:
+
+Tag字段是Chart YAML中一组label组成的列表。
+在顶层的父Value文件中，可以通过指定Tag对应的布尔值来批量启用/禁用相关的依赖charts。
 
 ```yaml
 # parentchart/Chart.yaml
@@ -322,18 +320,16 @@ tags:
   back-end: true
 ```
 
-In the above example all charts with the tag `front-end` would be disabled but
-since the `subchart1.enabled` path evaluates to 'true' in the parent's values,
-the condition will override the `front-end` tag and `subchart1` will be enabled.
+在上面的例子中，subchart1有一个tag `front-end`。
+由于在 `value.yaml`文件中，front-end是被禁用的，但是对于 `subchart1.enabled` 而言，又被设置为了启用。
+因此对于 `subchart1` 而言，最终还是被启用了。
 
-Since `subchart2` is tagged with `back-end` and that tag evaluates to `true`,
-`subchart2` will be enabled. Also note that although `subchart2` has a condition
-specified, there is no corresponding path and value in the parent's values so
-that condition has no effect.
+由于 `subchart2` 打了 `back-end` Tag，同时该Tag被设置为了 `true`，因此，`subchart2` 将会被启用。
+另外，需要注意的是尽量 `subchart2` 设置了一个Condition，但是由于没有传入对应的Values，相当于该condition不会生效。
 
 ##### 在cli中使用Tags 和 Condition
 
-The `--set` parameter can be used as usual to alter tag and condition values.
+使用 `--set` 参数可以用于设置或改变 Tag 和 Condition 的值。
 
 ```console
 helm install --set tags.front-end=true --set subchart2.enabled=false
