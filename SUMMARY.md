@@ -16,7 +16,18 @@
 
 ## Topic Guides
 
-* [3-1](chap02/index.md)
+* [Charts详解](chap03/charts.md)
+* [Charts hooks详解](chap03/charts_hooks.md)
+* [Charts测试篇](chap03/chart_tests.md)
+* [Library Charts](chap03/library_charts.md)
+* [Chart起源验证](chap03/provenance.md)
+* [ChartRepo详解](chap03/chart_repository.md)
+* [Registries](chap03/registries.md)
+* [Helm高级功能](chap03/advanced.md)
+* [Helm与K8s发布版本说明](chap03/kubernetes_distros.md)
+* [rbac权限控制](chap03/rbac.md)
+* [Helm插件](chap03/plugins.md)
+* [Helm2迁移到Helm3](chap03/v2_v3_migration.md)
 
 ## Best Practices
 
