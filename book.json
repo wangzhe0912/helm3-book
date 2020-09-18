@@ -10,6 +10,7 @@
     "editlink",
     "ga",
     "-highlight",
+    "prism",
     "bibtex-indexed-cite",
     "anchor-navigation-ex",
     "page-footer-ex",
@@ -48,6 +49,15 @@
     },
     "ga": {
       "token": "UA-131910384-3"
+    },
+    "prism": {
+      "ignore": [
+        "mermaid",
+        "eval-js"
+      ],
+      "css": [
+        "prismjs/themes/prism-solarizedlight.css"
+      ]
     },
     "page-footer-ex": {
       "copyright": "By [wangzhe0912](https://github.com/wangzhe0912)，使用[知识共享 署名-相同方式共享 4.0协议](https://creativecommons.org/licenses/by-sa/4.0/)发布",
