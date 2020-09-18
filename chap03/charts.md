@@ -75,3 +75,38 @@ annotations:
 其他的字段全部会被忽略
 
 ### Charts的版本控制
+
+每一个chart都必须包含一个版本号，同时版本号必须符合 [SemVer2](https://semver.org/spec/v2.0.0.html) 标准。
+在 repositories 中，通过 chart名称 + 版本号 来唯一标识对应的Chart包。
+
+例如，一个 `nginx` charts的Version字段可以设置为 `version: 1.2.3`。
+
+此时，Chart包的名称将会是：
+
+```text
+nginx-1.2.3.tgz
+```
+
+SemVer2还支持一些复杂的版本设置，例如： `version: 1.2.3-alpha.1+ef365`。但是一定需要符合SemVer标准。
+
+`Chart.yaml` 文件中的 `version` 字段在很多Helm工具中都会用到，例如CLI工具。
+当创建一个包时， `helm package` 命令将会从 `Chart.yaml` 文件中找出对应的版本信息并作为部署包中的Token信息。
+Helm要求Chart包名称中的版本号必须与 `Chart.yaml` 中的Version信息一致。
+
+### `apiVersion` 字段
+
+对于必须Helm 3以上版本安装的Chart而言，`apiVersion` 字段应该设置为 `v2`。
+而对于同时支持早期Helm版本的Charts而言，`apiVersion` 字段应该设置为 `v1`。
+
+从v1版本迁移到v2版本:
+
+- v2版本中增加了一个 `dependencies` 字段用于定义Charts之间的依赖关系，而在v1版本中，则是使用了一个单独的 `requirements.yaml` 文件来表示依赖。[Chart Dependencies](#chart-dependencies)).
+- type字段区分了应用charts与library charts。[Chart Types](#chart-types)).
+
+### `appVersion` 字段
+
+`appVersion` 字段与 `version` 字段无关，它是一个用于指定应用版本的方式。
+例如，`drupal` Chart可能有一个 `appVersion: 8.2.1` 用于表明Charts中Drupal的版本默认为 `8.2.1`。
+这个字段其实是一个提示字段，对应Chart Version计算等而言不起任何作用。
+
+
