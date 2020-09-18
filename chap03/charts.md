@@ -683,12 +683,12 @@ cannot be overridden. As with all values, the names are _case sensitive_.
 - `Files`: A map-like object containing all non-special files in the chart. This
   will not give you access to templates, but will give you access to additional
   files that are present (unless they are excluded using `.helmignore`). Files
-  can be accessed using `{{ index .Files "file.name" }}` or using the
-  `{{.Files.Get name }}` function. You can also access the contents of the file
-  as `[]byte` using `{{ .Files.GetBytes }}`
+  can be accessed using {{ index .Files "file.name" }} or using the
+  {{.Files.Get name }} function. You can also access the contents of the file
+  as `[]byte` using {{ .Files.GetBytes }}
 - `Capabilities`: A map-like object that contains information about the versions
-  of Kubernetes (`{{ .Capabilities.KubeVersion }}` and the supported Kubernetes
-  API versions (`{{ .Capabilities.APIVersions.Has "batch/v1" }}`)
+  of Kubernetes ({{ .Capabilities.KubeVersion }} and the supported Kubernetes
+  API versions ({{ .Capabilities.APIVersions.Has "batch/v1" }})
 
 **NOTE:** Any unknown `Chart.yaml` fields will be dropped. They will not be
 accessible inside of the `Chart` object. Thus, `Chart.yaml` cannot be used to
@@ -828,8 +828,8 @@ apache:
 The above adds a `global` section with the value `app: MyWordPress`. This value
 is available to _all_ charts as `.Values.global.app`.
 
-For example, the `mysql` templates may access `app` as `{{
-.Values.global.app}}`, and so can the `apache` chart. Effectively, the values
+For example, the `mysql` templates may access `app` as {{
+.Values.global.app}}, and so can the `apache` chart. Effectively, the values
 file above is regenerated like this:
 
 ```yaml
