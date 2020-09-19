@@ -337,34 +337,26 @@ helm install --set tags.front-end=true --set subchart2.enabled=false
 
 ##### Tags 和 Condition 解析
 
-- **Conditions (when set in values) always override tags.** The first condition
-  path that exists wins and subsequent ones for that chart are ignored.
-- Tags are evaluated as 'if any of the chart's tags are true then enable the
-  chart'.
-- Tags and conditions values must be set in the top parent's values.
-- The `tags:` key in values must be a top level key. Globals and nested `tags:`
-  tables are not currently supported.
+- **Conditions的优先级高于Tags**。存在多个Conditions时，以匹配的第一个Conditions为准，后续的Conditions会被忽略。
+- Tag计算的方式是 如果Charts中的任意Tag为true，则启用该Charts。
+- Tag和Condition的设置必须在父Chart的Value文件中。
+- `tags:` 必须位于顶层key。目前不支持全局和嵌套 `tags`。
 
 #### 通过依赖项导入子值
 
-In some cases it is desirable to allow a child chart's values to propagate to
-the parent chart and be shared as common defaults. An additional benefit of
-using the `exports` format is that it will enable future tooling to introspect
-user-settable values.
+在某些情况下，希望允许子图表的值传播到父图表并作为通用默认值共享。
+使用 `exports` 格式的另一个好处是，它将使将来的工具能够自动补全用户设置的值。
 
-The keys containing the values to be imported can be specified in the parent
-chart's `dependencies` in the field `import-values` using a YAML list. Each item
-in the list is a key which is imported from the child chart's `exports` field.
+在charts文件中的 `dependencies` 列表中，`import-values`字段中包含的数据可以被导入到父charts中。
+`import-values`字段中的每个数据项都是从 子charts的yaml文件 中的 `exports` 字段导出的。
 
-To import values not contained in the `exports` key, use the
-[child-parent](#using-the-child-parent-format) format. Examples of both formats
-are described below.
+如果想要导入 `exports` 中没有包含的key，那么需要使用 [child-parent](#using-the-child-parent-format) 的方式。
+下面，我们将依次对上述两种场景给以示例进行说明。
 
-##### 使用导出格式
+##### 使用export的方式导入数据
 
-If a child chart's `values.yaml` file contains an `exports` field at the root,
-its contents may be imported directly into the parent's values by specifying the
-keys to import as in the example below:
+如果一个子chart的 `values.yaml` 文件在根目录中包含一个 `exports` 字段，那么它就可以直接通过在父chart中进行import，从而导入到父Charts中。
+如下所示：
 
 ```yaml
 # parent's Chart.yaml file
@@ -385,10 +377,9 @@ exports:
     myint: 99
 ```
 
-Since we are specifying the key `data` in our import list, Helm looks in the
-`exports` field of the child chart for `data` key and imports its contents.
+由于我们在import-values中指定了具体的key为 `data`，因此，Helm将会从子chart中找出对应的 `exports` 字段，并将其中的 `data` key的内容导入到父chart中。
 
-The final parent values would contain our exported field:
+最终，父Chart的Value中将会包含我们子charts中导出的指定字段。
 
 ```yaml
 # parent's values
@@ -396,19 +387,15 @@ The final parent values would contain our exported field:
 myint: 99
 ```
 
-Please note the parent key `data` is not contained in the parent's final values.
-If you need to specify the parent key, use the 'child-parent' format.
+Ps：需要注意的是，导入数据后，之前的数据的key `data` 并没有包含在父chart的value中。
+如果你想要把数据的key同时保存到父chart的value中，那么就需要了解下面的 'child-parent' 方式了。
 
-##### 使用父子格式
 
-To access values that are not contained in the `exports` key of the child
-chart's values, you will need to specify the source key of the values to be
-imported (`child`) and the destination path in the parent chart's values
-(`parent`).
+##### 使用child-parent方式导入数据
 
-The `import-values` in the example below instructs Helm to take any values found
-at `child:` path and copy them to the parent's values at the path specified in
-`parent:`
+如果想要获取在子chart中没有显式进行 `exports` 的字段，那么，你就需要指定导入的值的原始键（子chart中）以及导入到父Chart中的目标位置。
+
+在下面的例子中，`import-values`告诉Helm需要找出 `child` 中指定的所有的value值并他们拷贝到 `parent` 中指定的父value的指定key下。
 
 ```yaml
 # parent's Chart.yaml file
@@ -423,9 +410,7 @@ dependencies:
         parent: myimports
 ```
 
-In the above example, values found at `default.data` in the subchart1's values
-will be imported to the `myimports` key in the parent chart's values as detailed
-below:
+在上述例子中，在subchart1子Chart中找到的 `default.data` 的数据将会到导出到父Chart指定的 `myimports`的key中，如下所示：
 
 ```yaml
 # parent's values.yaml file
@@ -456,5 +441,12 @@ myimports:
   mystring: "helm rocks!"
 ```
 
-The parent's final values now contains the `myint` and `mybool` fields imported
-from subchart1.
+最终，父chart中包含的 `myint` 和 `mybool` 字段将会被从 subchart1 子chart中导入的数据进行覆盖。
+
+
+
+
+
+
+
+
