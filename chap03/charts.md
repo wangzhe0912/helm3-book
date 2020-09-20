@@ -583,8 +583,8 @@ spec:
 - `Release.IsUpgrade`: 对于升级、回滚操作而言，该变量值为true。
 - `Release.IsInstall`: 对于安装操作而言，该变量值为true。
 - `Chart`: `Chart.yaml`的文件内容，因此，Chart Version可以表示为 `Chart.Version`，Chart 维护者可以表示为 `Chart.Maintainers`。
-- `Capabilities`: 一个字典类型的对象，包含K8s相关的版本信息 (`{{ .Capabilities.KubeVersion }}` 
-  以及支持的K8s API 版本 (`{{ .Capabilities.APIVersions.Has "batch/v1" }}`)
+- `Capabilities`: 一个字典类型的对象，包含K8s相关的版本信息 (`\{\{ .Capabilities.KubeVersion \}\}` 
+  以及支持的K8s API 版本 (`\{\{ .Capabilities.APIVersions.Has "batch/v1" \}\}`)
 
 **PS**：任何未知的 `Chart.yaml` 字段信息将会被丢弃，他们无法在 Chart 对象中进行访问。因此，`Chart.yaml` 不能用于传递一些结构化数据到模板中。
 如果存在相关的需求，可以使用Value文件。
