@@ -507,5 +507,96 @@ wordpress:
 Kubernetes类型的安装顺序由kind_sorter.go中的枚举InstallOrder给出（请参阅[Helm源文件](https://github.com/helm/helm/blob/484d43913f97292648c867b56768775a55e4bba6/pkg/releaseutil/kind_sorter.go)）。
 
 
+## 模板和值
+
+Helm的Chart模板是由 [Go template language](https://golang.org/pkg/text/template/) 为基础编写的。
+另外还在[Sprig library](https://github.com/Masterminds/sprig)添加了50多个其他的模板函数。
+同时还有一小部分[专用函数](../chap02/charts_tips_and_tricks.md)
+
+所有的模板文件都存储在Chart包的 `templates/` 目录下。
+在Helm渲染整个chart的时候，它将通过模板引擎处理该目录中的每个文件。
+
+模板中的Values可以通过两种方式来提供：
+
+1. Chart开发人员在Chart包内部提供一个 `values.yaml`的文件，这一文件可以用于包含相关Charts的默认值。 
+2. Chart用户可以通过一个YAML文件来指定相关的值，或者也可以通过在 `helm install` 的命令行中传递该值。
+
+当用户提供了自定义的值后，这些用户传递的自定义的值将会覆盖默认的 `values.yaml` 文件。
+
+### 模板文件 
+
+模板文件需要遵循用于编写Go模板的标准约定（参见[the text/template Go package documentation](https://golang.org/pkg/text/template/) ）。
+示例如下：
+
+```yaml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: deis-database
+  namespace: deis
+  labels:
+    app.kubernetes.io/managed-by: deis
+spec:
+  replicas: 1
+  selector:
+    app.kubernetes.io/name: deis-database
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: deis-database
+    spec:
+      serviceAccount: deis-database
+      containers:
+        - name: deis-database
+          image: {{ .Values.imageRegistry }}/postgres:{{ .Values.dockerTag }}
+          imagePullPolicy: {{ .Values.pullPolicy }}
+          ports:
+            - containerPort: 5432
+          env:
+            - name: DATABASE_STORAGE
+              value: {{ default "minio" .Values.storage }}
+```
+
+上面的示例是基于 [https://github.com/deis/charts](https://github.com/deis/charts) 项目。
+它是用于描述一个K8s的ReplicationController对象。
+它可以使用如下四个模板值进行渲染（通常会在`values.yaml`文件中定义）：
+
+- `imageRegistry`: Docker镜像仓库.
+- `dockerTag`: 镜像Tag.
+- `pullPolicy`: 镜像拉取策略.
+- `storage`: 数据存储后端, 默认值为 `"minio"`
+
+所有的这些值都是由模板开发人员指定的，Helm并不明确进行相关参数名称等的规定。
+
+如果想要查询更多的Charts的示例，可以查询：[Kubernetes Charts project](https://github.com/helm/charts)。
+
+### 预定义文件
+
+
+### Value文件
+
+
+### Scope、Dependencies、Values
+
+
+
+#### 全局Values
+
+
+
+### Schema文件
+
+
+
+### 更多参考
+
+在你编写模板文件、Value文件以及Schema文件时，如下一些官方文档可能会对你有一些帮助。
+
+- [Go templates](https://godoc.org/text/template)
+- [Extra template functions](https://godoc.org/github.com/Masterminds/sprig)
+- [The YAML format](https://yaml.org/spec/)
+- [JSON Schema](https://json-schema.org/)
+
+
 
 
