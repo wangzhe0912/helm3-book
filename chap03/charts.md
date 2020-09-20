@@ -444,8 +444,67 @@ myimports:
 最终，父chart中包含的 `myint` 和 `mybool` 字段将会被从 subchart1 子chart中导入的数据进行覆盖。
 
 
+### 通过 `charts/` 目录手工管理Chart依赖项
 
+如果需要对依赖项进行更加复杂的管理，那么也可以手动把对应的依赖Charts拷贝至 `charts/` 目录中来明确指明相关依赖。
 
+依赖既可以是一个压缩包文件（`foo-1.2.3.tgz`），也可以是一个解压后的目录。
+但是目录/文件名称不能以 `_` 或者 `.` 开头，否则这些文件将会被忽略。
+
+例如，对于一个 WordPress Chart 而言，它会依赖一个 Apache 的Chart。
+因此，我们可以将 Apache Chart放入到 WordPress的Chart中的 `charts/` 目录下即可。
+
+```yaml
+wordpress:
+  Chart.yaml
+  # ...
+  charts/
+    apache/
+      Chart.yaml
+      # ...
+    mysql/
+      Chart.yaml
+      # ...
+```
+
+上面的示例表示了对于一个WordPress的Chart，它依赖了一个Apache和一个MySQL的Chart。
+
+**Ps**： 要将依赖项拉取至`charts/`目录，可以使用`helm pull`命令。
+
+### 依赖项工作方式说明
+
+上面的示例中说明了如何指定Chart之间的依赖关系，但是具体在 `helm install` 或 `helm upgrade` 操作时，这些依赖项是如何工作的呢？
+
+假设一个名为A的Chart创建了以下Kubernetes对象：
+
+1. namespace "A-Namespace"
+2. statefulset "A-StatefulSet"
+3. service "A-Service"
+
+另外，A的一个依赖项B创建了如下Kubernetes对象：
+
+1. namespace "B-Namespace"
+2. replicaset "B-ReplicaSet"
+3. service "B-Service"
+
+在执行Chart A的安装和升级操作后会得到一个release对象，该release对象将会以如下顺序更新、创建上述所有的kubernetes对象：
+
+1. A-Namespace
+2. B-Namespace
+3. A-Service
+4. B-Service
+5. B-ReplicaSet
+6. A-StatefulSet
+
+这是由于在安装、升级Chart的时候，Chart中的所有的Kubernetes对象及其所有的依赖项处理方式如下：
+
+1. 聚合成一个集合。
+2. 按照对象类型进行排序。
+3. 按照排序后的顺序依次进行创建。
+
+因此，最终Chart及其依赖Charts的所有的资源对象都会由一个release进行创建。
+
+Kubernetes类型的安装顺序由kind_sorter.go中的枚举InstallOrder给出（请参阅[Helm源文件](https://github.com/helm/helm/blob/484d43913f97292648c867b56768775a55e4bba6/pkg/releaseutil/kind_sorter.go)）。
 
 
 
