@@ -583,6 +583,9 @@ spec:
 - `Release.IsUpgrade`: 对于升级、回滚操作而言，该变量值为true。
 - `Release.IsInstall`: 对于安装操作而言，该变量值为true。
 - `Chart`: `Chart.yaml`的文件内容，因此，Chart Version可以表示为 `Chart.Version`，Chart 维护者可以表示为 `Chart.Maintainers`。
+- `Files`: Chart中一个字典类型的对象，包含所有非特殊的文件。它无法让你访问模板文件，但是可以其他访问其他文件（除非使用`.helmignore`进行过滤）。
+  你可以使用  \{\{ index .Files "file.name" \}\} 或者 \{\{ .Files.Get name \}\} 函数的方式来访问文件。
+  此外，你还可以使用 \{\{  .Files.GetBytes \}\} 的方式读取文件中的内容作为 \[\]byte 格式。
 - `Capabilities`: 一个字典类型的对象，包含K8s相关的版本信息 (\{\{ .Capabilities.KubeVersion \}\} 
   以及支持的K8s API 版本 (\{\{ .Capabilities.APIVersions.Has "batch/v1" \}\})
 
