@@ -572,6 +572,25 @@ spec:
 
 ### 预定义文件
 
+在模板文件中，可以通过 `.Values` 的方式来访问 `values.yaml` 或 `--set` 设置的 value的值。
+除此之外，还有一些预定义变量也可以使得数据可以在模板中使用。
+
+以下是所有的预定义变量，可用于每个模板，并且不能被覆盖。同时，与其他所有值一样，名称区分大小写。
+
+- `Release.Name`: Release名称。
+- `Release.Namespace`: Release所属的Namespace。
+- `Release.Service`: 发布Release的服务。
+- `Release.IsUpgrade`: 对于升级、回滚操作而言，该变量值为true。
+- `Release.IsInstall`: 对于安装操作而言，该变量值为true。
+- `Chart`: `Chart.yaml`的文件内容，因此，Chart Version可以表示为 `Chart.Version`，Chart 维护者可以表示为 `Chart.Maintainers`。
+- `Files`: Chart中一个字典类型的对象，包含所有非特殊的文件。它无法让你访问模板文件，但是可以其他访问其他文件（除非使用`.helmignore`进行过滤）。
+  你可以使用  `{{ index .Files "file.name" }}` 或者 `{{.Files.Get name }}` 函数的方式来访问文件。
+  此外，你还可以使用 `{{ .Files.GetBytes }}` 的方式读取文件中的内容作为 `[]byte` 格式。
+- `Capabilities`: 一个字典类型的对象，包含K8s相关的版本信息 (`{{ .Capabilities.KubeVersion }}` 
+  以及支持的K8s API 版本 (`{{ .Capabilities.APIVersions.Has "batch/v1" }}`)
+
+**PS**：任何未知的 `Chart.yaml` 字段信息将会被丢弃，他们无法在 Chart 对象中进行访问。因此，`Chart.yaml` 不能用于传递一些结构化数据到模板中。
+如果存在相关的需求，可以使用Value文件。
 
 ### Value文件
 
