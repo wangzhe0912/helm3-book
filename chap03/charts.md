@@ -243,7 +243,7 @@ charts/
 
 除了上面描述的字段外，在每个依赖的chart中，可能都会包含一个可选字段 `alias`。
 
-为依赖的图表添加alias后，在拉取依赖后，将会以别名的方式进行保存。
+为依赖的charts添加alias后，在拉取依赖后，将会以别名的方式进行保存。
 例如，我们可以通过alias的方式来访问对应的Charts：
 
 ```yaml
@@ -344,7 +344,7 @@ helm install --set tags.front-end=true --set subchart2.enabled=false
 
 #### 通过依赖项导入子值
 
-在某些情况下，希望允许子图表的值传播到父图表并作为通用默认值共享。
+在某些情况下，希望允许子charts的值传播到父charts并作为通用默认值共享。
 使用 `exports` 格式的另一个好处是，它将使将来的工具能够自动补全用户设置的值。
 
 在charts文件中的 `dependencies` 列表中，`import-values`字段中包含的数据可以被导入到父charts中。
@@ -594,18 +594,231 @@ spec:
 
 ### Value文件
 
+以上述模板为例，一个包含必要字段的示例的 `values.yaml` 文件如下：
+
+```yaml
+imageRegistry: "quay.io/deis"
+dockerTag: "latest"
+pullPolicy: "Always"
+storage: "s3"
+```
+
+上面的Yaml文件是YAML格式的。
+一个Chart中可能会包含一个名为 `values.yaml` 的文件用于提供相关变量的默认值。
+而在Helm安装Chart的过程中，还允许用户通过提供一个新的YAML文件来覆盖相关的默认值。
+
+```console
+$ helm install --generate-name --values=myvals.yaml wordpress
+```
+
+当install过程中传递了相关变量时，这些变量值将会与 `value.yaml` 文件中的默认值进行合并。
+例如，假设命令行中传入的 `myvals.yaml` 文件的内容如下：
+
+```yaml
+storage: "gcs"
+```
+
+此时，与 `values.yaml` 的内容进行合并后，得到的结果将会如下：
+
+```yaml
+imageRegistry: "quay.io/deis"
+dockerTag: "latest"
+pullPolicy: "Always"
+storage: "gcs"
+```
+
+如上所示，只有 `storage` 字段被进行了覆盖。
+
+**注意**： Chart内的默认值文件名称必须是 `value.yaml`。但是在命令行中指定的文件名称可以自定义。
+
+**注意**： 如果在`helm install` 和 `helm upgrade` 中使用 `--set` 时，这些参数实际是会在客户端转化为YAML格式进行传递的。
+
+**注意**： 如果在value文件中有一些项是必填的，那么可以在模板中使用 `required` 进行声明，详见 ['required' function](../chap02/charts_tips_and_tricks.md)
+
+values中传入的所有数据都可以在模板中通过 `.Values` 的方式进行读取：
+
+```yaml
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: deis-database
+  namespace: deis
+  labels:
+    app.kubernetes.io/managed-by: deis
+spec:
+  replicas: 1
+  selector:
+    app.kubernetes.io/name: deis-database
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: deis-database
+    spec:
+      serviceAccount: deis-database
+      containers:
+        - name: deis-database
+          image: {{ .Values.imageRegistry }}/postgres:{{ .Values.dockerTag }}
+          imagePullPolicy: {{ .Values.pullPolicy }}
+          ports:
+            - containerPort: 5432
+          env:
+            - name: DATABASE_STORAGE
+              value: {{ default "minio" .Values.storage }}
+```
 
 ### Scope、Dependencies、Values
 
+values文件可以在Chart的顶层目录中声明相关的value，同样也可以在 `charts/` 目录中包含的Charts中声明对应的value。
+换句话说，value文件可以为当前的chart以及它所有依赖的charts提供对应的配置值。
+例如，上面的演示WordPress charts同时具有mysql和apache作为依赖项。values文件可以为所有这些组件提供值：
 
+```yaml
+title: "My WordPress Site" # Sent to the WordPress template
+
+mysql:
+  max_connections: 100 # Sent to MySQL
+  password: "secret"
+
+apache:
+  port: 8080 # Passed to Apache
+```
+
+父目录的charts可以访问其定义的所有变量，因此，WordPress charts可以访问MySQL密码`.Values.mysql.password`。
+但是子目录的charts无法访问父charts中的内容，因此MySQL将无法访问该`title`属性，同时，它也无法访问 `apache.port`。
+
+Values文件中是包含命令空间的，同时在引用value的时候还会剪切到命名空间。
+以WordPress chart为例，它可以通过`.Values.mysql.password`访问MySQL的password的字段。
+但是对于MySQL chart而言，引用value中的配置时，则不需要带有`mysql`前缀了，可以直接简化为 `.Values.password`。
 
 #### 全局Values
 
+从2.0.0-Alpha.2开始，Helm支持了全局变量。考虑上一个示例的修改后的版本：
 
+```yaml
+title: "My WordPress Site" # Sent to the WordPress template
+
+global:
+  app: MyWordPress
+
+mysql:
+  max_connections: 100 # Sent to MySQL
+  password: "secret"
+
+apache:
+  port: 8080 # Passed to Apache
+```
+
+在上面的实例中，包含了一个 `global` 块，包含 `app: MyWordPress`。
+这个值可以被所有的charts通过 `.Values.global.app` 获取对应的值。
+
+例如，`mysql`的模板中，可以使用如下方式进行访问 `{{ .Values.global.app}}`，`apache` chart 也是一样的。
+实际上，上面的value文件相当于重新生成如下内容：
+
+```yaml
+title: "My WordPress Site" # Sent to the WordPress template
+
+global:
+  app: MyWordPress
+
+mysql:
+  global:
+    app: MyWordPress
+  max_connections: 100 # Sent to MySQL
+  password: "secret"
+
+apache:
+  global:
+    app: MyWordPress
+  port: 8080 # Passed to Apache
+```
+
+这提供了一种与所有子charts共享一个顶级变量的方法，这对于诸如设置`metadata`标签之类的属性很有用。
+
+如果子图声明了全局变量，则该全局变量将向下传递到子图的子图，而不向上传递到父图。即子charts无法影响父charts的值。
+
+此外，父charts的全局变量优先于子图中的全局变量，即同时存在父charts和子charts拥有相同的全局变量值，会以父charts的全局变量为准。
 
 ### Schema文件
 
+有时，Chart开发人员希望想要定义他们的value文件的结构格式。
+此时，就会用到一个`values.schema.json`的schedule文件。
+该schema称之为[JSON Schema](https://json-schema.org/)。
+类似如下格式：
 
+```json
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "properties": {
+    "image": {
+      "description": "Container Image",
+      "properties": {
+        "repo": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "name": {
+      "description": "Service name",
+      "type": "string"
+    },
+    "port": {
+      "description": "Port",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "protocol": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "protocol",
+    "port"
+  ],
+  "title": "Values",
+  "type": "object"
+}
+```
+
+This schema will be applied to the values to validate it. Validation occurs when
+any of the following commands are invoked:
+
+- `helm install`
+- `helm upgrade`
+- `helm lint`
+- `helm template`
+
+An example of a `values.yaml` file that meets the requirements of this schema
+might look something like this:
+
+```yaml
+name: frontend
+protocol: https
+port: 443
+```
+
+Note that the schema is applied to the final `.Values` object, and not just to
+the `values.yaml` file. This means that the following `yaml` file is valid,
+given that the chart is installed with the appropriate `--set` option shown
+below.
+
+```yaml
+name: frontend
+protocol: https
+```
+
+```console
+helm install --set port=443
+```
+
+Furthermore, the final `.Values` object is checked against *all* subchart
+schemas. This means that restrictions on a subchart can't be circumvented by a
+parent chart. This also works backwards - if a subchart has a requirement that
+is not met in the subchart's `values.yaml` file, the parent chart *must* satisfy
+those restrictions in order to be valid.
 
 ### 更多参考
 
