@@ -894,4 +894,30 @@ Helm会保证先创建 `CronTab` CRD对象，等待API Server中对应的CRD可�
 
 总之，如果想要升级、修改、删除CRDs时，需要手工进行处理。
 
+## Chart Repositories
 
+Chart Repositories本质上就是一个存放打包后的Charts的一个HTTP服务器。
+`helm` 可以用于管理本地的Charts目录，如果想要与他人共享Charts时，就会首先想到Chart Repositories了。
+
+任何一个HTTP服务器，只要能够存放YAML文件和Tar包，同时能够通过GET请求下载相关资源时，都可以作为一个repository Server。
+Helm团队本身测试了一些Server，例如开启了Web模式的Google Cloud Storage与Amazon S3。
+
+repository的主要特征时存在一个 `index.yaml` 文件，它包含着repository中存在的Package列表以及用于检索和验证Package的元数据。
+
+在客户端，repositories是通过 `helm repo` 命令进行管理的。
+然而，Helm本身并没有提供相关的工具用于上传charts到远程的repo中。
+主要原因是相关的功能实现其实时需要服务端满足一些相关的功能，而这会对repo的搭建带来一定的障碍。
+
+## Chart 初始化包
+
+`helm create` 命令可以接收一个可选参数 `--starter` 用于指定一个初始化Chart。
+
+它其实就一个普通的Chart，但是存放于 `$XDG_DATA_HOME/helm/starters`。
+对于一个Charts开发者而言，你可以以它为基础来开发你自己的Charts。
+在开发Charts时，需要注意如下点：
+
+- `Chart.yaml` 文件会被生成器自动重写。
+- Chart用户可能会去修改Charts的一些内容，因此，需要有相关的注释能够帮助用户快速理解该Chart。
+- 所有 `<CHARTNAME>` 的部分最后都会被指定的Chart名称替换。
+
+目前，唯一添加初始化包的方式就是手动的把Chart包拷贝到 `$XDG_DATA_HOME/helm/starters` 。
