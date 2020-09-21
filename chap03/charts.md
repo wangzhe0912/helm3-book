@@ -783,16 +783,14 @@ apache:
 }
 ```
 
-This schema will be applied to the values to validate it. Validation occurs when
-any of the following commands are invoked:
+上述schema文件将会在执行如下命令时进行value值的合法性验证：
 
 - `helm install`
 - `helm upgrade`
 - `helm lint`
 - `helm template`
 
-An example of a `values.yaml` file that meets the requirements of this schema
-might look something like this:
+以一个 `values.yaml` 文件为例，该文件就是满足上述schema校验的。 
 
 ```yaml
 name: frontend
@@ -800,10 +798,8 @@ protocol: https
 port: 443
 ```
 
-Note that the schema is applied to the final `.Values` object, and not just to
-the `values.yaml` file. This means that the following `yaml` file is valid,
-given that the chart is installed with the appropriate `--set` option shown
-below.
+需要注意的是，该schema的生效范围是 `.Values` 对象，而不仅仅是 `values.yaml` 文件。
+也就是说，即使 `yaml` 文件是满足 schema 校验的，但是如果 `--set` 参数传入的值不满足该schema校验，该请求也会被拦截。
 
 ```yaml
 name: frontend
@@ -814,11 +810,9 @@ protocol: https
 helm install --set port=443
 ```
 
-Furthermore, the final `.Values` object is checked against *all* subchart
-schemas. This means that restrictions on a subchart can't be circumvented by a
-parent chart. This also works backwards - if a subchart has a requirement that
-is not met in the subchart's `values.yaml` file, the parent chart *must* satisfy
-those restrictions in order to be valid.
+另外，最终的 `.Values` 对象是需要经过所有的子Charts的schema检查的。
+这也就意味着父Charts也不能规避对子Charts的约束。
+换句话说，如果子Chart的 `value.yaml` 文件没有满足本身的约束，那么在父Chart中必须满足相关的限制后才能正常工作。
 
 ### 更多参考
 
@@ -830,5 +824,74 @@ those restrictions in order to be valid.
 - [JSON Schema](https://json-schema.org/)
 
 
+## 自定义资源对象 (CRDs)
+
+K8s提供了一种机制用于声明一些新的kubernetes对象类型。
+使用自定义资源对象(CRDs)，Kubernetes开发成员可以自定义各种各样的资源类型。
+
+在Helm3中，CRDs是被当做一种特殊的资源对象来处理的。
+它们会在Chart中其他资源对象安装之前首先进行安装，同时收到一些相关的限制。
+
+CRD YAML 文件应该位于Chart包中的 `crds/` 目录下。
+多个CRDs的定义可能会存在于同一个文件中。
+Helm会尝试加载 `crds/` 目录下的所有文件并在K8s中进行创建。
+
+CRD 文件不能是模板文件，必须是直接可以使用的YAML文档。
+
+当Helm安装一个新的Chart时，它第一步会首先创建所有的CRD，当CRD全部创建完成且API Server侧可用后，然后才会通过模板引擎渲染其他的Chart模板等，并发送给Kubernetes。
+由于遵循着这一严格的顺序，因此在CRD相关的信息可以在Helm模板中的 `.Capabilities` 对象中获取相关信息，而在Helm模板中也可以创建一个自定义CRD类型的实例。
+
+例如，如果你的Chart中 `crds/` 目录下存在一个 `CronTab` CRD，从而，你可以在 `templates/` 目录下创建 `CronTab` 类型的实例：
+
+```text
+crontabs/
+  Chart.yaml
+  crds/
+    crontab.yaml
+  templates/
+    mycrontab.yaml
+```
+
+`crontab.yaml` 必须是一个CRD的标准YAML文件，而不是模板文件：
+
+```yaml
+kind: CustomResourceDefinition
+metadata:
+  name: crontabs.stable.example.com
+spec:
+  group: stable.example.com
+  versions:
+    - name: v1
+      served: true
+      storage: true
+  scope: Namespaced
+  names:
+    plural: crontabs
+    singular: crontab
+    kind: CronTab
+```
+
+接下来的模板文件  `mycrontab.yaml` 中，就可以创建 `CronTab` 类型的实例了：
+
+```yaml
+apiVersion: stable.example.com
+kind: CronTab
+metadata:
+  name: {{ .Values.name }}
+spec:
+   # ...
+```
+
+Helm会保证先创建 `CronTab` CRD对象，等待API Server中对应的CRD可用后，再去处理 `templates/` 下的相关模板。
+
+### CRDs的相关限制
+
+与K8s中其他大部分的对象不同，CRDs是全局性资源。因此，Helm在创建CRDs资源的时候非常谨慎，CRDs需要满足如下一系列限制：
+
+- CRDs不会重复安装，如果Helm发现 `crds/` 目录下的CRDs已经在K8s中安装（无论版本是否一致）了，那么Helm都不会重新安装或者升级。
+- CRDs不会进行升级和回滚操作，仅仅会执行安装操作。
+- CRDs不会被删除，由于删除CRDs会导致所有Namespace下对应该CRDs类型的资源都被删除，因此，Helm不会去删除CRDs。
+
+总之，如果想要升级、修改、删除CRDs时，需要手工进行处理。
 
 
