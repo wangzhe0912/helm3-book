@@ -83,13 +83,9 @@ Hook场景的资源目前并没有作为release对象的一部分进行跟踪。
 
 ## 编写一个Hook
 
-Hooks are just Kubernetes manifest files with special annotations in the
-`metadata` section. Because they are template files, you can use all of the
-normal template features, including reading `.Values`, `.Release`, and
-`.Template`.
+Hooks本质上就是一些带有特殊注释的K8s yaml文件。由于它们也属于template文件，因此它们也可以使用Template中一些基本功能，例如 `.Values`, `.Release` 以及 `.Template`。
 
-For example, this template, stored in `templates/post-install-job.yaml`,
-declares a job to be run on `post-install`:
+例如，对于 `templates/post-install-job.yaml` 这个template文件而言，定义了一个Job在 `post-install` 时运行。
 
 ```yaml
 apiVersion: batch/v1
@@ -120,62 +116,56 @@ spec:
       containers:
       - name: post-install-job
         image: "alpine:3.3"
-        command: ["/bin/sleep","{{ default "10" .Values.sleepyTime }}"]
-
+        command: ["/bin/sleep", "{{ default "10" .Values.sleepyTime }}"]
 ```
 
-What makes this template a hook is the annotation:
+决定该template能够作为hooks的关键点是如下annotation:
 
 ```yaml
 annotations:
   "helm.sh/hook": post-install
 ```
 
-One resource can implement multiple hooks:
+同一个资源可以同时作为多个hooks:
 
 ```yaml
 annotations:
   "helm.sh/hook": post-install,post-upgrade
 ```
 
-Similarly, there is no limit to the number of different resources that may
-implement a given hook. For example, one could declare both a secret and a
-config map as a pre-install hook.
+类似的事，对于某一个Hook场景，可以存在多个不同的资源对象。
+例如，我们可以定义一个secret和一个ConfigMap都是 pre-install 的Hook。
 
-When subcharts declare hooks, those are also evaluated. There is no way for a
-top-level chart to disable the hooks declared by subcharts.
+当子Chart中定义了Hooks时，这些Hooks也都会被计算和执行。
+目前还不支持在父Chart中禁用子Charts中定义的Hooks。
 
-It is possible to define a weight for a hook which will help build a
-deterministic executing order. Weights are defined using the following
-annotation:
+我们可以定义 Hooks 的权重，从而能够保证多个Hooks时按照指定的顺序执行。
+权重的定义方式如下：
 
 ```yaml
 annotations:
   "helm.sh/hook-weight": "5"
 ```
 
-Hook weights can be positive or negative numbers but must be represented as
-strings. When Helm starts the execution cycle of hooks of a particular Kind it
-will sort those hooks in ascending order.
+Hook的权重可以是正数、也可以是负数，需要以字符串的形式表示。
+Helm在执行特定场景的Hooks时，会对这些Hooks的权重进行排序，并从大到小依次执行。
 
 ### Hook 删除策略
 
-It is possible to define policies that determine when to delete corresponding
-hook resources. Hook deletion policies are defined using the following
-annotation:
+我们可以定义 Hook资源的删除策略。
+Hook资源删除策略的annotation的关键词如下：
 
 ```yaml
 annotations:
   "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 ```
 
-You can choose one or more defined annotation values:
+你可以选择一个或多个定义好的annotation值：
 
-| Annotation Value       | Description                                                          |
-| ---------------------- | -------------------------------------------------------------------- |
-| `before-hook-creation` | Delete the previous resource before a new hook is launched (default) |
-| `hook-succeeded`       | Delete the resource after the hook is successfully executed          |
-| `hook-failed`          | Delete the resource if the hook failed during execution              |
+| Annotation Value       | Description                             |
+| ---------------------- | ----------------------------------------|
+| `before-hook-creation` | 在新Hook运行时，删除之前的Hook资源 (default)|
+| `hook-succeeded`       | 当Hook资源Ready后，删除对应的Hook资源       |
+| `hook-failed`          | 当Hook资源执行失败后，删除对应的Hook资源     |
 
-If no hook deletion policy annotation is specified, the `before-hook-creation`
-behavior applies by default.
+如果没有显式指定Hook的删除策略，那么默认策略为 `before-hook-creation`。
