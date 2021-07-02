@@ -32,19 +32,25 @@
 
 当Helm安装完成后，接下来就是需要配置charts仓库源了。一个常用的官方Helm稳定源的地址如下：
 
-```console
-$ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+```shell
+helm repo add bitnami https://charts.bitnami.com/bitnami
 ```
 
 接下来，你就能罗列出来当前你已经安装的charts: 
 
-```console
-$ helm search repo stable
-NAME                                    CHART VERSION   APP VERSION                     DESCRIPTION
-stable/acs-engine-autoscaler            2.2.2           2.1.1                           DEPRECATED Scales worker nodes within agent pools
-stable/aerospike                        0.2.8           v4.5.0.5                        A Helm chart for Aerospike in Kubernetes
-stable/airflow                          4.1.0           1.10.4                          Airflow is a platform to programmatically autho...
-stable/ambassador                       4.1.0           0.81.0                          A Helm chart for Datawire Ambassador
+```shell
+helm search repo bitnami
+# NAME                                    CHART VERSION   APP VERSION                     DESCRIPTION
+# bitnami/bitnami-common                      	0.0.9        	0.0.9        	DEPRECATED Chart with custom templates used in ...
+# bitnami/airflow                             	10.2.2       	2.1.0        	Apache Airflow is a platform to programmaticall...
+# bitnami/apache                              	8.5.7        	2.4.48       	Chart for Apache HTTP Server
+# bitnami/aspnet-core                         	1.3.7        	3.1.16       	ASP.NET Core is an open-source framework create...
+# bitnami/cassandra                           	7.6.2        	3.11.10      	Apache Cassandra is a free and open-source dist...
+# bitnami/cert-manager                        	0.1.4        	1.4.0        	Cert Manager is a Kubernetes add-on to automate...
+# bitnami/common                              	1.6.1        	1.6.1        	A Library Helm Chart for grouping common logic ...
+# bitnami/consul                              	9.2.14       	1.10.0       	Highly available and distributed service discov...
+# bitnami/contour                             	4.3.9        	1.16.0       	Contour Ingress controller for Kubernetes
+# bitnami/dataplatform-bp1                    	5.0.0        	1.0.0        	OCTO Data platform Kafka-Spark-Solr Helm Chart
 # ... and many more
 ```
 
@@ -52,16 +58,23 @@ stable/ambassador                       4.1.0           0.81.0                  
 
 为了安装一个charts，你将会用到的是 `helm install` 命令。helm有多种方式查询和安装charts，其中最简单的方式使用官方的stable charts。 
 
-```console
-$ helm repo update              # Make sure we get the latest list of charts
-$ helm install stable/mysql --generate-name
-Released smiling-penguin
+```shell
+helm repo update              # 确保拿到最新的charts
+helm install bitnami/mysql --generate-name
+# NAME: mysql-1625213307
+# LAST DEPLOYED: Fri Jul  2 16:08:32 2021
+# NAMESPACE: default
+# STATUS: deployed
+# REVISION: 1
+# TEST SUITE: None
+# NOTES:...
 ```
 
-在上面的例子中，我们使用了 `stable/mysql` charts，release的名称叫做 `smiling-penguin`。
+在上面的例子中，我们使用了 `bitnami/mysql` charts，release的名称叫做 `mysql-1625213307`。
 
-如果想要查询部署任务相关的概要信息，可以使用 `helm show chart stable/mysql` 如下命令。
-想要获得更加详细的信息，则可以运行如下命令： `helm show all stable/mysql` 。
+如果想要了解charts相关的概要信息，可以使用 `helm show chart bitnami/mysql` 命令。
+
+想要获得更加详细的信息，则可以运行如下命令： `helm show all bitnami/mysql` 。
 
 只要你install 一个 chart后，会自动创建一个新的release版本。所以同一个chart其实可以在一个集群中install多次。
 而每个release版本都可以进行独立的管理和升级。
@@ -72,10 +85,10 @@ Released smiling-penguin
 
 通过如下命令可以查询当前所有的Helm的release对象：
 
-```console
-$ helm ls
-NAME             VERSION   UPDATED                   STATUS    CHART
-smiling-penguin  1         Wed Sep 28 12:59:46 2016  DEPLOYED  mysql-0.1.0
+```shell
+helm ls
+# NAME            	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART      	APP VERSION
+# mysql-1625213307	default  	1       	2021-07-02 16:08:32.405932 +0800 CST	deployed	mysql-8.7.0	8.0.25
 ```
 
 `helm list` 命令将会打印目前已经部署的一组release对象。
@@ -84,18 +97,18 @@ smiling-penguin  1         Wed Sep 28 12:59:46 2016  DEPLOYED  mysql-0.1.0
 
 如果想要删除一个release对象，可以使用 `helm uninstall` 命令：
 
-```console
-$ helm uninstall smiling-penguin
-Removed smiling-penguin
+```shell
+helm uninstall mysql-1625213307
+# Removed mysql-1625213307
 ```
 
-这一操作将会从K8s中删除 `smiling-penguin` 这个release对象中所有的关联资源以及release历史。
+这一操作将会从K8s中删除 `mysql-1625213307` 这个release对象中所有的关联资源以及release历史。
 
 如果增加 `--keep-history` 参数，release历史将会被保存下来，仍然能够查询这一release对象之前的release历史。
 
-```console
-$ helm status smiling-penguin
-Status: UNINSTALLED
+```shell
+helm status mysql-1625213307
+# Status: UNINSTALLED
 ...
 ```
 
@@ -107,6 +120,6 @@ Status: UNINSTALLED
 
 同时，对于每个子命令而言，也可以使用 `-h` 参数打印相关的帮助文档。
 
-```console
-$ helm get -h
+```shell
+helm get -h
 ```
