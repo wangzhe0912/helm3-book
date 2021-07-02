@@ -82,56 +82,83 @@ brigade/kashti  0.4.0         v0.4.0      A Helm chart for Kubernetes
 2. chart name
 
 ```console
-$ helm install happy-panda stable/mariadb
-WARNING: This chart is deprecated
+$ helm install happy-panda bitnami/wordpress
 NAME: happy-panda
-LAST DEPLOYED: Fri May  8 17:46:49 2020
+LAST DEPLOYED: Tue Jan 26 10:27:17 2021
 NAMESPACE: default
 STATUS: deployed
 REVISION: 1
 NOTES:
-This Helm chart is deprecated
-...
+** Please be patient while the chart is being deployed **
 
-Services:
+Your WordPress site can be accessed through the following DNS name from within your cluster:
 
-  echo Master: happy-panda-mariadb.default.svc.cluster.local:3306
-  echo Slave:  happy-panda-mariadb-slave.default.svc.cluster.local:3306
+    happy-panda-wordpress.default.svc.cluster.local (port 80)
 
-Administrator credentials:
+To access your WordPress site from outside the cluster follow the steps below:
 
-  Username: root
-  Password : $(kubectl get secret --namespace default happy-panda-mariadb -o jsonpath="{.data.mariadb-root-password}" | base64 --decode)
+1. Get the WordPress URL by running these commands:
 
-To connect to your database:
+  NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+        Watch the status with: 'kubectl get svc --namespace default -w happy-panda-wordpress'
 
-  1. Run a pod that you can use as a client:
+   export SERVICE_IP=$(kubectl get svc --namespace default happy-panda-wordpress --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
+   echo "WordPress URL: http://$SERVICE_IP/"
+   echo "WordPress Admin URL: http://$SERVICE_IP/admin"
 
-      kubectl run happy-panda-mariadb-client --rm --tty -i --restart='Never' --image  docker.io/bitnami/mariadb:10.3.22-debian-10-r27 --namespace default --command -- bash
+2. Open a browser and access WordPress using the obtained URL.
 
-  2. To connect to master service (read/write):
+3. Login with the following credentials below to see your blog:
 
-      mysql -h happy-panda-mariadb.default.svc.cluster.local -uroot -p my_database
-
-  3. To connect to slave service (read-only):
-
-      mysql -h happy-panda-mariadb-slave.default.svc.cluster.local -uroot -p my_database
-
-To upgrade this helm chart:
-
-  1. Obtain the password as described on the 'Administrator credentials' section and set the 'rootUser.password' parameter as shown below:
-
-      ROOT_PASSWORD=$(kubectl get secret --namespace default happy-panda-mariadb -o jsonpath="{.data.mariadb-root-password}" | base64 --decode)
-      helm upgrade happy-panda stable/mariadb --set rootUser.password=$ROOT_PASSWORD
+  echo Username: user
+  echo Password: $(kubectl get secret --namespace default happy-panda-wordpress -o jsonpath="{.data.wordpress-password}" | base64 --decode)
 
 ```
 
-现在，`mariadb` chart已经正常安装了，安装charts后，会对应的创建一个新的release对象。
+现在，`wordpress` chart已经正常安装了，安装charts后，会对应的创建一个新的release对象。
 这个release对象的名称是 `happy-panda`。
 Ps：如果你懒得起名，也可以添加 `--generate-name` 让Helm自动为你的release对象分配名称。
 
 在安装过程中，helm客户端将会打印一些帮助信息比如创建了哪些资源、当前release的状态以及是否有
 一些额外的配置工作需要手动操作等。
+
+Helm按照以下顺序安装资源：
+
+1. Namespace
+2. NetworkPolicy
+3. ResourceQuota
+4. LimitRange
+5. PodSecurityPolicy
+6. PodDisruptionBudget
+7. ServiceAccount
+8. Secret
+9. SecretList
+10. ConfigMap
+11. StorageClass
+12. PersistentVolume
+13. PersistentVolumeClaim
+14. CustomResourceDefinition
+15. ClusterRole
+16. ClusterRoleList
+17. ClusterRoleBinding
+18. ClusterRoleBindingList
+19. Role
+20. RoleList
+21. RoleBinding
+22. RoleBindingList
+23. Service
+24. DaemonSet
+25. Pod
+26. ReplicationController
+27. ReplicaSet
+28. Deployment
+29. HorizontalPodAutoscaler
+30. StatefulSet
+31. Job
+32. CronJob
+33. Ingress
+34. APIService
+
 
 helm本身并不会等待所有的资源对象成功创建后再退出。很多charts依赖的Docker镜像都很大，比如超过600M等。
 拉取镜像到集群中本身也是一件相对耗时的事情。
@@ -141,45 +168,34 @@ helm本身并不会等待所有的资源对象成功创建后再退出。很多c
 ```console
 $ helm status happy-panda                
 NAME: happy-panda
-LAST DEPLOYED: Fri May  8 17:46:49 2020
+LAST DEPLOYED: Tue Jan 26 10:27:17 2021
 NAMESPACE: default
 STATUS: deployed
 REVISION: 1
 NOTES:
-This Helm chart is deprecated
+** Please be patient while the chart is being deployed **
 
-...
+Your WordPress site can be accessed through the following DNS name from within your cluster:
 
-Services:
+    happy-panda-wordpress.default.svc.cluster.local (port 80)
 
-  echo Master: happy-panda-mariadb.default.svc.cluster.local:3306
-  echo Slave:  happy-panda-mariadb-slave.default.svc.cluster.local:3306
+To access your WordPress site from outside the cluster follow the steps below:
 
-Administrator credentials:
+1. Get the WordPress URL by running these commands:
 
-  Username: root
-  Password : $(kubectl get secret --namespace default happy-panda-mariadb -o jsonpath="{.data.mariadb-root-password}" | base64 --decode)
+  NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+        Watch the status with: 'kubectl get svc --namespace default -w happy-panda-wordpress'
 
-To connect to your database:
+   export SERVICE_IP=$(kubectl get svc --namespace default happy-panda-wordpress --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
+   echo "WordPress URL: http://$SERVICE_IP/"
+   echo "WordPress Admin URL: http://$SERVICE_IP/admin"
 
-  1. Run a pod that you can use as a client:
+2. Open a browser and access WordPress using the obtained URL.
 
-      kubectl run happy-panda-mariadb-client --rm --tty -i --restart='Never' --image  docker.io/bitnami/mariadb:10.3.22-debian-10-r27 --namespace default --command -- bash
+3. Login with the following credentials below to see your blog:
 
-  2. To connect to master service (read/write):
-
-      mysql -h happy-panda-mariadb.default.svc.cluster.local -uroot -p my_database
-
-  3. To connect to slave service (read-only):
-
-      mysql -h happy-panda-mariadb-slave.default.svc.cluster.local -uroot -p my_database
-
-To upgrade this helm chart:
-
-  1. Obtain the password as described on the 'Administrator credentials' section and set the 'rootUser.password' parameter as shown below:
-
-      ROOT_PASSWORD=$(kubectl get secret --namespace default happy-panda-mariadb -o jsonpath="{.data.mariadb-root-password}" | base64 --decode)
-      helm upgrade happy-panda stable/mariadb --set rootUser.password=$ROOT_PASSWORD
+  echo Username: user
+  echo Password: $(kubectl get secret --namespace default happy-panda-wordpress -o jsonpath="{.data.wordpress-password}" | base64 --decode)
 ```
 
 上述内容都是该release的相关信息。
@@ -192,43 +208,32 @@ To upgrade this helm chart:
 为了查询有哪些配置可以定制化修改，我们可以使用 `helm show values` 命令进行查询。
 
 ```console
-$ helm show values stable/mariadb
-Fetched stable/mariadb-0.3.0.tgz to /Users/mattbutcher/Code/Go/src/helm.sh/helm/mariadb-0.3.0.tgz
-## Bitnami MariaDB image version
-## ref: https://hub.docker.com/r/bitnami/mariadb/tags/
+$ helm show values bitnami/wordpress
+## Global Docker image parameters
+## Please, note that this will override the image parameters, including dependencies, configured to use the global value
+## Current available global Docker image parameters: imageRegistry and imagePullSecrets
 ##
-## Default: none
-imageTag: 10.1.14-r3
+# global:
+#   imageRegistry: myRegistryName
+#   imagePullSecrets:
+#     - myRegistryKeySecretName
+#   storageClass: myStorageClass
 
-## Specify a imagePullPolicy
-## Default to 'Always' if imageTag is 'latest', else set to 'IfNotPresent'
-## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
+## Bitnami WordPress image version
+## ref: https://hub.docker.com/r/bitnami/wordpress/tags/
 ##
-# imagePullPolicy:
-
-## Specify password for root user
-## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#setting-the-root-password-on-first-run
-##
-# mariadbRootPassword:
-
-## Create a database user
-## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#creating-a-database-user-on-first-run
-##
-# mariadbUser:
-# mariadbPassword:
-
-## Create a database
-## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#creating-a-database-on-first-run
-##
-# mariadbDatabase:
-# ...
+image:
+  registry: docker.io
+  repository: bitnami/wordpress
+  tag: 5.6.0-debian-10-r35
+  [..]
 ```
 
 根据上述说明，我们可以将要重写的配置写入一个yaml格式的配置文件中，并且在安装charts的时候传递这些文件。
 
 ```console
-$ echo '{mariadbUser: user0, mariadbDatabase: user0db}' > config.yaml
-$ helm install -f config.yaml stable/mariadb --generate-name
+$ echo '{mariadb.auth.database: user0db, mariadb.auth.username: user0}' > values.yaml
+$ helm install -f values.yaml bitnami/wordpress --generate-name
 ```
 
 上述配置说明我们将会创建一个默认的MariaDB用户，名称是user0，同时创建一个新的Database为user0db，并授予这个用户访问该DB的权限。
@@ -240,6 +245,7 @@ $ helm install -f config.yaml stable/mariadb --generate-name
 - `--set`: 可以在命令行中传递重写的参数。
 
 如果同时使用两个参数，--set的优先级会更高，重写到与--values中相同的配置项并与其他配置项合并。
+
 使用--set重写的配置将会在ConfigMap中进行持久化。
 同时，使用--set重写的配置还可以通过 `helm get values <release-name>` 进行查询。
 通过--set重写的配置在 `helm upgrade` 操作时，如果附带了 `--reset-values` 参数，则将会被清除。
@@ -304,7 +310,8 @@ nodeSelector:
   kubernetes.io/role: master
 ```
 
-对于多层嵌套的结构而言，--set表达式使用相对复杂，因此在设计 `values.yaml` 文件时，要考虑 --set 的使用方式，尽量避免多层嵌套。
+对于多层嵌套的结构而言，--set表达式使用相对复杂。因此在设计 `values.yaml` 文件时，要考虑 --set 的使用方式，尽量避免多层嵌套。
+
 相关内容可以了解：[Values Files](../5chart_template_guide/values_files/)
 
 ### 更多的安装方式
@@ -338,14 +345,16 @@ Status: DEPLOYED
 在上面的例子中， `happy-panda` release 的升级过程中使用了相同的charts，但是传递了一个新的yaml配置文件：
 
 ```yaml
-mariadbUser: user1
+mariadb.auth.username: user1
 ```
 
 你可以用 `helm get values` 去查询新的配置是否正常生效了。
 
 ```console
 $ helm get values happy-panda
-mariadbUser: user1
+mariadb:
+  auth:
+    username: user1
 ```
 
 `helm get` 命令在查询集群中的发布信息时非常有用。
@@ -369,8 +378,8 @@ release的版本号是一个增量增加的版本号。
 在安装、升级、回滚等过程中，有一些有用的选项可以帮助我们定制操作的行为。
 需要注意的是，下面列出的选项并不是全部的选项，更多的选项可以通过 `helm <command> --help` 进行查询。
 
+- `--wait`: 等待所有的Pod状态变为Ready，PVC都绑定成功，Service完成IP分配。他将会阻塞等待直到超时或任务完成。
 - `--timeout`: 超时时间，默认为 `5m0s`
-- `--wait`: 等待所有的Pod状态变为Ready，PVC都绑定成功，Service完成IP分配。他将会阻塞等待直到超时或任务完成。 
 - `--no-hooks`: 跳过hook
 
 ## 'helm uninstall': 删除一个Release对象
@@ -419,7 +428,7 @@ Helm3中，已经不再默认添加相关的repo源了。
 ```console
 $ helm repo list
 NAME            URL
-stable          https://kubernetes-charts.storage.googleapis.com
+stable          https://charts.helm.sh/stable
 mumoshu         https://mumoshu.github.io/charts
 ```
 
@@ -461,10 +470,7 @@ $ helm install deis-workflow ./deis-workflow-0.1.0.tgz
 ...
 ```
 
-打包后的charts可以被上传到repo仓库中。关于如何上传到仓库可以查看更加详细的文档。
-
-其中， `stable` repository 位于 [Kubernetes Charts GitHub
-repository](https://github.com/helm/charts). 该项目接收Charts作为源代码并在合入后为你打包这个代码。
+打包后的charts可以被上传到repo仓库中。更多细节可以参考 [Helm Chart仓库](https://helm.sh/zh/docs/topics/chart_repository) 。
 
 ## 总结
 
