@@ -12,7 +12,7 @@
 
 例如：
 
-```console
+```
 $ mkdir fantastic-charts
 $ mv alpine-0.1.0.tgz fantastic-charts/
 ```
@@ -21,7 +21,7 @@ $ mv alpine-0.1.0.tgz fantastic-charts/
 
 传递工作目录和远程Repo地址作为参数使用helm来创建并更新 index.yaml 文件，示例如下：
 
-```console
+```
 $ helm repo index fantastic-charts/ --url https://fantastic-charts.storage.googleapis.com
 ```
 
@@ -33,7 +33,7 @@ $ helm repo index fantastic-charts/ --url https://fantastic-charts.storage.googl
 
 例如：
 
-```console
+```
 $ pwd
 /Users/me/code/go/src/helm.sh/helm
 $ scripts/sync-repo.sh fantastic-charts/ fantastic-charts
@@ -59,7 +59,7 @@ Congratulations your remote chart repository now matches the contents of fantast
 你可能想要保存本地Chart Repo的内容，同时想要使用 `gsutil rsync` 来将远程Chart Repo内容同步到本地目录。
 
 例如:
-```console
+```
 $ gsutil rsync -d -n gs://bucket-name local-dir/    # the -n flag does a dry run
 Building synchronization state...
 Starting synchronization

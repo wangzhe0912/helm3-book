@@ -27,7 +27,7 @@ Ps：在Helm3之前，Job中需要包含Helm测试的Hook注释为 `helm.sh/hook
 下面是一个针对 [bitnami wordpress chart](https://hub.helm.sh/charts/bitnami/wordpress) 应用定义的Helm Test Pod。
 如果你下载下来该Chart，你可以看到如下文件：
 
-```console
+```
 $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm pull bitnami/wordpress --untar
 ```
@@ -90,7 +90,7 @@ spec:
 然后，你需要等待所有的Pod都可以正常运行。
 Ps：如果你install命令完成后立马运行测试，此时可能会得到一些错误信息，需要等待所有Pod部署完成后再重新进行测试。
 
-```console
+```
 $ helm install quirky-walrus wordpress --namespace default
 $ helm test quirky-walrus
 Pod quirky-walrus-credentials-test pending

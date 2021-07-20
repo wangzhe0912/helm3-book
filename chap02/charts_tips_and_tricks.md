@@ -254,6 +254,6 @@ Helm提供了一种方式使得 安装/升级 release对象都使用同一条命
 
 它的效果是当release已经存在时，执行升级操作；否则执行新增操作。
 
-```console
+```
 $ helm upgrade --install <release name> --values <values file> <chart directory>
 ```

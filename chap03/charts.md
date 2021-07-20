@@ -205,7 +205,7 @@ dependencies:
 - `repository` 字段是Chart Repo完整url。注意，你必须手动使用 `helm repo add` 命令将其添加到本地repo源中。
 - 此外，你有可能会使用repo的名称来代替它的完整url地址。
 
-```console
+```
 $ helm repo add fantastic-charts https://fantastic-charts.storage.googleapis.com
 ```
 
@@ -218,7 +218,7 @@ dependencies:
 
 当你完成了依赖关系的定义后，你可以使用 `helm dependency update` 命令将它们都下载到你的 `charts/` 目录中。
 
-```console
+```
 $ helm dep up foochart
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "local" chart repository
@@ -331,7 +331,7 @@ tags:
 
 使用 `--set` 参数可以用于设置或改变 Tag 和 Condition 的值。
 
-```console
+```
 helm install --set tags.front-end=true --set subchart2.enabled=false
 ```
 
@@ -607,7 +607,7 @@ storage: "s3"
 一个Chart中可能会包含一个名为 `values.yaml` 的文件用于提供相关变量的默认值。
 而在Helm安装Chart的过程中，还允许用户通过提供一个新的YAML文件来覆盖相关的默认值。
 
-```console
+```
 $ helm install --generate-name --values=myvals.yaml wordpress
 ```
 
@@ -806,7 +806,7 @@ name: frontend
 protocol: https
 ```
 
-```console
+```
 helm install --set port=443
 ```
 

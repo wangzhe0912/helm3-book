@@ -27,7 +27,7 @@ Helm的二进制包发布版本地址 [release](https://github.com/helm/helm/rel
 目前，helm有一个一键安装脚本可以自动化的下载并[安装最新版本的helm](https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3)。
 你可以下载该脚本并手动执行。
 
-```console
+```
 $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 $ chmod 700 get_helm.sh
 $ ./get_helm.sh
@@ -44,7 +44,7 @@ Helm社区提供了各种操作系统下的包管理器的安装方式。
 
 ### Homebrew(macOS系统安装)
 
-```console
+```
 brew install helm
 ```
 
@@ -52,7 +52,7 @@ brew install helm
 
 [Helm package](https://chocolatey.org/packages/kubernetes-helm) 是由 [Chocolatey](https://chocolatey.org/) 维护的。
 
-```console
+```
 choco install kubernetes-helm
 ```
 
@@ -60,7 +60,7 @@ choco install kubernetes-helm
 
 [Helm package](https://helm.baltorepo.com/stable/debian/) for Apt
 
-```console
+```
 curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
 sudo apt-get install apt-transport-https --yes
 echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
@@ -72,7 +72,7 @@ sudo apt-get install helm
 
 [Snapcrafters](https://github.com/snapcrafters) 社区维护了 [Helm package](https://snapcraft.io/helm):
 
-```console
+```
 sudo snap install helm --classic
 ```
 
@@ -96,7 +96,7 @@ Helm金丝雀版本产出存在 [get.helm.sh](https://get.helm.sh)。下面是�
 
 首先，你需要搭建Go语言的开发环境。
 
-```console
+```
 $ git clone https://github.com/helm/helm.git
 $ cd helm
 $ make

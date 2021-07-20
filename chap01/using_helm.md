@@ -36,7 +36,7 @@ Helm提供了强大的搜索功能。
 
 你可以通过 `helm search hub` 命令搜索公开提供的charts:
 
-```console
+```
 $ helm search hub wordpress
 URL                                                 CHART VERSION APP VERSION DESCRIPTION
 https://hub.helm.sh/charts/bitnami/wordpress        7.6.7         5.2.4       Web publishing platform for building blogs and ...
@@ -50,7 +50,7 @@ https://hub.helm.sh/charts/presslabs/wordpress-...  v0.7.1        v0.7.1      A 
 
 使用 `helm search repo` 命令, 你可以用于查询你已经本地添加repo源的charts。
 
-```console
+```
 $ helm repo add brigade https://brigadecore.github.io/charts
 "brigade" has been added to your repositories
 $ helm search repo brigade
@@ -65,7 +65,7 @@ brigade/kashti                0.4.0         v0.4.0      A Helm chart for Kuberne
 
 Helm本身支持模糊搜索，所以你也可以仅仅输入关键词的一部分进行搜索：
 
-```console
+```
 $ helm search repo kash
 NAME            CHART VERSION APP VERSION DESCRIPTION
 brigade/kashti  0.4.0         v0.4.0      A Helm chart for Kubernetes
@@ -81,7 +81,7 @@ brigade/kashti  0.4.0         v0.4.0      A Helm chart for Kubernetes
 1. release name
 2. chart name
 
-```console
+```
 $ helm install happy-panda bitnami/wordpress
 NAME: happy-panda
 LAST DEPLOYED: Tue Jan 26 10:27:17 2021
@@ -165,7 +165,7 @@ helm本身并不会等待所有的资源对象成功创建后再退出。很多c
 
 为了查询release的状态或者查询配置相关信息，你可以使用 `helm status` 命令进行查询：
 
-```console
+```
 $ helm status happy-panda                
 NAME: happy-panda
 LAST DEPLOYED: Tue Jan 26 10:27:17 2021
@@ -207,7 +207,7 @@ To access your WordPress site from outside the cluster follow the steps below:
 
 为了查询有哪些配置可以定制化修改，我们可以使用 `helm show values` 命令进行查询。
 
-```console
+```
 $ helm show values bitnami/wordpress
 ## Global Docker image parameters
 ## Please, note that this will override the image parameters, including dependencies, configured to use the global value
@@ -231,7 +231,7 @@ image:
 
 根据上述说明，我们可以将要重写的配置写入一个yaml格式的配置文件中，并且在安装charts的时候传递这些文件。
 
-```console
+```
 $ echo '{mariadb.auth.database: user0db, mariadb.auth.username: user0}' > values.yaml
 $ helm install -f values.yaml bitnami/wordpress --generate-name
 ```
@@ -332,7 +332,7 @@ nodeSelector:
 由于Kubernetes的charts可能会非常的复杂和庞大，因此，Helm会尝试进行增量升级。
 也就说仅仅更新最近一次release变动的内容。
 
-```console
+```
 $ helm upgrade -f panda.yaml happy-panda stable/mariadb
 Fetched stable/mariadb-0.3.0.tgz to /Users/mattbutcher/Code/Go/src/helm.sh/helm/mariadb-0.3.0.tgz
 happy-panda has been upgraded. Happy Helming!
@@ -350,7 +350,7 @@ mariadb.auth.username: user1
 
 你可以用 `helm get values` 去查询新的配置是否正常生效了。
 
-```console
+```
 $ helm get values happy-panda
 mariadb:
   auth:
@@ -363,7 +363,7 @@ mariadb:
 现在，如果某个版本在发行过程中存在问题，则很容易进行回滚。
 使用`helm rollback [RELEASE] [REVISION]`就可以回滚至之前的版本。
 
-```console
+```
 $ helm rollback happy-panda 1
 ```
 
@@ -386,14 +386,14 @@ release的版本号是一个增量增加的版本号。
 
 当我们想要删除一个release对象时，可以执行如下命令：
 
-```console
+```
 $ helm uninstall happy-panda
 ```
 
 上述命令将会从集群中移除对应的release。
 你可以使用 `helm list` 命令查询当前已经部署的所有release对象。
 
-```console
+```
 $ helm list
 NAME            VERSION UPDATED                         STATUS          CHART
 inky-cat        1       Wed Sep 28 12:59:46 2016        DEPLOYED        alpine-0.1.0
@@ -408,7 +408,7 @@ inky-cat        1       Wed Sep 28 12:59:46 2016        DEPLOYED        alpine-0
 
 `helm list --all` 将会查询所有release对象，包括使用--keep-history参数删除的release。
 
-```console
+```
 $  helm list --all
 NAME            VERSION UPDATED                         STATUS          CHART
 happy-panda     2       Wed Sep 28 12:47:54 2016        UNINSTALLED     mariadb-0.3.0
@@ -425,7 +425,7 @@ Helm3中，已经不再默认添加相关的repo源了。
 
 `helm repo list` 可以查询当前的repo源:
 
-```console
+```
 $ helm repo list
 NAME            URL
 stable          https://charts.helm.sh/stable
@@ -434,7 +434,7 @@ mumoshu         https://mumoshu.github.io/charts
 
 `helm repo add` 命令可以添加新的repo源:
 
-```console
+```
 $ helm repo add dev https://example.com/dev-charts
 ```
 
@@ -447,7 +447,7 @@ $ helm repo add dev https://example.com/dev-charts
 [Chart Development Guide](../topics/charts.md) 详细介绍了如何制作自己的charts。
 此时，你可以使用 `helm create` 命令来快速体验一下:
 
-```console
+```
 $ helm create deis-workflow
 Creating deis-workflow
 ```
@@ -458,14 +458,14 @@ Creating deis-workflow
 
 当你的包内容制作完成后，可以运行 `helm package` 命令进行打包。
 
-```console
+```
 $ helm package deis-workflow
 deis-workflow-0.1.0.tgz
 ```
 
 此时，制作完成的包可以通过 `helm install` 的方式进行安装:
 
-```console
+```
 $ helm install deis-workflow ./deis-workflow-0.1.0.tgz
 ...
 ```
