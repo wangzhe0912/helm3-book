@@ -1,0 +1,1016 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>helm命令行简介 · title</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bibtex-indexed-cite/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../chap02/" />
+    
+    
+    <link rel="prev" href="install.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"wangzhe0912","repo":"helm3-book","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Tutorial</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="quickstart.html">
+            
+                <a href="quickstart.html">
+            
+                    
+                    快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    安装Helm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="using_helm.html">
+            
+                <a href="using_helm.html">
+            
+                    
+                    helm命令行简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">如何使用</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../chap02/charts_tips_and_tricks.html">
+            
+                <a href="../chap02/charts_tips_and_tricks.html">
+            
+                    
+                    Chart编写小技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../chap02/chart_repository_sync_example.html">
+            
+                <a href="../chap02/chart_repository_sync_example.html">
+            
+                    
+                    Repo同步示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Topic Guides</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../chap03/charts.html">
+            
+                <a href="../chap03/charts.html">
+            
+                    
+                    Charts详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../chap03/charts_hooks.html">
+            
+                <a href="../chap03/charts_hooks.html">
+            
+                    
+                    Charts hooks详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../chap03/chart_tests.html">
+            
+                <a href="../chap03/chart_tests.html">
+            
+                    
+                    Charts测试篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../chap03/library_charts.html">
+            
+                <a href="../chap03/library_charts.html">
+            
+                    
+                    Library Charts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../chap03/provenance.html">
+            
+                <a href="../chap03/provenance.html">
+            
+                    
+                    Chart起源验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../chap03/chart_repository.html">
+            
+                <a href="../chap03/chart_repository.html">
+            
+                    
+                    ChartRepo指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../chap03/registries.html">
+            
+                <a href="../chap03/registries.html">
+            
+                    
+                    注册中心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../chap03/architecture.html">
+            
+                <a href="../chap03/architecture.html">
+            
+                    
+                    Helm架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../chap03/advanced.html">
+            
+                <a href="../chap03/advanced.html">
+            
+                    
+                    Helm高级功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="../chap03/kubernetes_distros.html">
+            
+                <a href="../chap03/kubernetes_distros.html">
+            
+                    
+                    Helm与K8s发布版本说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../chap03/rbac.html">
+            
+                <a href="../chap03/rbac.html">
+            
+                    
+                    rbac权限控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../chap03/plugins.html">
+            
+                <a href="../chap03/plugins.html">
+            
+                    
+                    Helm插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.13" data-path="../chap03/v2_v3_migration.html">
+            
+                <a href="../chap03/v2_v3_migration.html">
+            
+                    
+                    Helm2迁移到Helm3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">最佳实践</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    4-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Chart 模板开发</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../chap05/getting_started.html">
+            
+                <a href="../chap05/getting_started.html">
+            
+                    
+                    Chart 模板开发引言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../chap05/builtin_objects.html">
+            
+                <a href="../chap05/builtin_objects.html">
+            
+                    
+                    Chart 中的内置变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">helm命令行工具</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    6-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">community</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    7-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">FAQ</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    8-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">附录</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    9-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >helm命令行简介</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#helm&#x547D;&#x4EE4;&#x884C;"><b></b>helm&#x547D;&#x4EE4;&#x884C;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x6982;&#x5FF5;"><b></b>&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x6982;&#x5FF5;</a></li><li><span class="title-icon "></span><a href="#helm-search-&#x67E5;&#x8BE2;charts"><b></b>&apos;helm search&apos;: &#x67E5;&#x8BE2;Charts</a></li><li><span class="title-icon "></span><a href="#helm-install-&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x5305;"><b></b>&apos;helm install&apos;: &#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x5305;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5B89;&#x88C5;charts&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x5B9A;&#x5236;&#x5316;&#x6539;&#x9020;"><b></b>&#x5B89;&#x88C5;charts&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x5B9A;&#x5236;&#x5316;&#x6539;&#x9020;</a></li><li><span class="title-icon "></span><a href="#&#x66F4;&#x591A;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;"><b></b>&#x66F4;&#x591A;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;</a></li></ul><li><span class="title-icon "></span><a href="#helm-upgrade-and-helm-rollback-release&#x7684;&#x5347;&#x7EA7;&#x4E0E;&#x56DE;&#x6EDA;"><b></b>&apos;helm upgrade&apos; and &apos;helm rollback&apos;: Release&#x7684;&#x5347;&#x7EA7;&#x4E0E;&#x56DE;&#x6EDA;</a></li><li><span class="title-icon "></span><a href="#&#x5B89;&#x88C5;&#x3001;&#x5347;&#x7EA7;&#x3001;&#x56DE;&#x6EDA;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x53C2;&#x6570;"><b></b>&#x5B89;&#x88C5;&#x3001;&#x5347;&#x7EA7;&#x3001;&#x56DE;&#x6EDA;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x53C2;&#x6570;</a></li><li><span class="title-icon "></span><a href="#helm-uninstall-&#x5220;&#x9664;&#x4E00;&#x4E2A;release&#x5BF9;&#x8C61;"><b></b>&apos;helm uninstall&apos;: &#x5220;&#x9664;&#x4E00;&#x4E2A;Release&#x5BF9;&#x8C61;</a></li><li><span class="title-icon "></span><a href="#helm-repo-repositories&#x64CD;&#x4F5C;"><b></b>&apos;helm repo&apos;: Repositories&#x64CD;&#x4F5C;</a></li><li><span class="title-icon "></span><a href="#&#x521B;&#x5EFA;&#x4F60;&#x81EA;&#x5DF1;&#x7684;charts"><b></b>&#x521B;&#x5EFA;&#x4F60;&#x81EA;&#x5DF1;&#x7684;charts</a></li><li><span class="title-icon "></span><a href="#&#x603B;&#x7ED3;"><b></b>&#x603B;&#x7ED3;</a></li></ul></ul></div><a href="#helm&#x547D;&#x4EE4;&#x884C;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="helm&#x547D;&#x4EE4;&#x884C;"><a name="helm&#x547D;&#x4EE4;&#x884C;" class="anchor-navigation-ex-anchor" href="#helm&#x547D;&#x4EE4;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>helm&#x547D;&#x4EE4;&#x884C;</h1>
+<p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x8BB2;&#x89E3;&#x4F7F;&#x7528;helm&#x547D;&#x4EE4;&#x884C;&#x8FDB;&#x884C;K8s&#x5305;&#x7BA1;&#x7406;&#x7684;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x3002;&#x6211;&#x4EEC;&#x5047;&#x5B9A;&#x4F60;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x4E86;helm&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5B89;&#x88C5;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x53EA;&#x662F;&#x60F3;&#x8FD0;&#x884C;&#x51E0;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x90A3;&#x4E48; <a href="quickstart.html">&#x5FEB;&#x901F;&#x5165;&#x95E8;</a> &#x6587;&#x6863;&#x5E94;&#x8BE5;&#x5C31;&#x5DF2;&#x7ECF;&#x80FD;&#x591F;&#x6EE1;&#x8DB3;&#x4F60;&#x7684;&#x9700;&#x6C42;&#x4E86;&#x3002;
+&#x800C;&#x672C;&#x6587;&#x8BB2;&#x89E3;&#x7684;&#x547D;&#x4EE4;&#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#x66F4;&#x591A;&#x4E14;&#x8BE6;&#x89E3;&#x7684;&#x66F4;&#x52A0;&#x6E05;&#x6670;&#x3002;</p>
+<h2 id="&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x6982;&#x5FF5;"><a name="&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x6982;&#x5FF5;" class="anchor-navigation-ex-anchor" href="#&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x6982;&#x5FF5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x6982;&#x5FF5;</h2>
+<p>&#x5728;&#x5F00;&#x59CB;&#x8BE6;&#x89E3;helm&#x547D;&#x4EE4;&#x884C;&#x64CD;&#x4F5C;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x9700;&#x8981;&#x4E86;&#x89E3;Helm&#x7684;&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x6982;&#x5FF5;&#xFF1A;Chart&#xFF0C;Repository&#xFF0C;Release&#x3002;</p>
+<p><em>Chart</em> &#x662F;Helm&#x751F;&#x6001;&#x4E2D;&#x7684;&#x90E8;&#x7F72;&#x5305;&#x3002;
+&#x5B83;&#x5305;&#x542B;&#x4E86;&#x4E3A;&#x4E86;&#x5728;K8s&#x4E2D;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7684;&#x6240;&#x6709;&#x8D44;&#x6E90;&#x4FE1;&#x606F;&#x3002;
+Chart&#x5728;K8s&#x4E2D;&#x7684;&#x4F5C;&#x7528;&#x7C7B;&#x4F3C;&#x4E8E; Homebrew&#x5305;&#x3001;APT DPKG&#x5305;&#x6216;&#x8005;&#x662F;YUM RPM&#x6587;&#x4EF6;&#x4E00;&#x6837;&#x3002;</p>
+<p><em>Repository</em> &#x662F;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x548C;&#x5171;&#x4EAB;Charts&#x7684;&#x4E00;&#x4E2A;&#x5E73;&#x53F0;&#xFF0C;&#x4E13;&#x95E8;&#x9488;&#x5BF9;&#x4E0E;K8s&#x5305;&#x7684;&#x5B58;&#x50A8;&#x4E0E;&#x5171;&#x4EAB;&#x3002;</p>
+<p><em>Release</em> &#x662F;&#x4E00;&#x4E2A;Chart&#x5728;&#x4E00;&#x4E2A;K8s&#x96C6;&#x7FA4;&#x4E2D;&#x8FD0;&#x884C;&#x7684;&#x5B9E;&#x4F53;&#x3002;&#x5728;&#x540C;&#x4E00;&#x4E2A;K8s&#x96C6;&#x7FA4;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x5B89;&#x88C5;&#x591A;&#x4E00;&#x4E2A; <em>chart</em> &#x3002;
+&#x6BCF;&#x6B21;&#x5B89;&#x88C5;&#x4E00;&#x4E2A; <em>chart</em>&#xFF0C;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <em>Release</em> &#x3002;
+&#x4F8B;&#x5982;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;MySQL Charts&#x800C;&#x8A00;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5728;&#x4F60;&#x7684;K8s&#x96C6;&#x7FA4;&#x4E2D;&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x4EC5;&#x4EC5;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x4E24;&#x6B21;&#x8FD9;&#x4E2A; <em>chart</em> &#x5373;&#x53EF;&#x3002;
+&#x6BCF;&#x6B21;&#x5B89;&#x88C5;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x7684; <em>Release</em> &#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x6B21;&#x5F97;&#x5230;&#x7684;  <em>Release</em> &#x540D;&#x79F0;&#x90FD;&#x4E0D;&#x76F8;&#x540C;&#x3002;</p>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x4E86;&#x89E3;&#x4E86;&#x8FD9;&#x4E9B;&#x6982;&#x5FF5;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x4E48;&#x7406;&#x89E3;Helm&#x7684;&#x4F5C;&#x7528;&#xFF1A;</p>
+<p>Helm&#x53EF;&#x4EE5;&#x628A;Charts&#x5B89;&#x88C5;&#x5230;K8s&#x96C6;&#x7FA4;&#x4E2D;&#xFF0C;&#x5E76;&#x5728;&#x5BF9;&#x4E8E;&#x6BCF;&#x6B21;&#x5B89;&#x88C5;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<em>release</em>&#x3002;
+&#x540C;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x627E;&#x5230;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;charts&#x65F6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x53BB;chart Repository&#x4E2D;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#x3002;</p>
+<h2 id="helm-search-&#x67E5;&#x8BE2;charts"><a name="helm-search-&#x67E5;&#x8BE2;charts" class="anchor-navigation-ex-anchor" href="#helm-search-&#x67E5;&#x8BE2;charts"><i class="fa fa-link" aria-hidden="true"></i></a>&apos;helm search&apos;: &#x67E5;&#x8BE2;Charts</h2>
+<p>Helm&#x63D0;&#x4F9B;&#x4E86;&#x5F3A;&#x5927;&#x7684;&#x641C;&#x7D22;&#x529F;&#x80FD;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x641C;&#x7D22;&#x4E24;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x6E90;&#xFF1A;</p>
+<ul>
+<li><code>helm search hub</code> &#x7528;&#x4E8E;&#x641C;&#x7D22; <a href="https://hub.helm.sh" target="_blank">the Helm Hub</a>&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x4ECE;&#x5404;&#x4E2A;&#x4E0D;&#x540C;&#x7684;Helm&#x6E90;&#x8FDB;&#x884C;&#x805A;&#x5408;&#x641C;&#x7D22;&#x3002;</li>
+<li><code>helm search repo</code> &#x7528;&#x4E8E;&#x641C;&#x7D22;&#x4F60;&#x672C;&#x5730;&#x6DFB;&#x52A0;&#x7684;helm&#x6E90; (with <code>helm repo add</code>). &#x8FD9;&#x79CD;&#x641C;&#x7D20;&#x65B9;&#x5F0F;&#x662F;&#x57FA;&#x4E8E;&#x672C;&#x5730;&#x6570;&#x636E;&#x7684;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x516C;&#x7F51;&#x8FDE;&#x63A5;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x3002; </li>
+</ul>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>helm search hub</code> &#x547D;&#x4EE4;&#x641C;&#x7D22;&#x516C;&#x5F00;&#x63D0;&#x4F9B;&#x7684;charts:</p>
+<pre class="language-"><code>$ helm search hub wordpress
+URL                                                 CHART VERSION APP VERSION DESCRIPTION
+https://hub.helm.sh/charts/bitnami/wordpress        7.6.7         5.2.4       Web publishing platform for building blogs and ...
+https://hub.helm.sh/charts/presslabs/wordpress-...  v0.6.3        v0.6.3      Presslabs WordPress Operator Helm Chart
+https://hub.helm.sh/charts/presslabs/wordpress-...  v0.7.1        v0.7.1      A Helm chart for deploying a WordPress site on ...
+</code></pre><p>&#x4E0A;&#x8FF0;&#x7684;&#x641C;&#x7D22;&#x7ED3;&#x679C;&#x5C31;&#x662F;&#x5728;Helm Hub&#x4E2D;&#x6240;&#x6709;&#x5230;&#x7684;&#x6240;&#x6709;workpress charts&#x7684;&#x8BB0;&#x5F55;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x52A0;&#x4EFB;&#x4F55;&#x641C;&#x7D22;&#x8FC7;&#x6EE4;&#x8BCD;&#xFF0C;&#x90A3;&#x4E48; <code>helm search hub</code> &#x547D;&#x4EE4;&#x5C06;&#x4F1A;&#x641C;&#x7D22;&#x51FA;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684;charts&#x3002;</p>
+<p>&#x4F7F;&#x7528; <code>helm search repo</code> &#x547D;&#x4EE4;, &#x4F60;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x67E5;&#x8BE2;&#x4F60;&#x5DF2;&#x7ECF;&#x672C;&#x5730;&#x6DFB;&#x52A0;repo&#x6E90;&#x7684;charts&#x3002;</p>
+<pre class="language-"><code>$ helm repo add brigade https://brigadecore.github.io/charts
+&quot;brigade&quot; has been added to your repositories
+$ helm search repo brigade
+NAME                          CHART VERSION APP VERSION DESCRIPTION
+brigade/brigade               1.3.2         v1.2.1      Brigade provides event-driven scripting of Kube...
+brigade/brigade-github-app    0.4.1         v0.2.1      The Brigade GitHub App, an advanced gateway for...
+brigade/brigade-github-oauth  0.2.0         v0.20.0     The legacy OAuth GitHub Gateway for Brigade
+brigade/brigade-k8s-gateway   0.1.0                     A Helm chart for Kubernetes
+brigade/brigade-project       1.0.0         v1.0.0      Create a Brigade project
+brigade/kashti                0.4.0         v0.4.0      A Helm chart for Kubernetes
+</code></pre><p>Helm&#x672C;&#x8EAB;&#x652F;&#x6301;&#x6A21;&#x7CCA;&#x641C;&#x7D22;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4EC5;&#x4EC5;&#x8F93;&#x5165;&#x5173;&#x952E;&#x8BCD;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x641C;&#x7D22;&#xFF1A;</p>
+<pre class="language-"><code>$ helm search repo kash
+NAME            CHART VERSION APP VERSION DESCRIPTION
+brigade/kashti  0.4.0         v0.4.0      A Helm chart for Kubernetes
+</code></pre><p>&#x901A;&#x8FC7;&#x641C;&#x7D22;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;charts&#xFF0C;&#x4E00;&#x65E6;&#x6211;&#x4EEC;&#x627E;&#x5230;&#x4E86;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;charts&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm install</code> &#x6765;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x4E86;&#x3002;</p>
+<h2 id="helm-install-&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x5305;"><a name="helm-install-&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x5305;" class="anchor-navigation-ex-anchor" href="#helm-install-&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x5305;"><i class="fa fa-link" aria-hidden="true"></i></a>&apos;helm install&apos;: &#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x5305;</h2>
+<p>&#x60F3;&#x8981;&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x90E8;&#x7F72;&#x5305;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm install</code> &#x547D;&#x4EE4;&#x3002;
+&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x547D;&#x4EE4;&#x800C;&#x8A00;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;</p>
+<ol>
+<li>release name</li>
+<li>chart name</li>
+</ol>
+<pre class="language-"><code>$ helm install happy-panda bitnami/wordpress
+NAME: happy-panda
+LAST DEPLOYED: Tue Jan 26 10:27:17 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+** Please be patient while the chart is being deployed **
+
+Your WordPress site can be accessed through the following DNS name from within your cluster:
+
+    happy-panda-wordpress.default.svc.cluster.local (port 80)
+
+To access your WordPress site from outside the cluster follow the steps below:
+
+1. Get the WordPress URL by running these commands:
+
+  NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+        Watch the status with: &apos;kubectl get svc --namespace default -w happy-panda-wordpress&apos;
+
+   export SERVICE_IP=$(kubectl get svc --namespace default happy-panda-wordpress --template &quot;{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}&quot;)
+   echo &quot;WordPress URL: http://$SERVICE_IP/&quot;
+   echo &quot;WordPress Admin URL: http://$SERVICE_IP/admin&quot;
+
+2. Open a browser and access WordPress using the obtained URL.
+
+3. Login with the following credentials below to see your blog:
+
+  echo Username: user
+  echo Password: $(kubectl get secret --namespace default happy-panda-wordpress -o jsonpath=&quot;{.data.wordpress-password}&quot; | base64 --decode)
+</code></pre><p>&#x73B0;&#x5728;&#xFF0C;<code>wordpress</code> chart&#x5DF2;&#x7ECF;&#x6B63;&#x5E38;&#x5B89;&#x88C5;&#x4E86;&#xFF0C;&#x5B89;&#x88C5;charts&#x540E;&#xFF0C;&#x4F1A;&#x5BF9;&#x5E94;&#x7684;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;release&#x5BF9;&#x8C61;&#x3002;
+&#x8FD9;&#x4E2A;release&#x5BF9;&#x8C61;&#x7684;&#x540D;&#x79F0;&#x662F; <code>happy-panda</code>&#x3002;
+Ps&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x61D2;&#x5F97;&#x8D77;&#x540D;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0; <code>--generate-name</code> &#x8BA9;Helm&#x81EA;&#x52A8;&#x4E3A;&#x4F60;&#x7684;release&#x5BF9;&#x8C61;&#x5206;&#x914D;&#x540D;&#x79F0;&#x3002;</p>
+<p>&#x5728;&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;helm&#x5BA2;&#x6237;&#x7AEF;&#x5C06;&#x4F1A;&#x6253;&#x5370;&#x4E00;&#x4E9B;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;&#x6BD4;&#x5982;&#x521B;&#x5EFA;&#x4E86;&#x54EA;&#x4E9B;&#x8D44;&#x6E90;&#x3001;&#x5F53;&#x524D;release&#x7684;&#x72B6;&#x6001;&#x4EE5;&#x53CA;&#x662F;&#x5426;&#x6709;
+&#x4E00;&#x4E9B;&#x989D;&#x5916;&#x7684;&#x914D;&#x7F6E;&#x5DE5;&#x4F5C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x64CD;&#x4F5C;&#x7B49;&#x3002;</p>
+<p>Helm&#x6309;&#x7167;&#x4EE5;&#x4E0B;&#x987A;&#x5E8F;&#x5B89;&#x88C5;&#x8D44;&#x6E90;&#xFF1A;</p>
+<ol>
+<li>Namespace</li>
+<li>NetworkPolicy</li>
+<li>ResourceQuota</li>
+<li>LimitRange</li>
+<li>PodSecurityPolicy</li>
+<li>PodDisruptionBudget</li>
+<li>ServiceAccount</li>
+<li>Secret</li>
+<li>SecretList</li>
+<li>ConfigMap</li>
+<li>StorageClass</li>
+<li>PersistentVolume</li>
+<li>PersistentVolumeClaim</li>
+<li>CustomResourceDefinition</li>
+<li>ClusterRole</li>
+<li>ClusterRoleList</li>
+<li>ClusterRoleBinding</li>
+<li>ClusterRoleBindingList</li>
+<li>Role</li>
+<li>RoleList</li>
+<li>RoleBinding</li>
+<li>RoleBindingList</li>
+<li>Service</li>
+<li>DaemonSet</li>
+<li>Pod</li>
+<li>ReplicationController</li>
+<li>ReplicaSet</li>
+<li>Deployment</li>
+<li>HorizontalPodAutoscaler</li>
+<li>StatefulSet</li>
+<li>Job</li>
+<li>CronJob</li>
+<li>Ingress</li>
+<li>APIService</li>
+</ol>
+<p>helm&#x672C;&#x8EAB;&#x5E76;&#x4E0D;&#x4F1A;&#x7B49;&#x5F85;&#x6240;&#x6709;&#x7684;&#x8D44;&#x6E90;&#x5BF9;&#x8C61;&#x6210;&#x529F;&#x521B;&#x5EFA;&#x540E;&#x518D;&#x9000;&#x51FA;&#x3002;&#x5F88;&#x591A;charts&#x4F9D;&#x8D56;&#x7684;Docker&#x955C;&#x50CF;&#x90FD;&#x5F88;&#x5927;&#xFF0C;&#x6BD4;&#x5982;&#x8D85;&#x8FC7;600M&#x7B49;&#x3002;
+&#x62C9;&#x53D6;&#x955C;&#x50CF;&#x5230;&#x96C6;&#x7FA4;&#x4E2D;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x4E00;&#x4EF6;&#x76F8;&#x5BF9;&#x8017;&#x65F6;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x67E5;&#x8BE2;release&#x7684;&#x72B6;&#x6001;&#x6216;&#x8005;&#x67E5;&#x8BE2;&#x914D;&#x7F6E;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm status</code> &#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#xFF1A;</p>
+<pre class="language-"><code>$ helm status happy-panda                
+NAME: happy-panda
+LAST DEPLOYED: Tue Jan 26 10:27:17 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+** Please be patient while the chart is being deployed **
+
+Your WordPress site can be accessed through the following DNS name from within your cluster:
+
+    happy-panda-wordpress.default.svc.cluster.local (port 80)
+
+To access your WordPress site from outside the cluster follow the steps below:
+
+1. Get the WordPress URL by running these commands:
+
+  NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+        Watch the status with: &apos;kubectl get svc --namespace default -w happy-panda-wordpress&apos;
+
+   export SERVICE_IP=$(kubectl get svc --namespace default happy-panda-wordpress --template &quot;{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}&quot;)
+   echo &quot;WordPress URL: http://$SERVICE_IP/&quot;
+   echo &quot;WordPress Admin URL: http://$SERVICE_IP/admin&quot;
+
+2. Open a browser and access WordPress using the obtained URL.
+
+3. Login with the following credentials below to see your blog:
+
+  echo Username: user
+  echo Password: $(kubectl get secret --namespace default happy-panda-wordpress -o jsonpath=&quot;{.data.wordpress-password}&quot; | base64 --decode)
+</code></pre><p>&#x4E0A;&#x8FF0;&#x5185;&#x5BB9;&#x90FD;&#x662F;&#x8BE5;release&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x3002;</p>
+<h3 id="&#x5B89;&#x88C5;charts&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x5B9A;&#x5236;&#x5316;&#x6539;&#x9020;"><a name="&#x5B89;&#x88C5;charts&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x5B9A;&#x5236;&#x5316;&#x6539;&#x9020;" class="anchor-navigation-ex-anchor" href="#&#x5B89;&#x88C5;charts&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x5B9A;&#x5236;&#x5316;&#x6539;&#x9020;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;charts&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x5B9A;&#x5236;&#x5316;&#x6539;&#x9020;</h3>
+<p>&#x5728;&#x524D;&#x9762;&#x7684;&#x6B65;&#x9AA4;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4EC5;&#x4EC5;&#x4F7F;&#x7528;&#x4E86;charts&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x3002;
+&#x7136;&#x800C;&#x5728;&#x66F4;&#x591A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x5E38;&#x5E38;&#x662F;&#x9700;&#x8981;&#x5BF9;chart&#x7684;&#x914D;&#x7F6E;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x5B9A;&#x5236;&#x5316;&#x7684;&#x4FEE;&#x6539;&#x7684;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x67E5;&#x8BE2;&#x6709;&#x54EA;&#x4E9B;&#x914D;&#x7F6E;&#x53EF;&#x4EE5;&#x5B9A;&#x5236;&#x5316;&#x4FEE;&#x6539;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm show values</code> &#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#x3002;</p>
+<pre class="language-"><code>$ helm show values bitnami/wordpress
+## Global Docker image parameters
+## Please, note that this will override the image parameters, including dependencies, configured to use the global value
+## Current available global Docker image parameters: imageRegistry and imagePullSecrets
+##
+# global:
+#   imageRegistry: myRegistryName
+#   imagePullSecrets:
+#     - myRegistryKeySecretName
+#   storageClass: myStorageClass
+
+## Bitnami WordPress image version
+## ref: https://hub.docker.com/r/bitnami/wordpress/tags/
+##
+image:
+  registry: docker.io
+  repository: bitnami/wordpress
+  tag: 5.6.0-debian-10-r35
+  [..]
+</code></pre><p>&#x6839;&#x636E;&#x4E0A;&#x8FF0;&#x8BF4;&#x660E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x8981;&#x91CD;&#x5199;&#x7684;&#x914D;&#x7F6E;&#x5199;&#x5165;&#x4E00;&#x4E2A;yaml&#x683C;&#x5F0F;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x5B89;&#x88C5;charts&#x7684;&#x65F6;&#x5019;&#x4F20;&#x9012;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x3002;</p>
+<pre class="language-"><code>$ echo &apos;{mariadb.auth.database: user0db, mariadb.auth.username: user0}&apos; &gt; values.yaml
+$ helm install -f values.yaml bitnami/wordpress --generate-name
+</code></pre><p>&#x4E0A;&#x8FF0;&#x914D;&#x7F6E;&#x8BF4;&#x660E;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;MariaDB&#x7528;&#x6237;&#xFF0C;&#x540D;&#x79F0;&#x662F;user0&#xFF0C;&#x540C;&#x65F6;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Database&#x4E3A;user0db&#xFF0C;&#x5E76;&#x6388;&#x4E88;&#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x8BE5;DB&#x7684;&#x6743;&#x9650;&#x3002;
+&#x800C;&#x5176;&#x4F59;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5219;&#x7EDF;&#x4E00;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x3002;</p>
+<p>&#x5176;&#x5B9E;&#xFF0C;&#x6211;&#x4EEC;&#x6709;&#x5982;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x5728;&#x5B89;&#x88C5;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;&#x6570;&#x636E;&#xFF1A;</p>
+<ul>
+<li><code>--values</code> (or <code>-f</code>): &#x6307;&#x5B9A;&#x4E00;&#x4E2A;yaml&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x91CD;&#x5199;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6700;&#x53F3;&#x4FA7;&#x7684;&#x914D;&#x7F6E;&#x4F18;&#x5148;&#x7EA7;&#x6700;&#x9AD8;&#x3002;</li>
+<li><code>--set</code>: &#x53EF;&#x4EE5;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x4F20;&#x9012;&#x91CD;&#x5199;&#x7684;&#x53C2;&#x6570;&#x3002;</li>
+</ul>
+<p>&#x5982;&#x679C;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;--set&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x4F1A;&#x66F4;&#x9AD8;&#xFF0C;&#x91CD;&#x5199;&#x5230;&#x4E0E;--values&#x4E2D;&#x76F8;&#x540C;&#x7684;&#x914D;&#x7F6E;&#x9879;&#x5E76;&#x4E0E;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#x9879;&#x5408;&#x5E76;&#x3002;</p>
+<p>&#x4F7F;&#x7528;--set&#x91CD;&#x5199;&#x7684;&#x914D;&#x7F6E;&#x5C06;&#x4F1A;&#x5728;ConfigMap&#x4E2D;&#x8FDB;&#x884C;&#x6301;&#x4E45;&#x5316;&#x3002;
+&#x540C;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;--set&#x91CD;&#x5199;&#x7684;&#x914D;&#x7F6E;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>helm get values <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>release-name</span><span class="token punctuation">&gt;</span></span></code> &#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#x3002;
+&#x901A;&#x8FC7;--set&#x91CD;&#x5199;&#x7684;&#x914D;&#x7F6E;&#x5728; <code>helm upgrade</code> &#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x9644;&#x5E26;&#x4E86; <code>--reset-values</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x5C06;&#x4F1A;&#x88AB;&#x6E05;&#x9664;&#x3002;</p>
+<h4 id="-set-&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E0E;&#x5C40;&#x9650;&#x6027;"><a name="-set-&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E0E;&#x5C40;&#x9650;&#x6027;" class="anchor-navigation-ex-anchor" href="#-set-&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E0E;&#x5C40;&#x9650;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a><code>--set</code> &#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E0E;&#x5C40;&#x9650;&#x6027;</h4>
+<p><code>--set</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x63A5;&#x6536;0&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x53C2;&#x6570;&#x3002;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#x662F;&#xFF1A; <code>--set name=value</code> &#x3002;
+&#x5B83;&#x7B49;&#x4EF7;&#x4E8E;&#x5982;&#x4E0B;&#x7684;yaml&#x683C;&#x5F0F;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> value
+</code></pre>
+<p>&#x591A;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x65F6;&#xFF0C;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x4F7F;&#x7528; <code>,</code> &#x8FDB;&#x884C;&#x5206;&#x9694;&#x3002;&#x4F8B;&#x5982;&#xFF1A; <code>--set a=b,c=d</code> &#x7B49;&#x4EF7;&#x4E8E;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">a</span><span class="token punctuation">:</span> b
+<span class="token key atrule">c</span><span class="token punctuation">:</span> d
+</code></pre>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x590D;&#x6742;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C; <code>--set outer.inner=value</code> &#x7B49;&#x4EF7;&#x4E8E;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">outer</span><span class="token punctuation">:</span>
+  <span class="token key atrule">inner</span><span class="token punctuation">:</span> value
+</code></pre>
+<p>&#x5217;&#x8868;&#x53EF;&#x4EE5;&#x7528; <code>{</code> &#x548C; <code>}</code> &#x8FDB;&#x884C;&#x5305;&#x56F4;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C; <code>--set name={a, b, c}</code> &#x7B49;&#x4EF7;&#x4E8E;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> a
+  <span class="token punctuation">-</span> b
+  <span class="token punctuation">-</span> c
+</code></pre>
+<p>&#x81EA; Helm 2.5.0 &#x7248;&#x672C;&#x540E;&#xFF0C;&#x8FD8;&#x5141;&#x8BB8;&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x7684;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE;&#x5217;&#x8868;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;<code>--set servers[0].port=80</code>&#x7B49;&#x4EF7;&#x4E8E;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">servers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+</code></pre>
+<p>&#x5217;&#x8868;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x6709;&#x591A;&#x4E2A;Key&#x65F6;&#xFF0C;&#x8BBE;&#x7F6E;&#x65B9;&#x5F0F;  <code>--set servers[0].port=80,servers[0].host=example</code> &#x5BF9;&#x5E94;&#x4E8E;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">servers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+    <span class="token key atrule">host</span><span class="token punctuation">:</span> example
+</code></pre>
+<p>&#x6709;&#x65F6;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5728; --set &#x4E2D;&#x4F20;&#x9012;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#xFF0C;&#x6B64;&#x65F6;&#x5219;&#x9700;&#x8981;&#x901A;&#x8FC7; \ &#x8FDB;&#x884C;&#x8F6C;&#x4E49;&#xFF0C;&#x5E76;&#x7528;&#x53CC;&#x5F15;&#x53F7;&#x5305;&#x56F4;&#xFF0C;&#x4F8B;&#x5982; <code>--set name=value1\,value2</code> &#x5BF9;&#x5E94;&#x4E8E;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">&quot;value1,value2&quot;</span>
+</code></pre>
+<p>&#x7C7B;&#x4F3C;&#x7684;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;key&#x4E2D;&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x7B56;&#x7565;&#xFF0C; <code>--set nodeSelector.&quot;kubernetes\.io/role&quot;=master</code> &#x5BF9;&#x5E94;&#x4E8E;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">nodeSelector</span><span class="token punctuation">:</span>
+  <span class="token key atrule">kubernetes.io/role</span><span class="token punctuation">:</span> master
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x591A;&#x5C42;&#x5D4C;&#x5957;&#x7684;&#x7ED3;&#x6784;&#x800C;&#x8A00;&#xFF0C;--set&#x8868;&#x8FBE;&#x5F0F;&#x4F7F;&#x7528;&#x76F8;&#x5BF9;&#x590D;&#x6742;&#x3002;&#x56E0;&#x6B64;&#x5728;&#x8BBE;&#x8BA1; <code>values.yaml</code> &#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x8981;&#x8003;&#x8651; --set &#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF0C;&#x5C3D;&#x91CF;&#x907F;&#x514D;&#x591A;&#x5C42;&#x5D4C;&#x5957;&#x3002;</p>
+<p>&#x76F8;&#x5173;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x4E86;&#x89E3;&#xFF1A;<a href="../5chart_template_guide/values_files">Values Files</a></p>
+<h3 id="&#x66F4;&#x591A;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;"><a name="&#x66F4;&#x591A;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x66F4;&#x591A;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x66F4;&#x591A;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;</h3>
+<p><code>helm install</code> &#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5B89;&#x88C5;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;helm&#x6E90;&#xFF0C;&#x5305;&#x62EC;&#xFF1A;</p>
+<ul>
+<li>A chart repository (&#x4E4B;&#x524D;&#x7684;&#x793A;&#x4F8B;)</li>
+<li>&#x672C;&#x5730;chart&#x5305; (<code>helm install foo foo-0.1.1.tgz</code>)</li>
+<li>&#x89E3;&#x538B;&#x540E;&#x7684;chart&#x76EE;&#x5F55; (<code>helm install foo path/to/foo</code>)</li>
+<li>&#x5B8C;&#x6210;&#x7684;Chart&#x5305;Url&#x5730;&#x5740; (<code>helm install foo https://example.com/charts/foo-1.2.3.tgz</code>)</li>
+</ul>
+<h2 id="helm-upgrade-and-helm-rollback-release&#x7684;&#x5347;&#x7EA7;&#x4E0E;&#x56DE;&#x6EDA;"><a name="helm-upgrade-and-helm-rollback-release&#x7684;&#x5347;&#x7EA7;&#x4E0E;&#x56DE;&#x6EDA;" class="anchor-navigation-ex-anchor" href="#helm-upgrade-and-helm-rollback-release&#x7684;&#x5347;&#x7EA7;&#x4E0E;&#x56DE;&#x6EDA;"><i class="fa fa-link" aria-hidden="true"></i></a>&apos;helm upgrade&apos; and &apos;helm rollback&apos;: Release&#x7684;&#x5347;&#x7EA7;&#x4E0E;&#x56DE;&#x6EDA;</h2>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x65B0;&#x7248;&#x672C;&#x7684;chart&#x53D1;&#x5E03;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5E0C;&#x671B;&#x5BF9;&#x6211;&#x4EEC;&#x7684;release&#x8FDB;&#x884C;&#x5347;&#x7EA7;&#x3002;
+&#x6B64;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm upgrade</code> &#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x5347;&#x7EA7;&#x64CD;&#x4F5C;&#x5C06;&#x57FA;&#x4E8E;&#x4F60;&#x63D0;&#x4F9B;&#x7684;&#x4FE1;&#x606F;&#x548C;&#x5F53;&#x524D;&#x7684;release&#x7248;&#x672C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;
+&#x7531;&#x4E8E;Kubernetes&#x7684;charts&#x53EF;&#x80FD;&#x4F1A;&#x975E;&#x5E38;&#x7684;&#x590D;&#x6742;&#x548C;&#x5E9E;&#x5927;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;Helm&#x4F1A;&#x5C1D;&#x8BD5;&#x8FDB;&#x884C;&#x589E;&#x91CF;&#x5347;&#x7EA7;&#x3002;
+&#x4E5F;&#x5C31;&#x8BF4;&#x4EC5;&#x4EC5;&#x66F4;&#x65B0;&#x6700;&#x8FD1;&#x4E00;&#x6B21;release&#x53D8;&#x52A8;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<pre class="language-"><code>$ helm upgrade -f panda.yaml happy-panda stable/mariadb
+Fetched stable/mariadb-0.3.0.tgz to /Users/mattbutcher/Code/Go/src/helm.sh/helm/mariadb-0.3.0.tgz
+happy-panda has been upgraded. Happy Helming!
+Last Deployed: Wed Sep 28 12:47:54 2016
+Namespace: default
+Status: DEPLOYED
+...
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C; <code>happy-panda</code> release &#x7684;&#x5347;&#x7EA7;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;&#x76F8;&#x540C;&#x7684;charts&#xFF0C;&#x4F46;&#x662F;&#x4F20;&#x9012;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;yaml&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">mariadb.auth.username</span><span class="token punctuation">:</span> user1
+</code></pre>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x7528; <code>helm get values</code> &#x53BB;&#x67E5;&#x8BE2;&#x65B0;&#x7684;&#x914D;&#x7F6E;&#x662F;&#x5426;&#x6B63;&#x5E38;&#x751F;&#x6548;&#x4E86;&#x3002;</p>
+<pre class="language-"><code>$ helm get values happy-panda
+mariadb:
+  auth:
+    username: user1
+</code></pre><p><code>helm get</code> &#x547D;&#x4EE4;&#x5728;&#x67E5;&#x8BE2;&#x96C6;&#x7FA4;&#x4E2D;&#x7684;&#x53D1;&#x5E03;&#x4FE1;&#x606F;&#x65F6;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;
+&#x5982;&#x4E0A;&#x6240;&#x793A;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4ECE; <code>panda.yaml</code> &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x83B7;&#x53D6;&#x7684;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x7248;&#x672C;&#x5728;&#x53D1;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x5B58;&#x5728;&#x95EE;&#x9898;&#xFF0C;&#x5219;&#x5F88;&#x5BB9;&#x6613;&#x8FDB;&#x884C;&#x56DE;&#x6EDA;&#x3002;
+&#x4F7F;&#x7528;<code>helm rollback [RELEASE] [REVISION]</code>&#x5C31;&#x53EF;&#x4EE5;&#x56DE;&#x6EDA;&#x81F3;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x3002;</p>
+<pre class="language-"><code>$ helm rollback happy-panda 1
+</code></pre><p>&#x4E0A;&#x8FF0;&#x7684;&#x56DE;&#x6EDA;&#x64CD;&#x4F5C;&#x5C06;happy-panda&#x56DE;&#x6EDA;&#x56DE;&#x4E86;&#x7B2C;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x3002;
+release&#x7684;&#x7248;&#x672C;&#x53F7;&#x662F;&#x4E00;&#x4E2A;&#x589E;&#x91CF;&#x589E;&#x52A0;&#x7684;&#x7248;&#x672C;&#x53F7;&#x3002;
+&#x6BCF;&#x5F53;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x5B89;&#x88C5;&#x3001;&#x5347;&#x7EA7;&#x6216;&#x8005;&#x56DE;&#x6EDA;&#x7B49;&#x65F6;&#xFF0C;&#x7248;&#x672C;&#x53F7;&#x90FD;&#x4F1A;+1&#x3002;
+&#x4E00;&#x4E2A;&#x65B0;&#x521B;&#x5EFA;&#x7684;release&#x7684;&#x7248;&#x672C;&#x53F7;&#x4E3A;1&#x3002;
+&#x540C;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm history [RELEASE]</code> &#x547D;&#x4EE4;&#x67E5;&#x8BE2;&#x6307;&#x5B9A;release&#x7684;&#x7248;&#x672C;&#x4FE1;&#x606F;&#x3002;</p>
+<h2 id="&#x5B89;&#x88C5;&#x3001;&#x5347;&#x7EA7;&#x3001;&#x56DE;&#x6EDA;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x53C2;&#x6570;"><a name="&#x5B89;&#x88C5;&#x3001;&#x5347;&#x7EA7;&#x3001;&#x56DE;&#x6EDA;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x5B89;&#x88C5;&#x3001;&#x5347;&#x7EA7;&#x3001;&#x56DE;&#x6EDA;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;&#x3001;&#x5347;&#x7EA7;&#x3001;&#x56DE;&#x6EDA;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x53C2;&#x6570;</h2>
+<p>&#x5728;&#x5B89;&#x88C5;&#x3001;&#x5347;&#x7EA7;&#x3001;&#x56DE;&#x6EDA;&#x7B49;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6709;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5B9A;&#x5236;&#x64CD;&#x4F5C;&#x7684;&#x884C;&#x4E3A;&#x3002;
+&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4E0B;&#x9762;&#x5217;&#x51FA;&#x7684;&#x9009;&#x9879;&#x5E76;&#x4E0D;&#x662F;&#x5168;&#x90E8;&#x7684;&#x9009;&#x9879;&#xFF0C;&#x66F4;&#x591A;&#x7684;&#x9009;&#x9879;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>helm <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>command</span><span class="token punctuation">&gt;</span></span> --help</code> &#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#x3002;</p>
+<ul>
+<li><code>--wait</code>: &#x7B49;&#x5F85;&#x6240;&#x6709;&#x7684;Pod&#x72B6;&#x6001;&#x53D8;&#x4E3A;Ready&#xFF0C;PVC&#x90FD;&#x7ED1;&#x5B9A;&#x6210;&#x529F;&#xFF0C;Service&#x5B8C;&#x6210;IP&#x5206;&#x914D;&#x3002;&#x4ED6;&#x5C06;&#x4F1A;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x76F4;&#x5230;&#x8D85;&#x65F6;&#x6216;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x3002;</li>
+<li><code>--timeout</code>: &#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; <code>5m0s</code></li>
+<li><code>--no-hooks</code>: &#x8DF3;&#x8FC7;hook</li>
+</ul>
+<h2 id="helm-uninstall-&#x5220;&#x9664;&#x4E00;&#x4E2A;release&#x5BF9;&#x8C61;"><a name="helm-uninstall-&#x5220;&#x9664;&#x4E00;&#x4E2A;release&#x5BF9;&#x8C61;" class="anchor-navigation-ex-anchor" href="#helm-uninstall-&#x5220;&#x9664;&#x4E00;&#x4E2A;release&#x5BF9;&#x8C61;"><i class="fa fa-link" aria-hidden="true"></i></a>&apos;helm uninstall&apos;: &#x5220;&#x9664;&#x4E00;&#x4E2A;Release&#x5BF9;&#x8C61;</h2>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5220;&#x9664;&#x4E00;&#x4E2A;release&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre class="language-"><code>$ helm uninstall happy-panda
+</code></pre><p>&#x4E0A;&#x8FF0;&#x547D;&#x4EE4;&#x5C06;&#x4F1A;&#x4ECE;&#x96C6;&#x7FA4;&#x4E2D;&#x79FB;&#x9664;&#x5BF9;&#x5E94;&#x7684;release&#x3002;
+&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm list</code> &#x547D;&#x4EE4;&#x67E5;&#x8BE2;&#x5F53;&#x524D;&#x5DF2;&#x7ECF;&#x90E8;&#x7F72;&#x7684;&#x6240;&#x6709;release&#x5BF9;&#x8C61;&#x3002;</p>
+<pre class="language-"><code>$ helm list
+NAME            VERSION UPDATED                         STATUS          CHART
+inky-cat        1       Wed Sep 28 12:59:46 2016        DEPLOYED        alpine-0.1.0
+</code></pre><p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;<code>happy-panda</code> release&#x5DF2;&#x7ECF;&#x88AB;&#x6B63;&#x5E38;&#x5220;&#x9664;&#x4E86;&#x3002;</p>
+<p>&#x5728;Helm&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x4E2D;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;release&#x5BF9;&#x8C61;&#x88AB;&#x5220;&#x9664;&#x540E;&#xFF0C;&#x5B83;&#x7684;&#x5220;&#x9664;&#x8BB0;&#x5F55;&#x8FD8;&#x4F1A;&#x88AB;&#x4FDD;&#x7559;&#x3002;
+&#x4F46;&#x662F;&#x5728;Helm3&#x4E2D;&#xFF0C;&#x5220;&#x9664;release&#x5BF9;&#x8C61;&#x65F6;&#x4E5F;&#x4F1A;&#x540C;&#x6B65;&#x5220;&#x9664;&#x5BF9;&#x5E94;&#x7684;&#x53D1;&#x5E03;&#x8BB0;&#x5F55;&#x3002;
+&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5305;&#x542B;release&#x7684;&#x5220;&#x9664;&#x8BB0;&#x5F55;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5220;&#x9664;&#x65F6;&#x4F7F;&#x7528;&#xFF1A; <code>helm uninstall --keep-history</code>
+&#x6B64;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm list --uninstalled</code> &#x547D;&#x4EE4;&#x67E5;&#x8BE2;&#x5F53;&#x524D;&#x5DF2;&#x7ECF;&#x88AB;&#x5220;&#x9664;&#x7684;release&#x5BF9;&#x8C61;&#x3002;</p>
+<p><code>helm list --all</code> &#x5C06;&#x4F1A;&#x67E5;&#x8BE2;&#x6240;&#x6709;release&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x62EC;&#x4F7F;&#x7528;--keep-history&#x53C2;&#x6570;&#x5220;&#x9664;&#x7684;release&#x3002;</p>
+<pre class="language-"><code>$  helm list --all
+NAME            VERSION UPDATED                         STATUS          CHART
+happy-panda     2       Wed Sep 28 12:47:54 2016        UNINSTALLED     mariadb-0.3.0
+inky-cat        1       Wed Sep 28 12:59:46 2016        DEPLOYED        alpine-0.1.0
+kindred-angelf  2       Tue Sep 27 16:16:10 2016        UNINSTALLED     alpine-0.1.0
+</code></pre><p>&#x7531;&#x4E8E;&#x73B0;&#x5728;release&#x8BB0;&#x5F55;&#x9ED8;&#x8BA4;&#x4F1A;&#x88AB;&#x5220;&#x9664;&#xFF0C;&#x56E0;&#x6B64;&#x60F3;&#x8981;&#x56DE;&#x6EDA;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x88AB;&#x5220;&#x9664;&#x7684;release&#x5BF9;&#x8C61;&#x662F;&#x65E0;&#x6CD5;&#x5B8C;&#x6210;&#x7684;&#x3002;</p>
+<h2 id="helm-repo-repositories&#x64CD;&#x4F5C;"><a name="helm-repo-repositories&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#helm-repo-repositories&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>&apos;helm repo&apos;: Repositories&#x64CD;&#x4F5C;</h2>
+<p>Helm3&#x4E2D;&#xFF0C;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x9ED8;&#x8BA4;&#x6DFB;&#x52A0;&#x76F8;&#x5173;&#x7684;repo&#x6E90;&#x4E86;&#x3002;
+<code>helm repo</code>&#x547D;&#x4EE4;&#x7EC4;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7EC4;&#x547D;&#x4EE4;&#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x3001;&#x67E5;&#x8BE2;&#x548C;&#x5220;&#x9664;repo&#x6E90;&#x3002;</p>
+<p><code>helm repo list</code> &#x53EF;&#x4EE5;&#x67E5;&#x8BE2;&#x5F53;&#x524D;&#x7684;repo&#x6E90;:</p>
+<pre class="language-"><code>$ helm repo list
+NAME            URL
+stable          https://charts.helm.sh/stable
+mumoshu         https://mumoshu.github.io/charts
+</code></pre><p><code>helm repo add</code> &#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x65B0;&#x7684;repo&#x6E90;:</p>
+<pre class="language-"><code>$ helm repo add dev https://example.com/dev-charts
+</code></pre><p>&#x7531;&#x4E8E;chart repo&#x4F1A;&#x9891;&#x7E41;&#x7684;&#x53D8;&#x66F4;&#xFF0C;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x4F60;&#x7684;&#x6E90;&#x4FE1;&#x606F;&#x4E0E;&#x6700;&#x65B0;&#x65B0;&#x7684;&#x540C;&#x6B65;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7ECF;&#x5E38;&#x8FD0;&#x884C; <code>helm repo update</code> &#x8FDB;&#x884C;&#x6E90;&#x4FE1;&#x606F;&#x540C;&#x6B65;&#x3002;</p>
+<p><code>helm repo remove</code> &#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5220;&#x9664;repo&#x6E90;&#x3002;</p>
+<h2 id="&#x521B;&#x5EFA;&#x4F60;&#x81EA;&#x5DF1;&#x7684;charts"><a name="&#x521B;&#x5EFA;&#x4F60;&#x81EA;&#x5DF1;&#x7684;charts" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x4F60;&#x81EA;&#x5DF1;&#x7684;charts"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x4F60;&#x81EA;&#x5DF1;&#x7684;charts</h2>
+<p><a href="../topics/charts.md">Chart Development Guide</a> &#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E86;&#x5982;&#x4F55;&#x5236;&#x4F5C;&#x81EA;&#x5DF1;&#x7684;charts&#x3002;
+&#x6B64;&#x65F6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm create</code> &#x547D;&#x4EE4;&#x6765;&#x5FEB;&#x901F;&#x4F53;&#x9A8C;&#x4E00;&#x4E0B;:</p>
+<pre class="language-"><code>$ helm create deis-workflow
+Creating deis-workflow
+</code></pre><p>&#x6B64;&#x65F6;&#x5C31;&#x4F1A;&#x6709;&#x4E00;&#x4E2A; <code>./deis-workflow</code> &#x76EE;&#x5F55;. &#x4F60;&#x53EF;&#x4EE5;&#x7F16;&#x8F91;&#x5B83;&#x5E76;&#x4E14;&#x521B;&#x5EFA;&#x81EA;&#x5DF1;&#x7684;&#x6A21;&#x677F;&#x3002;</p>
+<p>&#x5F53;&#x4F60;&#x7F16;&#x8F91;&#x4F60;&#x7684;charts&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm lint</code> &#x9A8C;&#x8BC1;&#x683C;&#x5F0F;&#x662F;&#x5426;&#x5408;&#x6CD5;&#x3002;</p>
+<p>&#x5F53;&#x4F60;&#x7684;&#x5305;&#x5185;&#x5BB9;&#x5236;&#x4F5C;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD0;&#x884C; <code>helm package</code> &#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x6253;&#x5305;&#x3002;</p>
+<pre class="language-"><code>$ helm package deis-workflow
+deis-workflow-0.1.0.tgz
+</code></pre><p>&#x6B64;&#x65F6;&#xFF0C;&#x5236;&#x4F5C;&#x5B8C;&#x6210;&#x7684;&#x5305;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>helm install</code> &#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x5B89;&#x88C5;:</p>
+<pre class="language-"><code>$ helm install deis-workflow ./deis-workflow-0.1.0.tgz
+...
+</code></pre><p>&#x6253;&#x5305;&#x540E;&#x7684;charts&#x53EF;&#x4EE5;&#x88AB;&#x4E0A;&#x4F20;&#x5230;repo&#x4ED3;&#x5E93;&#x4E2D;&#x3002;&#x66F4;&#x591A;&#x7EC6;&#x8282;&#x53EF;&#x4EE5;&#x53C2;&#x8003; <a href="https://helm.sh/zh/docs/topics/chart_repository" target="_blank">Helm Chart&#x4ED3;&#x5E93;</a> &#x3002;</p>
+<h2 id="&#x603B;&#x7ED3;"><a name="&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x603B;&#x7ED3;</h2>
+<p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x8BB2;&#x89E3;&#x4E86; <code>helm</code> &#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF0C;&#x5305;&#x542B;&#x67E5;&#x8BE2;&#x3001;&#x5B89;&#x88C5;&#x3001;&#x5347;&#x7EA7;&#x3001;&#x5378;&#x8F7D;&#x7B49;&#x3002;
+&#x540C;&#x65F6;&#xFF0C;&#x8FD8;&#x8BB2;&#x89E3;&#x4E86;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x4F8B;&#x5982; <code>helm status</code>, <code>helm get</code> &#x548C; <code>helm repo</code>.</p>
+<p>&#x66F4;&#x591A;&#x5173;&#x4E8E;helm&#x547D;&#x4EE4;&#x884C;&#x76F8;&#x5173;&#x7684;&#x4ECB;&#x7ECD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;help&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#xFF1A;</p>
+<p><code>helm help</code></p>
+<p><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> By <a href="https://github.com/wangzhe0912" target="_blank">wangzhe0912</a>&#xFF0C;&#x4F7F;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">&#x77E5;&#x8BC6;&#x5171;&#x4EAB; &#x7F72;&#x540D;-&#x76F8;&#x540C;&#x65B9;&#x5F0F;&#x5171;&#x4EAB; 4.0&#x534F;&#x8BAE;</a>&#x53D1;&#x5E03; </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> &#x6B64;&#x9875;&#x9762;&#x4FEE;&#x8BA2;&#x4E8E;&#xFF1A; 2021-07-20 01:53:58 </span> </footer><hr><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'tE5W1eagY05N4M7ScOhP2gJM-gzGzoHsz',appKey: '1MzIFXCWSBYoIsM7JKg4X6So',placeholder: 'Just go go',avatar: '',meta: undefined,pageSize: 10,lang: 'zh-CN',recordIP: false})</script></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="install.html" class="navigation navigation-prev " aria-label="Previous page: 安装Helm">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../chap02/" class="navigation navigation-next " aria-label="Next page: 概述">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"helm命令行简介","level":"2.3","depth":1,"next":{"title":"概述","level":"3.1","depth":1,"path":"chap02/index.md","ref":"./chap02/index.md","articles":[]},"previous":{"title":"安装Helm","level":"2.2","depth":1,"path":"chap01/install.md","ref":"chap01/install.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","github-buttons","editlink","ga","-highlight","prism","bibtex-indexed-cite","anchor-navigation-ex","page-footer-ex","splitter","copy-code-button","expandable-chapters-small","valine","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"ignore":["mermaid","eval-js"],"css":["prismjs/themes/prism-solarizedlight.css"]},"editlink":{"label":"Edit","multilingual":false,"base":"https://github.com/wangzhe0912/helm3-book/blob/master"},"page-footer-ex":{"copyright":"By [wangzhe0912](https://github.com/wangzhe0912)，使用[知识共享 署名-相同方式共享 4.0协议](https://creativecommons.org/licenses/by-sa/4.0/)发布","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"此页面修订于："},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"https://wangzhe0912.github.io/helm3-book/alipay.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"https://wangzhe0912.github.io/helm3-book/wechat.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"bibtex-indexed-cite":{"path":"/"},"github-buttons":{"buttons":[{"user":"wangzhe0912","repo":"helm3-book","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"copy-code-button":{},"ga":{"configuration":"auto","token":"UA-131910384-3"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"valine":{"avatar":"","lang":"zh-CN","pageSize":10,"placeholder":"Just go go","recordIP":false,"appId":"tE5W1eagY05N4M7ScOhP2gJM-gzGzoHsz","appKey":"1MzIFXCWSBYoIsM7JKg4X6So"}},"theme":"default","author":"","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bibCount":0,"variables":{},"title":"title","bib":[],"gitbook":"*"},"file":{"path":"chap01/using_helm.md","mtime":"2021-07-20T01:53:58.808Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-20T01:54:42.410Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

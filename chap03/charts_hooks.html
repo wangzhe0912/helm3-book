@@ -1,0 +1,869 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Charts hooks详解 · title</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bibtex-indexed-cite/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chart_tests.html" />
+    
+    
+    <link rel="prev" href="charts.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"wangzhe0912","repo":"helm3-book","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Tutorial</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../chap01/quickstart.html">
+            
+                <a href="../chap01/quickstart.html">
+            
+                    
+                    快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../chap01/install.html">
+            
+                <a href="../chap01/install.html">
+            
+                    
+                    安装Helm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../chap01/using_helm.html">
+            
+                <a href="../chap01/using_helm.html">
+            
+                    
+                    helm命令行简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">如何使用</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../chap02/charts_tips_and_tricks.html">
+            
+                <a href="../chap02/charts_tips_and_tricks.html">
+            
+                    
+                    Chart编写小技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../chap02/chart_repository_sync_example.html">
+            
+                <a href="../chap02/chart_repository_sync_example.html">
+            
+                    
+                    Repo同步示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Topic Guides</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="charts.html">
+            
+                <a href="charts.html">
+            
+                    
+                    Charts详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.2" data-path="charts_hooks.html">
+            
+                <a href="charts_hooks.html">
+            
+                    
+                    Charts hooks详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="chart_tests.html">
+            
+                <a href="chart_tests.html">
+            
+                    
+                    Charts测试篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="library_charts.html">
+            
+                <a href="library_charts.html">
+            
+                    
+                    Library Charts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="provenance.html">
+            
+                <a href="provenance.html">
+            
+                    
+                    Chart起源验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="chart_repository.html">
+            
+                <a href="chart_repository.html">
+            
+                    
+                    ChartRepo指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="registries.html">
+            
+                <a href="registries.html">
+            
+                    
+                    注册中心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="architecture.html">
+            
+                <a href="architecture.html">
+            
+                    
+                    Helm架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="advanced.html">
+            
+                <a href="advanced.html">
+            
+                    
+                    Helm高级功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="kubernetes_distros.html">
+            
+                <a href="kubernetes_distros.html">
+            
+                    
+                    Helm与K8s发布版本说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="rbac.html">
+            
+                <a href="rbac.html">
+            
+                    
+                    rbac权限控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="plugins.html">
+            
+                <a href="plugins.html">
+            
+                    
+                    Helm插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.13" data-path="v2_v3_migration.html">
+            
+                <a href="v2_v3_migration.html">
+            
+                    
+                    Helm2迁移到Helm3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">最佳实践</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    4-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Chart 模板开发</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../chap05/getting_started.html">
+            
+                <a href="../chap05/getting_started.html">
+            
+                    
+                    Chart 模板开发引言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../chap05/builtin_objects.html">
+            
+                <a href="../chap05/builtin_objects.html">
+            
+                    
+                    Chart 中的内置变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">helm命令行工具</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    6-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">community</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    7-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">FAQ</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    8-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">附录</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    9-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Charts hooks详解</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#chart-hooks&#x8BE6;&#x89E3;"><b></b>Chart Hooks&#x8BE6;&#x89E3;</a></li><ul><li><span class="title-icon "></span><a href="#&#x53EF;&#x7528;&#x7684;hooks"><b></b>&#x53EF;&#x7528;&#x7684;Hooks</a></li><li><span class="title-icon "></span><a href="#hooks-&#x4E0E;-the-release-&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"><b></b>Hooks &#x4E0E; the Release &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</a></li><ul><li><span class="title-icon "></span><a href="#hook&#x8D44;&#x6E90;&#x4E0D;&#x53D7;release&#x5BF9;&#x8C61;&#x63A7;&#x5236;"><b></b>Hook&#x8D44;&#x6E90;&#x4E0D;&#x53D7;release&#x5BF9;&#x8C61;&#x63A7;&#x5236;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7F16;&#x5199;&#x4E00;&#x4E2A;hook"><b></b>&#x7F16;&#x5199;&#x4E00;&#x4E2A;Hook</a></li><ul><li><span class="title-icon "></span><a href="#hook-&#x5220;&#x9664;&#x7B56;&#x7565;"><b></b>Hook &#x5220;&#x9664;&#x7B56;&#x7565;</a></li></ul></ul></ul></div><a href="#chart-hooks&#x8BE6;&#x89E3;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="chart-hooks&#x8BE6;&#x89E3;"><a name="chart-hooks&#x8BE6;&#x89E3;" class="anchor-navigation-ex-anchor" href="#chart-hooks&#x8BE6;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>Chart Hooks&#x8BE6;&#x89E3;</h1>
+<p>Helm&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A; Hook &#x7684;&#x673A;&#x5236;&#x53EF;&#x4EE5;&#x4F7F;&#x5F97;Charts&#x5F00;&#x53D1;&#x8005;&#x80FD;&#x591F;&#x5728;release&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x5408;&#x9002;&#x65F6;&#x673A;&#x8FDB;&#x884C;&#x5E72;&#x9884;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;hooks&#x8FDB;&#x884C;&#xFF1A;</p>
+<ul>
+<li>&#x5728;&#x5176;&#x4ED6;Charts&#x5B89;&#x88C5;&#x4E4B;&#x524D;&#x9996;&#x5148;&#x521B;&#x5EFA;ConfigMap&#x548C;Secret&#x3002;</li>
+<li>&#x5728;&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Chart&#x4E4B;&#x524D;&#xFF0C;&#x9996;&#x5148;&#x6267;&#x884C;&#x4E00;&#x4E2A;Job&#x7528;&#x4E8E;&#x5907;&#x4EFD;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5347;&#x7EA7;&#x5B8C;&#x6210;&#x540E;&#x6267;&#x884C;&#x7B2C;&#x4E8C;&#x4E2A;Job&#x7528;&#x6237;&#x6062;&#x590D;&#x6570;&#x636E;&#x3002;</li>
+<li>&#x5728;&#x5220;&#x9664;release&#x5BF9;&#x8C61;&#x4E4B;&#x524D;&#xFF0C;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;Job&#x7528;&#x4E8E;&#x4F7F;&#x5F97;&#x670D;&#x52A1;&#x80FD;&#x591F;&#x4F18;&#x96C5;&#x9000;&#x51FA;&#x3002;</li>
+</ul>
+<p>Hooks&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x4E0E;&#x4E00;&#x822C;&#x7684;&#x6A21;&#x677F;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x6807;&#x6CE8;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x8BA9;Helm&#x5BF9;&#x5B83;&#x4EEC;&#x8FDB;&#x884C;&#x7279;&#x6B8A;&#x5904;&#x7406;&#x3002;
+&#x5728;&#x672C;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x8BB2;&#x89E3;Hook&#x6A21;&#x5F0F;&#x7684;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<h2 id="&#x53EF;&#x7528;&#x7684;hooks"><a name="&#x53EF;&#x7528;&#x7684;hooks" class="anchor-navigation-ex-anchor" href="#&#x53EF;&#x7528;&#x7684;hooks"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53EF;&#x7528;&#x7684;Hooks</h2>
+<p>Helm&#x5185;&#x7F6E;&#x5B9A;&#x4E49;&#x4E86;&#x5982;&#x4E0B;&#x7684;Hooks:</p>
+<table>
+<thead>
+<tr>
+<th>&#x6CE8;&#x91CA;&#x540D;&#x79F0;</th>
+<th>&#x529F;&#x80FD;&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pre-install</code></td>
+<td>&#x6267;&#x884C;&#x65F6;&#x673A;: &#x6A21;&#x677F;&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x5411;K8s&#x63D0;&#x4EA4;&#x4E4B;&#x524D;</td>
+</tr>
+<tr>
+<td><code>post-install</code></td>
+<td>&#x6267;&#x884C;&#x65F6;&#x673A;: &#x6240;&#x6709;&#x8D44;&#x6E90;&#x5BF9;&#x8C61;&#x90FD;&#x5DF2;&#x7ECF;&#x63D0;&#x4EA4;&#x7ED9;K8s&#x4E4B;&#x540E;</td>
+</tr>
+<tr>
+<td><code>pre-delete</code></td>
+<td>&#x6267;&#x884C;&#x65F6;&#x673A;: &#x5BF9;&#x4E8E;delete&#x8BF7;&#x6C42;&#xFF0C;&#x5728;&#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x7ED9;K8s&#x4E4B;&#x524D;</td>
+</tr>
+<tr>
+<td><code>post-delete</code></td>
+<td>&#x6267;&#x884C;&#x65F6;&#x673A;: &#x5BF9;&#x4E8E;delete&#x8BF7;&#x6C42;&#xFF0C;&#x5728;&#x8BF7;&#x6C42;&#x53D1;&#x9001;&#x7ED9;K8s&#x4E4B;&#x540E;</td>
+</tr>
+<tr>
+<td><code>pre-upgrade</code></td>
+<td>&#x6267;&#x884C;&#x65F6;&#x673A;: &#x5BF9;&#x4E8E;&#x5347;&#x7EA7;&#x8BF7;&#x6C42;&#xFF0C;&#x6A21;&#x677F;&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x5411;K8s&#x63D0;&#x4EA4;&#x4E4B;&#x524D;</td>
+</tr>
+<tr>
+<td><code>post-upgrade</code></td>
+<td>&#x6267;&#x884C;&#x65F6;&#x673A;: &#x5BF9;&#x4E8E;&#x5347;&#x7EA7;&#x8BF7;&#x6C42;&#xFF0C;&#x6A21;&#x677F;&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#xFF0C;&#x5E76;&#x63D0;&#x4EA4;K8s&#x4E4B;&#x540E;</td>
+</tr>
+<tr>
+<td><code>pre-rollback</code></td>
+<td>&#x6267;&#x884C;&#x65F6;&#x673A;: &#x5BF9;&#x4E8E;&#x56DE;&#x6EDA;&#x8BF7;&#x6C42;&#xFF0C;&#x6A21;&#x677F;&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x5411;K8s&#x63D0;&#x4EA4;&#x4E4B;&#x524D;</td>
+</tr>
+<tr>
+<td><code>post-rollback</code></td>
+<td>&#x6267;&#x884C;&#x65F6;&#x673A;: &#x5BF9;&#x4E8E;&#x56DE;&#x6EDA;&#x8BF7;&#x6C42;&#xFF0C;&#x6A21;&#x677F;&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#xFF0C;&#x5E76;&#x63D0;&#x4EA4;K8s&#x4E4B;&#x540E;</td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>&#x6267;&#x884C;&#x65F6;&#x673A;: &#x5F53;&#x6267;&#x884C;helm test&#x5B50;&#x547D;&#x4EE4;&#x65F6;&#x88AB;&#x8C03;&#x7528; (<a href="../docs/chart_tests">view test docs</a>)</td>
+</tr>
+</tbody>
+</table>
+<p>Ps: &#x5728;helm3&#x4E2D;&#xFF0C;<code>crd-install</code> hook&#x5DF2;&#x7ECF;&#x88AB;&#x79FB;&#x9664;&#x3002;</p>
+<h2 id="hooks-&#x4E0E;-the-release-&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"><a name="hooks-&#x4E0E;-the-release-&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;" class="anchor-navigation-ex-anchor" href="#hooks-&#x4E0E;-the-release-&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"><i class="fa fa-link" aria-hidden="true"></i></a>Hooks &#x4E0E; the Release &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</h2>
+<p>Hooks&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;Chart&#x5F00;&#x53D1;&#x8005;&#x5728;release&#x58F0;&#x660E;&#x5468;&#x671F;&#x4E2D;&#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x7B56;&#x7565;&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4E00;&#x4E9B;&#x76F8;&#x5173;&#x7684;&#x64CD;&#x4F5C;&#x3002;
+&#x4EE5; <code>helm install</code> &#x7684;&#x58F0;&#x660E;&#x5468;&#x671F;&#x4E3A;&#x4F8B;&#xFF1A;</p>
+<ol>
+<li>&#x7528;&#x6237;&#x8FD0;&#x884C; <code>helm install foo</code> &#x547D;&#x4EE4;</li>
+<li>Helm&#x5E93;&#x4E2D;install API&#x88AB;&#x8C03;&#x7528;</li>
+<li>&#x5728;&#x5B8C;&#x6210;&#x57FA;&#x672C;&#x7684;&#x53C2;&#x6570;&#x9A8C;&#x8BC1;&#x540E;&#xFF0C;&#x6E32;&#x67D3; <code>foo</code> &#x7684;&#x6A21;&#x677F;</li>
+<li>&#x5C06;&#x76F8;&#x5173;&#x7684;&#x8D44;&#x6E90;&#x5BF9;&#x8C61;&#x4FE1;&#x606F;&#x53D1;&#x9001;&#x7ED9;kubernetes</li>
+<li>lib&#x5E93;&#x8FD4;&#x56DE;release&#x5BF9;&#x8C61;&#x6216;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x9000;&#x51FA;</li>
+</ol>
+<p>Helm&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;hooks&#x5728; <code>install</code> &#x64CD;&#x4F5C;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#xFF0C;&#x5206;&#x522B;&#x662F;: <code>pre-install</code> &#x548C; <code>post-install</code>&#x3002;
+&#x5982;&#x679C;&#x5F00;&#x53D1;&#x8005;&#x540C;&#x65F6;&#x5B9E;&#x73B0;&#x4E86; <code>foo</code> chart&#x7684;&#x8FD9;&#x4E24;&#x4E2A;hooks&#xFF0C;&#x90A3;&#x4E48;&#x6574;&#x4F53;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x53D8;&#x4E3A;&#x4E86;&#x5982;&#x4E0B;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ol>
+<li>&#x7528;&#x6237;&#x8FD0;&#x884C; <code>helm install foo</code> &#x547D;&#x4EE4;</li>
+<li>Helm&#x5E93;&#x4E2D;install API&#x88AB;&#x8C03;&#x7528;</li>
+<li><code>crds/</code> &#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x76F8;&#x5173;CRDs&#x88AB;&#x5B89;&#x88C5;&#x5230;K8s&#x4E2D;</li>
+<li>&#x5728;&#x5B8C;&#x6210;&#x57FA;&#x672C;&#x7684;&#x53C2;&#x6570;&#x9A8C;&#x8BC1;&#x540E;&#xFF0C;&#x6E32;&#x67D3; <code>foo</code> &#x7684;&#x6A21;&#x677F;</li>
+<li>lib&#x5E93;&#x51C6;&#x5907;&#x6267;&#x884C; <code>pre-install</code> hooks&#xFF08;&#x52A0;&#x8F7D;hooks&#x8D44;&#x6E90;&#x5230;k8s&#x4E2D;&#xFF09;</li>
+<li>lib&#x5E93;&#x5BF9;hooks&#x6309;&#x7167;&#x6743;&#x91CD;&#xFF08;&#x9ED8;&#x8BA4;&#x6743;&#x91CD;&#x4E3A;0&#xFF09;&#x3001;&#x8D44;&#x6E90;&#x7C7B;&#x578B;&#x3001;&#x540D;&#x79F0;&#x8FDB;&#x884C;&#x5347;&#x5E8F;&#x6392;&#x5E8F;</li>
+<li>&#x6839;&#x636E;&#x6392;&#x5E8F;&#x9006;&#x5E8F;&#x6267;&#x884C;&#x76F8;&#x5173;&#x7684;hooks</li>
+<li>&#x7B49;&#x5F85;Hook&#x7684;&#x72B6;&#x6001;&#x53D8;&#x4E3A;Ready&#xFF08;CRDs&#x9664;&#x5916;&#xFF09;</li>
+<li>&#x63D0;&#x4EA4;&#x6E32;&#x67D3;&#x540E;&#x7684;&#x8D44;&#x6E90;&#x5BF9;&#x8C61;&#x7ED9;K8s&#x3002;Ps&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86; <code>--wait</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;Lib&#x5E93;&#x5C06;&#x4F1A;&#x7B49;&#x5F85;&#x6240;&#x6709;&#x7684;&#x8D44;&#x6E90;&#x5BF9;&#x8C61;&#x72B6;&#x6001;&#x53D8;&#x4E3A;Ready&#x518D;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x3002;</li>
+<li>&#x6267;&#x884C;<code>post-install</code> hook &#xFF08;&#x52A0;&#x8F7D;hooks&#x8D44;&#x6E90;&#x5230;k8s&#x4E2D;&#xFF09;</li>
+<li>Lib&#x5E93;&#x7B49;&#x5F85; hook &#x72B6;&#x6001;&#x53D8;&#x4E3A;Ready&#x3002;</li>
+<li>lib&#x5E93;&#x8FD4;&#x56DE;release&#x5BF9;&#x8C61;&#x6216;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x3002;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x9000;&#x51FA;&#x3002;</li>
+</ol>
+<p>&#x7B49;&#x5F85;Hook&#x6267;&#x884C;&#x5B8C;&#x6210;&#x7684;&#x542B;&#x4E49;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x5B83;&#x53D6;&#x51B3;&#x4E8E;Hook&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x8D44;&#x6E90;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x578B;:</p>
+<p>&#x5982;&#x679C;&#x8D44;&#x6E90;&#x7C7B;&#x578B;&#x662F;<code>Job</code> &#x6216;&#x8005; <code>Pod</code>&#xFF0C;&#x90A3;&#x4E48;Helm&#x5C06;&#x4F1A;&#x7B49;&#x5F85;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x6210;&#x529F;&#x8FD0;&#x884C;&#x5B8C;&#x6210;&#x3002;
+&#x5982;&#x679C;Hook&#x8FD0;&#x884C;&#x5931;&#x8D25;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;Release&#x5BF9;&#x8C61;&#x4E5F;&#x4F1A;&#x521B;&#x5EFA;&#x5931;&#x8D25;&#x3002;
+&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x963B;&#x585E;&#x6027;&#x64CD;&#x4F5C;&#xFF0C;&#x5728;Job&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;helm&#x5BA2;&#x6237;&#x7AEF;&#x4F1A;&#x8FDB;&#x884C;&#x963B;&#x585E;&#x6027;&#x7B49;&#x5F85;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684;&#x8D44;&#x6E90;&#x800C;&#x8A00;&#xFF0C;&#x53EA;&#x8981;K8s&#x6210;&#x529F;&#x52A0;&#x8F7D;&#x4E86;&#x5BF9;&#x5E94;&#x7684;&#x8D44;&#x6E90;&#xFF0C;Helm&#x5C31;&#x8BA4;&#x4E3A;&#x8BE5;&#x8D44;&#x6E90;&#x7684;&#x72B6;&#x6001;&#x5DF2;&#x7ECF;&#x662F; &quot;Ready&quot; &#x4E86;&#x3002;
+&#x5F53;Hook&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x5F88;&#x591A;&#x8D44;&#x6E90;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x8FD9;&#x4E9B;&#x8D44;&#x6E90;&#x5BF9;&#x8C61;&#x4E92;&#x76F8;&#x4E4B;&#x95F4;&#x662F;&#x4E32;&#x884C;&#x6267;&#x884C;&#x7684;&#x3002;
+&#x5982;&#x679C;&#x5BF9;&#x5B83;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x6743;&#x91CD;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4EEC;&#x5C06;&#x4F1A;&#x6309;&#x7167;&#x6743;&#x91CD;&#x5927;&#x5C0F;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x3002;
+&#x4ECE;Helm 3.2.0&#x7248;&#x672C;&#x5F00;&#x59CB;&#xFF0C;&#x62E5;&#x6709;&#x76F8;&#x540C;&#x6743;&#x91CD;&#x7684;hook&#x8D44;&#x6E90;&#x4E0E;&#x666E;&#x901A;&#x8D44;&#x6E90;&#x6267;&#x884C;&#x7684;&#x987A;&#x5E8F;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x53EA;&#x6709;&#x62E5;&#x6709;&#x4E0D;&#x540C;&#x6743;&#x91CD;&#x7684;hook&#x8D44;&#x6E90;&#x624D;&#x80FD;&#x4FDD;&#x8BC1;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x3002;
+&#x6240;&#x4EE5;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x5B9A;&#x4E49;&#x6267;&#x884C;&#x987A;&#x5E8F;&#xFF0C;&#x90A3;&#x4E48;&#x6700;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x4E3B;&#x52A8;&#x8BBE;&#x7F6E;&#x76F8;&#x5173;&#x7684;&#x6743;&#x91CD;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x8BBE;&#x7F6E;&#x6743;&#x91CD;&#x7684;&#x8BDD;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;0&#xFF0C;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x5BF9;&#x987A;&#x5E8F;&#x65E0;&#x5173;&#x3002;</p>
+<h3 id="hook&#x8D44;&#x6E90;&#x4E0D;&#x53D7;release&#x5BF9;&#x8C61;&#x63A7;&#x5236;"><a name="hook&#x8D44;&#x6E90;&#x4E0D;&#x53D7;release&#x5BF9;&#x8C61;&#x63A7;&#x5236;" class="anchor-navigation-ex-anchor" href="#hook&#x8D44;&#x6E90;&#x4E0D;&#x53D7;release&#x5BF9;&#x8C61;&#x63A7;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>Hook&#x8D44;&#x6E90;&#x4E0D;&#x53D7;release&#x5BF9;&#x8C61;&#x63A7;&#x5236;</h3>
+<p>Hook&#x573A;&#x666F;&#x7684;&#x8D44;&#x6E90;&#x76EE;&#x524D;&#x5E76;&#x6CA1;&#x6709;&#x4F5C;&#x4E3A;release&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x8DDF;&#x8E2A;&#x3002;
+&#x4E00;&#x65E6;Helm&#x9A8C;&#x8BC1;&#x8FD9;&#x4E2A;Hook&#x8FBE;&#x5230;&#x4E86;Ready&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x5B83;&#x5C06;&#x4F1A;&#x8BA9;Hook&#x8D44;&#x6E90;&#x81EA;&#x884C;&#x8FDB;&#x884C;&#x8FD0;&#x884C;&#x3002;
+&#x5728;Helm3&#x7684;&#x672A;&#x6765;&#x7684;&#x7248;&#x672C;&#x4E2D;&#xFF0C;&#x4E00;&#x65E6;release&#x88AB;&#x5220;&#x9664;&#x540E;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;hook&#x8D44;&#x6E90;&#x5C06;&#x4F1A;&#x88AB;&#x8FDB;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x3002;
+&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x54EA;&#x4E9B;Hook&#x8D44;&#x6E90;&#x4F60;&#x662F;&#x5E0C;&#x671B;&#x8FDB;&#x884C;&#x6C38;&#x4E45;&#x4FDD;&#x7559;&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x9700;&#x8981;&#x589E;&#x52A0;&#x5982;&#x4E0B;&#x6CE8;&#x91CA;&#xFF1A;<code>helm.sh/resource-policy: keep</code>&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x5982;&#x679C;&#x4F60;&#x5728;hook&#x4E2D;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E9B;&#x8D44;&#x6E90;&#xFF0C;&#x4F60;&#x65E0;&#x6CD5;&#x901A;&#x8FC7; <code>helm uninstall</code> &#x6765;&#x5220;&#x9664;&#x8FD9;&#x4E9B;&#x8D44;&#x6E90;&#x3002;
+&#x4E3A;&#x4E86;&#x5220;&#x9664;&#x8FD9;&#x4E9B;&#x8D44;&#x6E90;&#xFF0C;&#x4E00;&#x65B9;&#x9762;&#x4F60;&#x53EF;&#x4EE5;&#x5728;Hook&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0; <a href="#hook-deletion-policies"> <code>helm.sh/hook-delete-policy</code> &#x6CE8;&#x91CA;</a>&#xFF0C;
+&#x53E6;&#x4E00;&#x65B9;&#x9762;&#x4E5F;&#x53EF;&#x4EE5; <a href="https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/" target="_blank">&#x8BBE;&#x7F6E;&#x8D44;&#x6E90;&#x7684;&#x751F;&#x6548;&#x65F6;&#x95F4;</a>.</p>
+<h2 id="&#x7F16;&#x5199;&#x4E00;&#x4E2A;hook"><a name="&#x7F16;&#x5199;&#x4E00;&#x4E2A;hook" class="anchor-navigation-ex-anchor" href="#&#x7F16;&#x5199;&#x4E00;&#x4E2A;hook"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F16;&#x5199;&#x4E00;&#x4E2A;Hook</h2>
+<p>Hooks&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;&#x4E00;&#x4E9B;&#x5E26;&#x6709;&#x7279;&#x6B8A;&#x6CE8;&#x91CA;&#x7684;K8s yaml&#x6587;&#x4EF6;&#x3002;&#x7531;&#x4E8E;&#x5B83;&#x4EEC;&#x4E5F;&#x5C5E;&#x4E8E;template&#x6587;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Template&#x4E2D;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x529F;&#x80FD;&#xFF0C;&#x4F8B;&#x5982; <code>.Values</code>, <code>.Release</code> &#x4EE5;&#x53CA; <code>.Template</code>&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5BF9;&#x4E8E; <code>templates/post-install-job.yaml</code> &#x8FD9;&#x4E2A;template&#x6587;&#x4EF6;&#x800C;&#x8A00;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;Job&#x5728; <code>post-install</code> &#x65F6;&#x8FD0;&#x884C;&#x3002;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> batch/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Job
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">&quot;{{ .Release.Name }}&quot;</span>
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app.kubernetes.io/managed-by</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Release.Service <span class="token punctuation">|</span> quote <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token key atrule">app.kubernetes.io/instance</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Release.Name <span class="token punctuation">|</span> quote <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token key atrule">app.kubernetes.io/version</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Chart.AppVersion <span class="token punctuation">}</span><span class="token punctuation">}</span>
+    <span class="token key atrule">helm.sh/chart</span><span class="token punctuation">:</span> <span class="token string">&quot;{{ .Chart.Name }}-{{ .Chart.Version }}&quot;</span>
+  <span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+    <span class="token comment"># This is what defines this resource as a hook. Without this line, the</span>
+    <span class="token comment"># job is considered part of the release.</span>
+    <span class="token key atrule">&quot;helm.sh/hook&quot;</span><span class="token punctuation">:</span> post<span class="token punctuation">-</span>install
+    <span class="token key atrule">&quot;helm.sh/hook-weight&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;-5&quot;</span>
+    <span class="token key atrule">&quot;helm.sh/hook-delete-policy&quot;</span><span class="token punctuation">:</span> hook<span class="token punctuation">-</span>succeeded
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">&quot;{{ .Release.Name }}&quot;</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app.kubernetes.io/managed-by</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Release.Service <span class="token punctuation">|</span> quote <span class="token punctuation">}</span><span class="token punctuation">}</span>
+        <span class="token key atrule">app.kubernetes.io/instance</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Release.Name <span class="token punctuation">|</span> quote <span class="token punctuation">}</span><span class="token punctuation">}</span>
+        <span class="token key atrule">helm.sh/chart</span><span class="token punctuation">:</span> <span class="token string">&quot;{{ .Chart.Name }}-{{ .Chart.Version }}&quot;</span>
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">restartPolicy</span><span class="token punctuation">:</span> Never
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> post<span class="token punctuation">-</span>install<span class="token punctuation">-</span>job
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> <span class="token string">&quot;alpine:3.3&quot;</span>
+        <span class="token key atrule">command</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;/bin/sleep&quot;</span><span class="token punctuation">,</span> &quot;<span class="token punctuation">{</span><span class="token punctuation">{</span> default &quot;10&quot; .Values.sleepyTime <span class="token punctuation">}</span><span class="token punctuation">}</span>&quot;<span class="token punctuation">]</span>
+</code></pre>
+<p>&#x51B3;&#x5B9A;&#x8BE5;template&#x80FD;&#x591F;&#x4F5C;&#x4E3A;hooks&#x7684;&#x5173;&#x952E;&#x70B9;&#x662F;&#x5982;&#x4E0B;annotation:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+  <span class="token key atrule">&quot;helm.sh/hook&quot;</span><span class="token punctuation">:</span> post<span class="token punctuation">-</span>install
+</code></pre>
+<p>&#x540C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x4F5C;&#x4E3A;&#x591A;&#x4E2A;hooks:</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+  <span class="token key atrule">&quot;helm.sh/hook&quot;</span><span class="token punctuation">:</span> post<span class="token punctuation">-</span>install<span class="token punctuation">,</span>post<span class="token punctuation">-</span>upgrade
+</code></pre>
+<p>&#x7C7B;&#x4F3C;&#x7684;&#x4E8B;&#xFF0C;&#x5BF9;&#x4E8E;&#x67D0;&#x4E00;&#x4E2A;Hook&#x573A;&#x666F;&#xFF0C;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x8D44;&#x6E90;&#x5BF9;&#x8C61;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;secret&#x548C;&#x4E00;&#x4E2A;ConfigMap&#x90FD;&#x662F; pre-install &#x7684;Hook&#x3002;</p>
+<p>&#x5F53;&#x5B50;Chart&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;Hooks&#x65F6;&#xFF0C;&#x8FD9;&#x4E9B;Hooks&#x4E5F;&#x90FD;&#x4F1A;&#x88AB;&#x8BA1;&#x7B97;&#x548C;&#x6267;&#x884C;&#x3002;
+&#x76EE;&#x524D;&#x8FD8;&#x4E0D;&#x652F;&#x6301;&#x5728;&#x7236;Chart&#x4E2D;&#x7981;&#x7528;&#x5B50;Charts&#x4E2D;&#x5B9A;&#x4E49;&#x7684;Hooks&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49; Hooks &#x7684;&#x6743;&#x91CD;&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x4FDD;&#x8BC1;&#x591A;&#x4E2A;Hooks&#x65F6;&#x6309;&#x7167;&#x6307;&#x5B9A;&#x7684;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x3002;
+&#x6743;&#x91CD;&#x7684;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+  <span class="token key atrule">&quot;helm.sh/hook-weight&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;5&quot;</span>
+</code></pre>
+<p>Hook&#x7684;&#x6743;&#x91CD;&#x53EF;&#x4EE5;&#x662F;&#x6B63;&#x6570;&#x3001;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x8D1F;&#x6570;&#xFF0C;&#x9700;&#x8981;&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5F62;&#x5F0F;&#x8868;&#x793A;&#x3002;
+Helm&#x5728;&#x6267;&#x884C;&#x7279;&#x5B9A;&#x573A;&#x666F;&#x7684;Hooks&#x65F6;&#xFF0C;&#x4F1A;&#x5BF9;&#x8FD9;&#x4E9B;Hooks&#x7684;&#x6743;&#x91CD;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x5E76;&#x4ECE;&#x5927;&#x5230;&#x5C0F;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x3002;</p>
+<h3 id="hook-&#x5220;&#x9664;&#x7B56;&#x7565;"><a name="hook-&#x5220;&#x9664;&#x7B56;&#x7565;" class="anchor-navigation-ex-anchor" href="#hook-&#x5220;&#x9664;&#x7B56;&#x7565;"><i class="fa fa-link" aria-hidden="true"></i></a>Hook &#x5220;&#x9664;&#x7B56;&#x7565;</h3>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49; Hook&#x8D44;&#x6E90;&#x7684;&#x5220;&#x9664;&#x7B56;&#x7565;&#x3002;
+Hook&#x8D44;&#x6E90;&#x5220;&#x9664;&#x7B56;&#x7565;&#x7684;annotation&#x7684;&#x5173;&#x952E;&#x8BCD;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+  <span class="token key atrule">&quot;helm.sh/hook-delete-policy&quot;</span><span class="token punctuation">:</span> before<span class="token punctuation">-</span>hook<span class="token punctuation">-</span>creation<span class="token punctuation">,</span>hook<span class="token punctuation">-</span>succeeded
+</code></pre>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B9A;&#x4E49;&#x597D;&#x7684;annotation&#x503C;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>Annotation Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>before-hook-creation</code></td>
+<td>&#x5728;&#x65B0;Hook&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x5220;&#x9664;&#x4E4B;&#x524D;&#x7684;Hook&#x8D44;&#x6E90; (default)</td>
+</tr>
+<tr>
+<td><code>hook-succeeded</code></td>
+<td>&#x5F53;Hook&#x8D44;&#x6E90;Ready&#x540E;&#xFF0C;&#x5220;&#x9664;&#x5BF9;&#x5E94;&#x7684;Hook&#x8D44;&#x6E90;</td>
+</tr>
+<tr>
+<td><code>hook-failed</code></td>
+<td>&#x5F53;Hook&#x8D44;&#x6E90;&#x6267;&#x884C;&#x5931;&#x8D25;&#x540E;&#xFF0C;&#x5220;&#x9664;&#x5BF9;&#x5E94;&#x7684;Hook&#x8D44;&#x6E90;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x6307;&#x5B9A;Hook&#x7684;&#x5220;&#x9664;&#x7B56;&#x7565;&#xFF0C;&#x90A3;&#x4E48;&#x9ED8;&#x8BA4;&#x7B56;&#x7565;&#x4E3A; <code>before-hook-creation</code>&#x3002;</p>
+<p><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> By <a href="https://github.com/wangzhe0912" target="_blank">wangzhe0912</a>&#xFF0C;&#x4F7F;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">&#x77E5;&#x8BC6;&#x5171;&#x4EAB; &#x7F72;&#x540D;-&#x76F8;&#x540C;&#x65B9;&#x5F0F;&#x5171;&#x4EAB; 4.0&#x534F;&#x8BAE;</a>&#x53D1;&#x5E03; </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> &#x6B64;&#x9875;&#x9762;&#x4FEE;&#x8BA2;&#x4E8E;&#xFF1A; 2021-07-20 01:53:58 </span> </footer><hr><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'tE5W1eagY05N4M7ScOhP2gJM-gzGzoHsz',appKey: '1MzIFXCWSBYoIsM7JKg4X6So',placeholder: 'Just go go',avatar: '',meta: undefined,pageSize: 10,lang: 'zh-CN',recordIP: false})</script></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="charts.html" class="navigation navigation-prev " aria-label="Previous page: Charts详解">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chart_tests.html" class="navigation navigation-next " aria-label="Next page: Charts测试篇">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Charts hooks详解","level":"4.2","depth":1,"next":{"title":"Charts测试篇","level":"4.3","depth":1,"path":"chap03/chart_tests.md","ref":"chap03/chart_tests.md","articles":[]},"previous":{"title":"Charts详解","level":"4.1","depth":1,"path":"chap03/charts.md","ref":"chap03/charts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","github-buttons","editlink","ga","-highlight","prism","bibtex-indexed-cite","anchor-navigation-ex","page-footer-ex","splitter","copy-code-button","expandable-chapters-small","valine","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"ignore":["mermaid","eval-js"],"css":["prismjs/themes/prism-solarizedlight.css"]},"editlink":{"label":"Edit","multilingual":false,"base":"https://github.com/wangzhe0912/helm3-book/blob/master"},"page-footer-ex":{"copyright":"By [wangzhe0912](https://github.com/wangzhe0912)，使用[知识共享 署名-相同方式共享 4.0协议](https://creativecommons.org/licenses/by-sa/4.0/)发布","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"此页面修订于："},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"https://wangzhe0912.github.io/helm3-book/alipay.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"https://wangzhe0912.github.io/helm3-book/wechat.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"bibtex-indexed-cite":{"path":"/"},"github-buttons":{"buttons":[{"user":"wangzhe0912","repo":"helm3-book","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"copy-code-button":{},"ga":{"configuration":"auto","token":"UA-131910384-3"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"valine":{"avatar":"","lang":"zh-CN","pageSize":10,"placeholder":"Just go go","recordIP":false,"appId":"tE5W1eagY05N4M7ScOhP2gJM-gzGzoHsz","appKey":"1MzIFXCWSBYoIsM7JKg4X6So"}},"theme":"default","author":"","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bibCount":0,"variables":{},"title":"title","bib":[],"gitbook":"*"},"file":{"path":"chap03/charts_hooks.md","mtime":"2021-07-20T01:53:58.808Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-20T01:54:42.410Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

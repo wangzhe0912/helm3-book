@@ -1,0 +1,789 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Chart 模板开发引言 · title</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-bibtex-indexed-cite/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="builtin_objects.html" />
+    
+    
+    <link rel="prev" href="../chap02/" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"wangzhe0912","repo":"helm3-book","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Tutorial</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../chap01/quickstart.html">
+            
+                <a href="../chap01/quickstart.html">
+            
+                    
+                    快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../chap01/install.html">
+            
+                <a href="../chap01/install.html">
+            
+                    
+                    安装Helm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../chap01/using_helm.html">
+            
+                <a href="../chap01/using_helm.html">
+            
+                    
+                    helm命令行简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">如何使用</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../chap02/charts_tips_and_tricks.html">
+            
+                <a href="../chap02/charts_tips_and_tricks.html">
+            
+                    
+                    Chart编写小技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../chap02/chart_repository_sync_example.html">
+            
+                <a href="../chap02/chart_repository_sync_example.html">
+            
+                    
+                    Repo同步示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Topic Guides</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../chap03/charts.html">
+            
+                <a href="../chap03/charts.html">
+            
+                    
+                    Charts详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../chap03/charts_hooks.html">
+            
+                <a href="../chap03/charts_hooks.html">
+            
+                    
+                    Charts hooks详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../chap03/chart_tests.html">
+            
+                <a href="../chap03/chart_tests.html">
+            
+                    
+                    Charts测试篇
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../chap03/library_charts.html">
+            
+                <a href="../chap03/library_charts.html">
+            
+                    
+                    Library Charts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../chap03/provenance.html">
+            
+                <a href="../chap03/provenance.html">
+            
+                    
+                    Chart起源验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../chap03/chart_repository.html">
+            
+                <a href="../chap03/chart_repository.html">
+            
+                    
+                    ChartRepo指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../chap03/registries.html">
+            
+                <a href="../chap03/registries.html">
+            
+                    
+                    注册中心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../chap03/architecture.html">
+            
+                <a href="../chap03/architecture.html">
+            
+                    
+                    Helm架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../chap03/advanced.html">
+            
+                <a href="../chap03/advanced.html">
+            
+                    
+                    Helm高级功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="../chap03/kubernetes_distros.html">
+            
+                <a href="../chap03/kubernetes_distros.html">
+            
+                    
+                    Helm与K8s发布版本说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../chap03/rbac.html">
+            
+                <a href="../chap03/rbac.html">
+            
+                    
+                    rbac权限控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../chap03/plugins.html">
+            
+                <a href="../chap03/plugins.html">
+            
+                    
+                    Helm插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.13" data-path="../chap03/v2_v3_migration.html">
+            
+                <a href="../chap03/v2_v3_migration.html">
+            
+                    
+                    Helm2迁移到Helm3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">最佳实践</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    4-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Chart 模板开发</li>
+        
+        
+    
+        <li class="chapter active" data-level="6.1" data-path="getting_started.html">
+            
+                <a href="getting_started.html">
+            
+                    
+                    Chart 模板开发引言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="builtin_objects.html">
+            
+                <a href="builtin_objects.html">
+            
+                    
+                    Chart 中的内置变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">helm命令行工具</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    6-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">community</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    7-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">FAQ</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    8-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">附录</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../chap02/">
+            
+                <a href="../chap02/">
+            
+                    
+                    9-1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Chart 模板开发引言</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#chart-&#x6A21;&#x677F;&#x5F00;&#x53D1;&#x5F15;&#x8A00;"><b></b>Chart &#x6A21;&#x677F;&#x5F00;&#x53D1;&#x5F15;&#x8A00;</a></li><ul><li><span class="title-icon "></span><a href="#charts"><b></b>Charts</a></li><li><span class="title-icon "></span><a href="#&#x5236;&#x4F5C;&#x7B2C;&#x4E00;&#x4E2A;-charts"><b></b>&#x5236;&#x4F5C;&#x7B2C;&#x4E00;&#x4E2A; Charts</a></li><li><span class="title-icon "></span><a href="#&#x7B2C;&#x4E00;&#x4E2A;&#x6A21;&#x677F;"><b></b>&#x7B2C;&#x4E00;&#x4E2A;&#x6A21;&#x677F;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x677F;&#x8C03;&#x7528;"><b></b>&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x677F;&#x8C03;&#x7528;</a></li></ul></ul></ul></div><a href="#chart-&#x6A21;&#x677F;&#x5F00;&#x53D1;&#x5F15;&#x8A00;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="chart-&#x6A21;&#x677F;&#x5F00;&#x53D1;&#x5F15;&#x8A00;"><a name="chart-&#x6A21;&#x677F;&#x5F00;&#x53D1;&#x5F15;&#x8A00;" class="anchor-navigation-ex-anchor" href="#chart-&#x6A21;&#x677F;&#x5F00;&#x53D1;&#x5F15;&#x8A00;"><i class="fa fa-link" aria-hidden="true"></i></a>Chart &#x6A21;&#x677F;&#x5F00;&#x53D1;&#x5F15;&#x8A00;</h1>
+<p>Chart &#x6A21;&#x677F;&#x5F00;&#x53D1;&#x7AE0;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x8BB2;&#x89E3;&#x5982;&#x4F55;&#x6765;&#x5236;&#x4F5C; Chart&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E86;&#x89E3;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Chart &#x5E76;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6A21;&#x677F;&#x3002;</p>
+<h2 id="charts"><a name="charts" class="anchor-navigation-ex-anchor" href="#charts"><i class="fa fa-link" aria-hidden="true"></i></a>Charts</h2>
+<p>&#x5982;&#x4E4B;&#x524D; <a href="../chap03/charts.html">Charts&#x8BE6;&#x89E3;</a> &#x4E2D;&#x4ECB;&#x7ECD;&#xFF0C;Helm chart&#x7684;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code>mychart/
+  Chart.yaml
+  values.yaml
+  charts/
+  templates/
+  ...
+</code></pre><p>templates/ &#x76EE;&#x5F55;&#x5305;&#x62EC;&#x4E86;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x5F53; helm &#x5E94;&#x7528;&#x4E00;&#x4E2A; charts &#x65F6;&#xFF0C;&#x4F1A;&#x901A;&#x8FC7;&#x6A21;&#x677F;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x5C06;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x53D1;&#x9001;&#x5230; <code>templates/</code> &#x76EE;&#x5F55;&#x4E2D;&#x3002; &#x7136;&#x540E;&#x6536;&#x96C6;&#x6A21;&#x677F;&#x7684;&#x7ED3;&#x679C;&#x5E76;&#x53D1;&#x9001;&#x7ED9;Kubernetes&#x3002;</p>
+<p><code>values.yaml</code> &#x6587;&#x4EF6;&#x4E5F;&#x4F1A;&#x88AB;&#x5BFC;&#x5165;&#x5230;&#x6A21;&#x677F;&#x4E2D;&#x3002;
+&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5305;&#x542B;&#x4E86;chart&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x3002;
+&#x8FD9;&#x4E9B;&#x503C;&#x4F1A;&#x5728;&#x7528;&#x6237;&#x6267;&#x884C;<code>helm install</code>&#x6216;<code>helm upgrade</code>&#x65F6;&#x88AB;&#x8986;&#x76D6;&#x3002;</p>
+<p><code>Chart.yaml</code> &#x6587;&#x4EF6;&#x5305;&#x542B;&#x4E86;&#x8BE5;chart&#x7684;&#x63CF;&#x8FF0;&#x3002;</p>
+<p><code>charts/</code>&#x76EE;&#x5F55;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x5176;&#x4ED6;&#x7684;chart(&#x79F0;&#x4E4B;&#x4E3A;&#x5B50;chart)&#x3002;</p>
+<h2 id="&#x5236;&#x4F5C;&#x7B2C;&#x4E00;&#x4E2A;-charts"><a name="&#x5236;&#x4F5C;&#x7B2C;&#x4E00;&#x4E2A;-charts" class="anchor-navigation-ex-anchor" href="#&#x5236;&#x4F5C;&#x7B2C;&#x4E00;&#x4E2A;-charts"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5236;&#x4F5C;&#x7B2C;&#x4E00;&#x4E2A; Charts</h2>
+<p>&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;mychart&#x7684;chart&#xFF0C;&#x7136;&#x540E;&#x4F1A;&#x5728;chart&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E9B;&#x6A21;&#x677F;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x901A;&#x8FC7; <code>helm</code> &#x547D;&#x4EE4;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; chart &#x3002;</p>
+<pre class="language-"><code class="lang-shell">helm create mychart
+# Creating mychart
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F60;&#x770B;&#x770B; <code>mychart/templates/</code> &#x76EE;&#x5F55;&#xFF0C;&#x4F1A;&#x6CE8;&#x610F;&#x5230;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x4E86;&#xFF1A;</p>
+<ul>
+<li>NOTES.txt: chart&#x7684;&quot;&#x5E2E;&#x52A9;&#x6587;&#x672C;&quot;&#x3002;&#x8FD9;&#x4F1A;&#x5728;&#x4F60;&#x7684;&#x7528;&#x6237;&#x6267;&#x884C;helm install&#x65F6;&#x5C55;&#x793A;&#x7ED9;&#x4ED6;&#x4EEC;&#x3002;</li>
+<li>deployment.yaml: &#x521B;&#x5EFA;Kubernetes &#x5DE5;&#x4F5C;&#x8D1F;&#x8F7D;&#x7684;&#x57FA;&#x672C;&#x6E05;&#x5355;</li>
+<li>service.yaml: &#x4E3A;&#x4F60;&#x7684;&#x5DE5;&#x4F5C;&#x8D1F;&#x8F7D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; service&#x7EC8;&#x7AEF;&#x57FA;&#x672C;&#x6E05;&#x5355;&#x3002;</li>
+<li>_helpers.tpl: &#x653E;&#x7F6E;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;chart&#x590D;&#x7528;&#x7684;&#x6A21;&#x677F;&#x8F85;&#x52A9;&#x5BF9;&#x8C61;&#x3002;</li>
+</ul>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x8981;&#x505A;&#x7684;&#x662F;<strong>&#x628A;&#x5B83;&#x4EEC;&#x5168;&#x90E8;&#x5220;&#x6389;</strong>&#xFF01; &#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x5B66;&#x4E60;&#x6211;&#x4EEC;&#x7684;&#x6559;&#x7A0B;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">rm -rf mychart/templates/*
+</code></pre>
+<p>Ps: &#x7F16;&#x5199;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x7EA7;&#x522B;&#x7684;chart&#x65F6;&#xFF0C;&#x6709;&#x8FD9;&#x4E9B;chart&#x7684;&#x57FA;&#x7840;&#x7248;&#x672C;&#x4F1A;&#x5F88;&#x6709;&#x7528;&#x3002;&#x56E0;&#x6B64;&#x5728;&#x65E5;&#x5E38;&#x7F16;&#x5199;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x4E0D;&#x4F1A;&#x5220;&#x9664;&#x5B83;&#x4EEC;&#x3002;</p>
+<h2 id="&#x7B2C;&#x4E00;&#x4E2A;&#x6A21;&#x677F;"><a name="&#x7B2C;&#x4E00;&#x4E2A;&#x6A21;&#x677F;" class="anchor-navigation-ex-anchor" href="#&#x7B2C;&#x4E00;&#x4E2A;&#x6A21;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B2C;&#x4E00;&#x4E2A;&#x6A21;&#x677F;</h2>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x521B;&#x5EFA;&#x7684;&#x6A21;&#x677F;&#x662F;ConfigMap&#x3002;</p>
+<p>Kubernetes&#x4E2D;&#xFF0C;&#x914D;&#x7F6E;&#x6620;&#x5C04;&#x53EA;&#x662F;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x914D;&#x7F6E;&#x6570;&#x636E;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#xFF0C;&#x6BD4;&#x5982;pod&#xFF0C;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x914D;&#x7F6E;&#x6620;&#x5C04;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;&#x914D;&#x7F6E;&#x6620;&#x5C04;&#x662F;&#x57FA;&#x7840;&#x8D44;&#x6E90;&#xFF0C;&#x5BF9;&#x6211;&#x4EEC;&#x6765;&#x8BF4;&#x662F;&#x5F88;&#x597D;&#x7684;&#x8D77;&#x70B9;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; mychart/templates/configmap.yaml&#x7684;&#x6587;&#x4EF6;&#x5F00;&#x59CB;&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ConfigMap
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> mychart<span class="token punctuation">-</span>configmap
+<span class="token key atrule">data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">myvalue</span><span class="token punctuation">:</span> <span class="token string">&quot;Hello World&quot;</span>
+</code></pre>
+<p>Ps: &#x6A21;&#x677F;&#x540D;&#x79F0;&#x4E0D;&#x9700;&#x8981;&#x9075;&#x5FAA;&#x4E25;&#x683C;&#x7684;&#x547D;&#x540D;&#x6A21;&#x5F0F;&#x3002;&#x4F46;&#x662F;&#x5EFA;&#x8BAE;&#x4EE5;.yaml&#x4F5C;&#x4E3A;YAML&#x6587;&#x4EF6;&#x7684;&#x540E;&#x7F00;&#xFF0C;&#x4EE5;.tpl&#x4F5C;&#x4E3A;helper&#x6587;&#x4EF6;&#x7684;&#x540E;&#x7F00;&#x3002;</p>
+<p>&#x4E0A;&#x8FF0;YAML&#x6587;&#x4EF6;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x914D;&#x7F6E;&#x6620;&#x5C04;&#xFF0C;&#x6784;&#x6210;&#x4E86;&#x6700;&#x5C0F;&#x7684;&#x5FC5;&#x9700;&#x5B57;&#x6BB5;&#x3002;&#x56E0;&#x4E3A;&#x6587;&#x4EF6;&#x5728; mychart/templates/ &#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x5B83;&#x4F1A;&#x901A;&#x8FC7;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x4F20;&#x9012;&#x3002;</p>
+<p>&#x50CF;&#x8FD9;&#x6837;&#x5C06;&#x4E00;&#x4E2A;&#x666E;&#x901A;YAML&#x6587;&#x4EF6;&#x653E;&#x5728;mychart/templates/&#x76EE;&#x5F55;&#x4E2D;&#x662F;&#x6CA1;&#x95EE;&#x9898;&#x7684;&#x3002;
+&#x5F53;Helm&#x8BFB;&#x53D6;&#x8FD9;&#x4E2A;&#x6A21;&#x677F;&#x65F6;&#x4F1A;&#x6309;&#x7167;&#x539F;&#x6837;&#x4F20;&#x9012;&#x7ED9;Kubernetes&#x3002;</p>
+<p>&#x6709;&#x4E86;&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x677F;&#xFF0C;&#x73B0;&#x5728;&#x6709;&#x4E00;&#x4E2A;&#x53EF;&#x5B89;&#x88C5;&#x7684;chart&#x4E86;&#x3002;&#x73B0;&#x5728;&#x5B89;&#x88C5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-shell">helm install full-coral ./mychart
+# NAME: full-coral
+# LAST DEPLOYED: Tue Jul 20 09:04:09 2021
+# NAMESPACE: default
+# STATUS: deployed
+# REVISION: 1
+# TEST SUITE: None
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;helm&#x6765;&#x67E5;&#x8BE2;&#x7248;&#x672C;&#x4FE1;&#x606F;&#x5E76;&#x67E5;&#x770B;&#x5B9E;&#x9645;&#x6E32;&#x67D3;&#x540E;&#x7684;&#x6A21;&#x677F;&#x3002;</p>
+<pre class="language-"><code class="lang-sh">helm get manifest full-coral
+<span class="token comment"># ---</span>
+<span class="token comment"># # Source: mychart/templates/configmap.yaml</span>
+<span class="token comment"># apiVersion: v1</span>
+<span class="token comment"># kind: ConfigMap</span>
+<span class="token comment"># metadata:</span>
+<span class="token comment">#   name: mychart-configmap</span>
+<span class="token comment"># data:</span>
+<span class="token comment">#   myvalue: &quot;Hello World&quot;</span>
+</code></pre>
+<p>&#x5176;&#x4E2D;&#xFF0C;<code>helm get manifest</code> &#x547D;&#x4EE4;&#x540E;&#x8DDF;&#x4E00;&#x4E2A;&#x53D1;&#x5E03;&#x540D;&#x79F0;(full-coral)&#x7136;&#x540E;&#x6253;&#x5370;&#x51FA;&#x4E86;&#x6240;&#x6709;&#x5DF2;&#x7ECF;&#x4E0A;&#x4F20;&#x5230;server&#x7684;Kubernetes&#x8D44;&#x6E90;&#x3002;
+&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x4EE5;---&#x5F00;&#x5934;&#x8868;&#x793A;YAML&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x5934;&#xFF0C;&#x7136;&#x540E;&#x662F;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x6CE8;&#x91CA;&#x884C;&#xFF0C;&#x8868;&#x793A;&#x54EA;&#x4E2A;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x751F;&#x6210;&#x4E86;&#x8FD9;&#x4E2A;YAML&#x6587;&#x6863;&#x3002;</p>
+<p>&#x4ECE;&#x8FD9;&#x4E2A;&#x5730;&#x65B9;&#x5F00;&#x59CB;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x7684;YAML&#x6570;&#x636E;&#x786E;&#x5B9E;&#x662F;configmap.yaml&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x5378;&#x8F7D;&#x53D1;&#x5E03;&#xFF1A; <code>helm uninstall full-coral</code>&#x3002;</p>
+<h3 id="&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x677F;&#x8C03;&#x7528;"><a name="&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x677F;&#x8C03;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x677F;&#x8C03;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x677F;&#x8C03;&#x7528;</h3>
+<p>&#x5C06;<code>name</code>&#x786C;&#x7F16;&#x7801;&#x5230;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x4E2D;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x3002;
+&#x5728;&#x4E00;&#x4E2A;namespace&#x4E0B;&#xFF0C;&#x8D44;&#x6E90;&#x540D;&#x79F0;&#x5E94;&#x8BE5;&#x662F;&#x552F;&#x4E00;&#x7684;&#x3002;
+&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x901A;&#x8FC7;&#x63D2;&#x5165;&#x53D1;&#x5E03;&#x540D;&#x79F0;&#x6765;&#x751F;&#x6210;name&#x5B57;&#x6BB5;&#x3002;</p>
+<p>Ps: &#x7531;&#x4E8E;DNS&#x7CFB;&#x7EDF;&#x7684;&#x9650;&#x5236;&#xFF0C;name&#x5B57;&#x6BB5;&#x957F;&#x5EA6;&#x9650;&#x5236;&#x4E3A;63&#x4E2A;&#x5B57;&#x7B26;&#x3002;&#x56E0;&#x6B64;&#x53D1;&#x5E03;&#x540D;&#x79F0;&#x9650;&#x5236;&#x4E3A;53&#x4E2A;&#x5B57;&#x7B26;&#x3002;
+Kubernetes 1.3&#x53CA;&#x66F4;&#x65E9;&#x7248;&#x672C;&#x9650;&#x5236;&#x4E3A;24&#x4E2A;&#x5B57;&#x7B26; (&#x540D;&#x79F0;&#x957F;&#x5EA6;&#x662F;14&#x4E2A;&#x5B57;&#x7B26;)&#x3002;</p>
+<p>&#x5BF9;&#x5E94;&#x6539;&#x53D8;&#x4E00;&#x4E0B;configmap.yaml&#xFF1A;</p>
+<pre class="language-"><code class="lang-yaml"><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ConfigMap
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> .Release.Name <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">-</span>configmap
+<span class="token key atrule">data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">myvalue</span><span class="token punctuation">:</span> <span class="token string">&quot;Hello World&quot;</span>
+</code></pre>
+<p>&#x5176;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x552F;&#x4E00;&#x7684;&#x4FEE;&#x6539;&#x5C31;&#x662F; name &#x5B57;&#x6BB5;&#x7684;&#x53D6;&#x503C;&#xFF0C;&#x6211;&#x4EEC;&#x5F15;&#x5165;&#x4E86;&#x6A21;&#x677F;&#x547D;&#x4EE4; <code>{{ .Release.Name }}</code>&#x3002; </p>
+<p>&#x6A21;&#x677F;&#x547D;&#x4EE4; <code>{{ .Release.Name }}</code> &#x5C06;&#x53D1;&#x5E03;&#x540D;&#x79F0;&#x6CE8;&#x5165;&#x4E86;&#x6A21;&#x677F;&#x3002;
+&#x503C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;<strong>&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5BF9;&#x8C61;</strong>&#x4F20;&#x7ED9;&#x4E86;&#x6A21;&#x677F;&#xFF0C;&#x7528;&#x70B9;(.)&#x5206;&#x9694;&#x6BCF;&#x4E2A;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x5143;&#x7D20;&#x3002;</p>
+<p>&#x5176;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li>Release&#x524D;&#x9762;&#x7684;&#x70B9;&#x8868;&#x793A;&#x4ECE;&#x4F5C;&#x7528;&#x57DF;&#x6700;&#x9876;&#x5C42;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5F00;&#x59CB;&#xFF08;&#x7A0D;&#x540E;&#x4F1A;&#x8C08;&#x4F5C;&#x7528;&#x57DF;&#xFF09;&#x3002;</li>
+<li>&#x8FD9;&#x6837;.Release.Name&#x5C31;&#x53EF;&#x89E3;&#x8BFB;&#x4E3A;&#x201C;&#x901A;&#x9876;&#x5C42;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x5F00;&#x59CB;&#x67E5;&#x627E; Release&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5176;&#x4E2D;&#x627E;Name&#x5BF9;&#x8C61;&#x201D;&#x3002;</li>
+</ul>
+<p>Release&#x662F;&#x4E00;&#x4E2A;Helm&#x7684;&#x5185;&#x7F6E;&#x5BF9;&#x8C61;&#xFF0C;&#x5173;&#x4E8E; Release &#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x8FDB;&#x884C;&#x66F4;&#x52A0;&#x8BE6;&#x7EC6;&#x7684;&#x8BF4;&#x660E;&#xFF0C;&#x73B0;&#x5728;&#x53EA;&#x9700;&#x8981;&#x77E5;&#x9053;&#x5B83;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x83B7;&#x53D6;&#x53D1;&#x5E03;&#x5BF9;&#x8C61;&#x7684;&#x540D;&#x79F0;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x518D;&#x6B21;&#x5B89;&#x88C5;&#x8D44;&#x6E90;&#xFF0C;&#x5E76;&#x67E5;&#x8BE2;&#x5BF9;&#x5E94;&#x7684;&#x5B8C;&#x6574; yaml &#x914D;&#x7F6E;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7684;&#x662F;&#xFF1A;
+<strong>configmap&#x7684;&#x540D;&#x79F0;&#x4ECE;&#x4E4B;&#x524D;&#x7684;mychart-configmap &#x53D8;&#x4E3A;&#x4E86; full-coral-configmap</strong>&#x3002;</p>
+<p>&#x7531;&#x6B64;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x770B;&#x5230;&#x4E86;&#x6700;&#x57FA;&#x672C;&#x7684;&#x6A21;&#x677F;&#x66FF;&#x6362;&#x529F;&#x80FD;&#xFF1A;<strong>YAML&#x6587;&#x4EF6;&#x6709;&#x5D4C;&#x5165;&#x5728;&#x4E4B;&#x95F4;&#x7684;&#x6A21;&#x677F;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x66FF;&#x6362;</strong>&#x3002;</p>
+<p>&#x4E0B;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x4F1A;&#x6DF1;&#x5165;&#x4E86;&#x89E3;&#x6A21;&#x677F;&#xFF0C; &#x4F46;&#x5728;&#x8FD9;&#x4E4B;&#x524D;&#xFF0C;&#x6709;&#x4E2A;&#x5FEB;&#x6377;&#x7684;&#x6280;&#x5DE7;&#x53EF;&#x4EE5;&#x52A0;&#x5FEB;&#x6A21;&#x677F;&#x7684;&#x6784;&#x5EFA;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x8C03;&#x8BD5;&#x901F;&#x5EA6;&#x3002;</p>
+<p>&#x5F53;&#x4F60;&#x60F3;&#x6D4B;&#x8BD5;&#x6A21;&#x677F;&#x6E32;&#x67D3;&#x4F46;&#x53C8;&#x4E0D;&#x60F3;&#x5B89;&#x88C5;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#x65F6;&#xFF0C;
+&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>helm install --debug --dry-run goodly-guppy ./mychart</code> &#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x5728;&#x6267;&#x884C;<code>helm install</code>&#x7684;&#x65F6;&#x5019;&#x5E26;&#x4E0A;&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x628A;&#x5BF9;&#x5E94;&#x7684; values &#x503C;&#x548C;&#x751F;&#x6210;&#x7684;&#x6700;&#x7EC8;&#x7684;&#x8D44;&#x6E90;&#x6E05;&#x5355;&#x6587;&#x4EF6;&#x6253;&#x5370;&#x51FA;&#x6765;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x771F;&#x6B63;&#x7684;&#x53BB;&#x90E8;&#x7F72;&#x4E00;&#x4E2A;release&#x5B9E;&#x4F8B;&#x3002;</p>
+<p>Ps&#xFF1A;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x867D;&#x7136;&#x4F1A;&#x4F7F;&#x5F97;&#x8C03;&#x8BD5;&#x8FC7;&#x7A0B;&#x76F8;&#x5BF9;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x4FDD;&#x8BC1;&#x4E00;&#x5B9A;&#x53EF;&#x4EE5;&#x5728; K8s &#x4E2D;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x8C03;&#x8BD5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x771F;&#x6B63; install &#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</p>
+<p><footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> By <a href="https://github.com/wangzhe0912" target="_blank">wangzhe0912</a>&#xFF0C;&#x4F7F;&#x7528;<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">&#x77E5;&#x8BC6;&#x5171;&#x4EAB; &#x7F72;&#x540D;-&#x76F8;&#x540C;&#x65B9;&#x5F0F;&#x5171;&#x4EAB; 4.0&#x534F;&#x8BAE;</a>&#x53D1;&#x5E03; </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> &#x6B64;&#x9875;&#x9762;&#x4FEE;&#x8BA2;&#x4E8E;&#xFF1A; 2021-07-20 01:53:58 </span> </footer><hr><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'tE5W1eagY05N4M7ScOhP2gJM-gzGzoHsz',appKey: '1MzIFXCWSBYoIsM7JKg4X6So',placeholder: 'Just go go',avatar: '',meta: undefined,pageSize: 10,lang: 'zh-CN',recordIP: false})</script></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../chap02/" class="navigation navigation-prev " aria-label="Previous page: 4-1">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="builtin_objects.html" class="navigation navigation-next " aria-label="Next page: Chart 中的内置变量">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Chart 模板开发引言","level":"6.1","depth":1,"next":{"title":"Chart 中的内置变量","level":"6.2","depth":1,"path":"chap05/builtin_objects.md","ref":"chap05/builtin_objects.md","articles":[]},"previous":{"title":"4-1","level":"5.1","depth":1,"path":"chap02/index.md","ref":"chap02/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","-sharing","github-buttons","editlink","ga","-highlight","prism","bibtex-indexed-cite","anchor-navigation-ex","page-footer-ex","splitter","copy-code-button","expandable-chapters-small","valine","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"ignore":["mermaid","eval-js"],"css":["prismjs/themes/prism-solarizedlight.css"]},"editlink":{"label":"Edit","multilingual":false,"base":"https://github.com/wangzhe0912/helm3-book/blob/master"},"page-footer-ex":{"copyright":"By [wangzhe0912](https://github.com/wangzhe0912)，使用[知识共享 署名-相同方式共享 4.0协议](https://creativecommons.org/licenses/by-sa/4.0/)发布","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"此页面修订于："},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"https://wangzhe0912.github.io/helm3-book/alipay.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"https://wangzhe0912.github.io/helm3-book/wechat.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"bibtex-indexed-cite":{"path":"/"},"github-buttons":{"buttons":[{"user":"wangzhe0912","repo":"helm3-book","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"copy-code-button":{},"ga":{"configuration":"auto","token":"UA-131910384-3"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"valine":{"avatar":"","lang":"zh-CN","pageSize":10,"placeholder":"Just go go","recordIP":false,"appId":"tE5W1eagY05N4M7ScOhP2gJM-gzGzoHsz","appKey":"1MzIFXCWSBYoIsM7JKg4X6So"}},"theme":"default","author":"","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bibCount":0,"variables":{},"title":"title","bib":[],"gitbook":"*"},"file":{"path":"chap05/getting_started.md","mtime":"2021-07-20T01:53:58.808Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-20T01:54:42.410Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
