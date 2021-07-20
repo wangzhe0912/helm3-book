@@ -8,7 +8,7 @@
 * [安装Helm](chap01/install.md)
 * [helm命令行简介](chap01/using_helm.md)
 
-## Howto
+## 如何使用
 
 * [概述](./chap02/index.md)
 * [Chart编写小技巧](./chap02/charts_tips_and_tricks.md)
@@ -30,13 +30,15 @@
 * [Helm插件](chap03/plugins.md)
 * [Helm2迁移到Helm3](chap03/v2_v3_migration.md)
 
-## Best Practices
+## 最佳实践
 
 * [4-1](chap02/index.md)
 
-## Template Guide
+## Chart 模板开发
 
-* [5-1](chap02/index.md)
+* [Chart 模板开发引言](chap05/getting_started.md)
+
+
 
 ## helm命令行工具
 
