@@ -6,7 +6,7 @@
 一个变量可以仅仅是一个简单的值，也可以是一个嵌套的对象。
 例如，对于 `Release` 变量而言，它还包含了 `Name` 属性等。
 
-在上一节中，我们用 {{ .Release.Name }}在模板中插入版本名称。
+在上一节中，我们用 `{{ .Release.Name }}` 在模板中插入版本名称。
 Release是你可以在模板中访问的高级对象之一。
 
 ## Release 变量
@@ -29,7 +29,7 @@ Values是从values.yaml文件和用户提供的文件传进模板的。Values默
 ## Chart 变量
 
 `Chart.yaml`文件内容。
-Chart.yaml里的任意数据在这里都可以可访问的。比如 {{ .Chart.Name }}-{{ .Chart.Version }} 会打印出 mychart-0.1.0。
+Chart.yaml里的任意数据在这里都可以可访问的。比如 `{{ .Chart.Name }}-{{ .Chart.Version }}` 会打印出 mychart-0.1.0。
 
 ## Files 变量
 
