@@ -37,7 +37,7 @@
 ## Chart 模板开发
 
 * [Chart 模板开发引言](chap05/getting_started.md)
-
+* [Chart 中的内置变量](chap05/builtin_objects.md)
 
 
 ## helm命令行工具
